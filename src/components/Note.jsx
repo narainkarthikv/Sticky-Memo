@@ -1,4 +1,7 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
+import './note.css';
+
 
 function Note(props){
 
@@ -10,7 +13,9 @@ function Note(props){
         <div className="note">
             <h1>{props.title}</h1>
             <p>{props.content}</p>
-            <button onClick={handleClick} >delete</button>
+            <div>
+                <button onClick={handleClick} className="trash" > <FaTrash/> </button>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,21 @@
+.trash{
+    color: red;
+    background-color: #eee;
+    border-radius: 20px;
+}
+
+.trash:hover{
+    background-color: rgb(255, 38, 0);
+    transition: background-color 0.3s, tranform 0.2s;
+}
+
+.note{
+    border-radius: 20px;
+    box-shadow: 20%;
+    background-color: #eee;
+}
+
+.note:hover{
+    background-color:  rgb(149, 218, 241);;
+    transition: background-color 0.3s, transform 0.2s;
+}
