@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {IoMdAddCircle} from 'react-icons/io';
 function CreateArea(props){
     
     const [note, setNote] = useState({
