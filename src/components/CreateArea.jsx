@@ -1,5 +1,5 @@
-import React,{ useState } from "react";
-
+import React, { useState } from "react";
+import {IoMdAddCircle} from 'react-icons/io';
 function CreateArea(props){
     
     const [note, setNote] = useState({
@@ -31,9 +31,10 @@ function CreateArea(props){
             <form>
                 <input name="title" value={note.title} onChange={handleChange} placeholder="Title"/>
                 <textarea name="content" value={note.content} onChange={handleChange} placeholder="Write up your notes!..." rows="3"></textarea>
-                <button onClick={submitNote}>Add</button>
+                <button className="add" onClick={submitNote}>Add</button>
             </form>
         </div>
+
     )
 }
 

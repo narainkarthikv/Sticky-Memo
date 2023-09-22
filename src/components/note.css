@@ -5,7 +5,29 @@
 }
 
 .trash:hover{
-    background-color: rgb(255, 38, 0);
+    background-color: red;
+    transition: background-color 0.3s, tranform 0.2s;
+}
+
+.check{
+    color: blue;
+    background-color: #eee;
+    border-radius: 20px;
+}
+
+.check:hover{
+    background-color: lightgreen;
+    transition: background-color 0.3s, tranform 0.2s;
+}
+
+.hold{
+    color: blue;
+    background-color: #eee;
+    border-radius: 20px;
+}
+
+.hold:hover{
+    background-color: lightskyblue;
     transition: background-color 0.3s, tranform 0.2s;
 }
 
@@ -16,6 +38,15 @@
 }
 
 .note:hover{
-    background-color:  rgb(149, 218, 241);;
+    background-color:  #ccc;
     transition: background-color 0.3s, transform 0.2s;
 }
+
+  .checked {
+    background-color: lightgreen;
+  }
+
+  .held{
+    background-color: lightskyblue;
+  }
+  
