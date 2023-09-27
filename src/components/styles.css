@@ -1,116 +1,233 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  html {
-    font-family: "Montserrat", sans-serif;
-  }
-  
-  body {
-    background: #eee;
-    padding: 0 16px;
-  }
-  
-  header {
-    background-color: #f5ba13;
-    margin: auto -16px;
-    padding: 16px 32px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-  }
-  
-  header h1 {
-    color: #fff;
-    font-family: "McLaren", cursive;
-    font-weight: 200;
-  }
-  
-  footer {
-    position: absolute;
-    text-align: center;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-  }
-  
-  footer p {
-    color: #ccc;
-  }
+html {
+  font-family: "Montserrat", sans-serif;
+}
 
-  .note {
-    background: #fff;
-    border-radius: 7px;
-    box-shadow: 0 2px 5px #ccc;
-    padding: 10px;
-    width: 240px;
-    margin: 16px;
-    float: left;
-  }
+body {
+  background-color: #ccc;
+  padding: 0 0px;
+}
 
-  .note h1 {
-    font-size: 1.1em;
-    margin-bottom: 6px;
-  }
+header {
+  background-color: #FF6B6B;
+  margin: 0;
+  padding: 20px 0px 0px 20px; 
+  width: 100%; 
+  border-radius: 200px 0px 200px 0px;
+}
 
-  .note p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+header h1 {
+  color: #fff;
+  font-family: sans-serif ;
+  font-weight: 20px;
+}
+
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: solid 0 2px 5px #bbb;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+
+.note h1 {
+  font-size: 1em;
+  margin-bottom: 6px;
+  font-family: sans-serif;
+}
+
+.note p {
+  font-size: 1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: "Montserrat", sans-serif;
+}
+
+.note button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+  color: silver;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+  background-color:  #FF6B6B;
+  font-family: "Montserrat", sans-serif;
+}
+
+form {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 50px;
+  box-shadow: solid 10 2px 5px #aaa; 
+}
+
+form input,
+form textarea {
+  width: 100%;
+  border: #333;
+  padding: 4px;
+  outline: none;
+  font-size: 1em;
+  font-family: inherit;
+  resize: none;
+}
+
+form button {
+  position: absolute;
+  right: 18px;
+  bottom: -18px;
+  background: #FF6B6B;
+  color: #fff;
+  border: none;
+  border-radius: 50%; 
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background-color: lightseagreen;
+  transition: background-color 1s, transform 0.7s ;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.notes-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  width: 100%;
+  border-radius: 100px 20px 100px 100px;
+}
+
+.note-section-header-checked {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: lightgreen; 
+  padding: 15px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  position: relative;
+  border-radius: 200px 5px 200px 5px; 
+}
+
+.note-section-header-held {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: lightskyblue; 
+  padding: 15px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  position: relative;
+  border-radius: 200px 5px 200px 5px; 
+}
+
+.note-section-header-all {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: #eee; 
+  padding: 15px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  position: relative; 
+  border-radius: 200px 5px 200px 5px; 
+}
+
+
+.note-section-all,
+.note-section-held,
+.note-section-checked {
+  flex-basis: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 50px;
+  border-radius: 80px 0px 0px 80px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #ddd;
+  max-height: 425px;
+  max-width: 400px;
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  touch-action: pan-y;
+  transform: translate(0, 0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.note-section-all:hover,
+.note-section-held:hover,
+.note-section-checked:hover {
+  background-color: #aaa;
+  transition: background-color 1s, transform 0.7s;
+}
+
+.note-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.note-content {
+  color: #333;
+  font-weight: bold;
+}
+
+.create-area {
+  max-width: 400px;
+  width: 100%;
   
-  .note button {
-    position: relative;
-    float: right;
-    margin-right: 10px;
-    color: #f56d13;
-    border: none;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  form {
-    position: relative;
-    width: 480px;
-    margin: 30px auto 20px auto;
-    background: #fff;
-    padding: 15px;
-    border-radius: 7px;
-    box-shadow: 0 1px 5px rgb(138, 137, 137);
-  }
+}
 
-  form input,
-  form textarea {
-    width: 100%;
-    border: none;
-    padding: 4px;
-    outline: none;
-    font-size: 1.2em;
-    font-family: inherit;
-    resize: none;
-  }
+.create-area textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+ 
+}
 
-  form button {
-    position: absolute;
-    right: 18px;
-    bottom: -18px;
-    background: #f5ba13;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    outline: none;
-  }
+.create-area button {
+  background-color: #0073e6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
 
-  button:hover{
-    background-color: blue;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  
+.create-area button:hover {
+  background-color: #005bb8;
+  transition: background-color 1s, transform 0.7s;
+}

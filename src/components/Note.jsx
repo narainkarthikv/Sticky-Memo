@@ -18,14 +18,16 @@ function Note(props) {
     }
 
     return (
-        <div className={`note ${props.checked ? 'checked' : ''} ${props.held ? 'held' : ''}`}>
+        <div className={`note ${props.checked ? 'checked' : ''} ${props.held ? 'held' : ''} ${props.all ? 'all' : ''} `}>
             <h1>{props.title}</h1>
             <p>{props.content}</p>
-            <div>
-                <button onClick={handleClick} className="trash"> <FaTrash /> </button>
-                <button onClick={handleCheck} className="check"> <FaCheckCircle /> </button>
-                <button onClick={handleHold} className="hold">  <FaHandPaper/> </button>
-            </div>
+            {props.all && (
+                <div>
+                    <button onClick={handleClick} className="trash"> <FaTrash /> </button>
+                    <button onClick={handleCheck} className="check"> <FaCheckCircle /> </button>
+                    <button onClick={handleHold} className="hold">  <FaHandPaper/> </button>
+                </div>
+            )}
         </div>
     )
 }

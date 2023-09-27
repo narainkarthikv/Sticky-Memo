@@ -1,12 +1,13 @@
 .trash{
-    color: red;
+    color: lightcoral;
     background-color: #eee;
     border-radius: 20px;
 }
 
 .trash:hover{
+    transform: scale(1.1);
     background-color: red;
-    transition: background-color 0.3s, tranform 0.2s;
+    transition: background-color 1s, tranform 0.7s;
 }
 
 .check{
@@ -16,8 +17,9 @@
 }
 
 .check:hover{
-    background-color: lightgreen;
-    transition: background-color 0.3s, tranform 0.2s;
+    transform: scale(1.1);
+    background-color: green;
+    transition: background-color 1s, transform 0.7s;
 }
 
 .hold{
@@ -27,8 +29,9 @@
 }
 
 .hold:hover{
-    background-color: lightskyblue;
-    transition: background-color 0.3s, tranform 0.2s;
+    transform: scale(1.1);
+    background-color: blue;
+    transition: background-color 1s, transform 0.7s;
 }
 
 .note{
@@ -38,15 +41,41 @@
 }
 
 .note:hover{
+    transform: scale(1.1);
     background-color:  #ccc;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 1s, transform 0.7s;
+   
 }
-
   .checked {
     background-color: lightgreen;
+    border-radius: 25px 0px 40px 0px;
+  }
+
+  .checked:hover{
+    transform: scale(1.1);
+    background-color: rgb(2, 248, 2);
+    transition: background-color 1s, transform 0.7s;
   }
 
   .held{
     background-color: lightskyblue;
+    border-radius: 25px 0px 40px 0px;
   }
   
+  .held:hover{
+    transform: scale(1.1);
+    background-color: rgb(2, 153, 247);
+    transition: background-color 1s, transform 0.7s;
+    
+  }
+  
+  .all{
+    background-color: #eee;
+    border-radius: 25px 0px 40px 0px;
+  }
+
+  .all:hover{
+    transform: scale(1.1);
+    background-color: #ccc;
+    transition: background-color 1s, transform 0.7s;
+  }
