@@ -13,42 +13,12 @@ body {
   padding: 0 0px;
 }
 
-header {
-  background-color: #FF6B6B;
-  margin: 0;
-  padding: 20px 0px 0px 20px; 
-  width: 100%; 
-  border-radius: 200px 0px 200px 0px;
-}
-
-header h1 {
-  color: #fff;
-  font-family: sans-serif ;
-  font-weight: 20px;
-}
-
 .note {
-  background: #fff;
-  border-radius: 7px;
   box-shadow: solid 0 2px 5px #bbb;
   padding: 10px;
   width: 240px;
   margin: 16px;
   float: left;
-}
-
-.note h1 {
-  font-size: 1em;
-  margin-bottom: 6px;
-  font-family: sans-serif;
-}
-
-.note p {
-  font-size: 1em;
-  margin-bottom: 10px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-family: "Montserrat", sans-serif;
 }
 
 .note button {
@@ -113,83 +83,6 @@ button:hover {
   align-items: center;
   padding: 20px;
   font-family: sans-serif;
-}
-
-.notes-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 1200px;
-  width: 100%;
-  border-radius: 100px 20px 100px 100px;
-}
-
-.note-section-header-checked {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 1200px;
-  width: 100%;
-  border-radius: 20px;
-  background-color: lightgreen; 
-  padding: 15px; 
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-  position: relative;
-  border-radius: 200px 5px 200px 5px; 
-}
-
-.note-section-header-held {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 1200px;
-  width: 100%;
-  border-radius: 20px;
-  background-color: lightskyblue; 
-  padding: 15px; 
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-  position: relative;
-  border-radius: 200px 5px 200px 5px; 
-}
-
-.note-section-header-all {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 1200px;
-  width: 100%;
-  border-radius: 20px;
-  background-color: #eee; 
-  padding: 15px; 
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
-  position: relative; 
-  border-radius: 200px 5px 200px 5px; 
-}
-
-
-.note-section-all,
-.note-section-held,
-.note-section-checked {
-  flex-basis: calc(33.33% - 20px);
-  margin: 10px;
-  padding: 50px;
-  border-radius: 80px 0px 0px 80px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #ddd;
-  max-height: 425px;
-  max-width: 400px;
-  overflow-y: auto; 
-  overflow-x: hidden; 
-  touch-action: pan-y;
-  transform: translate(0, 0);
-  transition: transform 0.2s ease-in-out;
-}
-
-.note-section-all:hover,
-.note-section-held:hover,
-.note-section-checked:hover {
-  background-color: #aaa;
-  transition: background-color 1s, transform 0.7s;
 }
 
 .note-title {

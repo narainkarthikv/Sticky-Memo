@@ -1,0 +1,10 @@
+.NoteList{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+.notes-container{
+    padding-top: 25px;
+}
+

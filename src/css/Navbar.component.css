@@ -1,0 +1,94 @@
+.navbar{
+    display: block;
+    background-color: lightskyblue;
+    padding: 16px;
+}
+
+.nav-board{
+    text-decoration: none;
+    float: left;
+}
+
+.nav-items{
+    background-color: whitesmoke;
+    border-radius: 75px;
+    text-decoration: none;
+    padding: 16px;
+    font-size: 16px;
+    text-align: center;
+    cursor: default;
+    color: black;
+    margin-right: 5px;
+}
+
+.nav-items:hover{
+    background-color: lightseagreen;
+    border-radius: 100px;
+    transition: background-color 0.7s ease-in-out;
+    animation-duration: 3s;
+    animation-name: smoothHide;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.nav-items .nav-hide{
+    display: none;
+}
+
+.nav-items:hover .nav-hide{
+    display: inline-block;
+    animation-duration: 3s;
+    animation-name: smoothHide;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes smoothHide{
+    from{
+        max-width: 0%;
+    }
+    to{
+        max-width: 100%;
+    }
+}
+
+.nav-profile{
+    position: relative;
+    display: block;
+    float: right;
+    font-size: 20px;
+}
+
+.nav-profile .dropdown{
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f1f1f1;
+    width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 15px;
+}
+
+.nav-profile .dropdown .dropdown-items{
+    color: black;
+    padding: 12px 14px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    cursor: default;
+}
+
+.nav-profile:hover .dropdown{
+    display: block;
+}
+
+.nav-profile .dropdown .dropdown-items span:hover{
+    font-size: 18px;
+    color: red;
+    transition-property: color, font-size; 
+    transition: ease-in 0.3s;
+}

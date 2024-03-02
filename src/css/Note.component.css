@@ -1,0 +1,137 @@
+.note{
+  background-color: lightgoldenrodyellow;
+  border-radius: 0px 20px 40px 20px;
+  box-shadow: 50%;
+  width: 250px;
+  height: 175px;
+  text-align: left;
+}
+
+.note-pin{
+  display: flex;
+  width: 20px;
+  height: 20px;
+  transform: translate(-20px,-20px);
+}
+
+.note-title{
+  color: black;
+  font-size: 1em;
+  font-family: sans-serif;
+}
+
+.note-content{
+  color: black;
+  font-size: 1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: "Montserrat", sans-serif;
+}
+
+.note:hover{
+  transform: scale(1.05);
+  transition-property: border-radius,background-color,transform;
+  transition: 0.7s ease-in-out;
+}
+
+.note .note-btns{
+  display: none;
+}
+
+.note:hover .note-btns{
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 30px;
+  padding-left: 10px;
+  transform: translate(0px,-25px);
+}
+
+.delete{
+  color: lightcoral;
+  background-color: #eee;
+  border-radius: 20px;
+}
+
+.delete:hover{
+  transform: scale(1.1);
+  background-color: red;
+  transition: background-color 1s, tranform 0.7s;
+}
+
+.check{
+  color: lightgreen;
+  background-color: lightgreen;
+}
+
+.check:hover{
+  /* transform: scale(1.1); */
+  transition: background-color 1s, transform 0.7s;
+}
+
+.hold{
+  color: lightblue;
+  background-color: lightblue;
+}
+
+.hold:hover{
+  /* transform: scale(1.1); */
+  transition: background-color 1s, transform 0.7s;
+}
+
+.delete-btn{
+  border-radius: 50px;
+}
+
+.delete-btn:hover{
+  background-color: red;
+  animation-duration: 0.5s;
+  animation-name: checkBounce;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.check-btn{
+  border-radius: 50px;
+}
+
+.check-btn:hover{
+  /* background-color: lightgreen; */
+  animation-duration: 0.5s;
+  animation-name: checkBounce;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes checkBounce{
+  from{
+    transform: translateY(0px);
+  }
+
+  to{
+    transform: translateY(-10px);
+  }
+}
+
+.hold-btn{
+  border-radius: 50px;
+}
+
+.hold-btn:hover{
+  /* background-color: lightblue; */
+  animation-duration: 0.5s;
+  animation-name: checkBounce;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.checked{
+  color: green;
+}
+
+.held{
+  color: blue;
+}
+
