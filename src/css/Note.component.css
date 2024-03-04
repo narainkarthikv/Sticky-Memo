@@ -63,21 +63,19 @@
 
 .check{
   color: lightgreen;
-  background-color: lightgreen;
+  background-color: #90ed90;
 }
 
 .check:hover{
-  /* transform: scale(1.1); */
   transition: background-color 1s, transform 0.7s;
 }
 
 .hold{
   color: lightblue;
-  background-color: lightblue;
+  background-color: #87cefa;
 }
 
 .hold:hover{
-  /* transform: scale(1.1); */
   transition: background-color 1s, transform 0.7s;
 }
 
@@ -98,7 +96,6 @@
 }
 
 .check-btn:hover{
-  /* background-color: lightgreen; */
   animation-duration: 0.5s;
   animation-name: checkBounce;
   animation-iteration-count: infinite;
@@ -120,7 +117,7 @@
 }
 
 .hold-btn:hover{
-  /* background-color: lightblue; */
+
   animation-duration: 0.5s;
   animation-name: checkBounce;
   animation-iteration-count: infinite;
@@ -134,4 +131,3 @@
 .held{
   color: blue;
 }
-
