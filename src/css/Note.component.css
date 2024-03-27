@@ -1,105 +1,76 @@
-.note{
-  background-color: lightgoldenrodyellow;
-  border-radius: 0px 20px 40px 20px;
-  box-shadow: 50%;
+.note {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(248, 248, 154);
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   width: 250px;
   height: 175px;
   text-align: left;
+  margin: 20px 0px 0px 15px;
 }
 
-.note-pin{
-  display: flex;
-  width: 20px;
-  height: 20px;
-  transform: translate(-20px,-20px);
-}
-
-.note-title{
-  color: black;
-  font-size: 1em;
-  font-family: sans-serif;
-}
-
-.note-content{
-  color: black;
-  font-size: 1em;
-  margin-bottom: 10px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  font-family: "Montserrat", sans-serif;
-}
-
-.note:hover{
+.note:hover {
   transform: scale(1.05);
-  transition-property: border-radius,background-color,transform;
-  transition: 0.7s ease-in-out;
+  transition: transform 0.7s ease-in-out;
 }
 
-.note .note-btns{
+.note-check{
+  background-color: rgb(119, 237, 119);
+}
+
+.note-hold{
+  background-color: rgb(115, 191, 238);
+}
+
+.note-title {
+  background-color: #3498db;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px 10px 0 0;
+  margin-top: -5px;
+  text-align: center;
+}
+
+.note-content {
+  display: block;
+  padding-left: 5px;
+  margin-top: -5px;
+  height: 100px;
+  color: #333333;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.note-btns {
+  position: absolute;
+  top: 75px;
+  right: 75px; 
   display: none;
 }
 
-.note:hover .note-btns{
+.note:hover .note-btns {
   display: flex;
   flex-direction: row-reverse;
-  flex-wrap: wrap;
+}
+
+.note-btn {
+  height: 30px;
+  width: 30px;
+  margin-left: 5px;
+  border-radius: 50%;
+  display: flex;
   justify-content: center;
-  padding-top: 30px;
-  padding-left: 10px;
-  transform: translate(0px,-25px);
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.7s ease-in-out;
 }
 
-.delete{
-  color: lightcoral;
-  background-color: #eee;
-  border-radius: 20px;
-}
-
-.delete:hover{
+.note-btn:hover{
   transform: scale(1.1);
-  background-color: red;
-  transition: background-color 1s, tranform 0.7s;
-}
-
-.check{
-  color: lightgreen;
-  background-color: #90ed90;
-}
-
-.check:hover{
-  transition: background-color 1s, transform 0.7s;
-}
-
-.hold{
-  color: lightblue;
-  background-color: #87cefa;
-}
-
-.hold:hover{
-  transition: background-color 1s, transform 0.7s;
-}
-
-.delete-btn{
-  border-radius: 50px;
-}
-
-.delete-btn:hover{
-  background-color: red;
-  animation-duration: 0.5s;
-  animation-name: checkBounce;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-.check-btn{
-  border-radius: 50px;
-}
-
-.check-btn:hover{
-  animation-duration: 0.5s;
-  animation-name: checkBounce;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  transition: transform 0.7s ease-in-out;
 }
 
 @keyframes checkBounce{
@@ -108,26 +79,50 @@
   }
 
   to{
-    transform: translateY(-10px);
+    transform: translateY(-3px);
   }
 }
 
-.hold-btn{
-  border-radius: 50px;
+.note-delete-btn {
+  color: #e74c3c;
+  background-color: #f2f2f2;
 }
 
-.hold-btn:hover{
-
+.note-delete-btn:hover{
   animation-duration: 0.5s;
   animation-name: checkBounce;
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
 
-.checked{
-  color: green;
+.note-check-btn {
+  color: #27ae60;
+  background-color: #f2f2f2;
 }
 
-.held{
-  color: blue;
+.note-check-btn:hover{
+  animation-duration: 0.5s;
+  animation-name: checkBounce;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.note-hold-btn {
+  color: #3498db;
+  background-color: #f2f2f2;
+}
+
+.note-hold-btn:hover{
+  animation-duration: 0.5s;
+  animation-name: checkBounce;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.note-checked {
+  color: #27ae60;
+}
+
+.note-held {
+  color: #3498db;
 }

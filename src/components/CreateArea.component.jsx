@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '../css/CreateArea.component.css';
 
+
 function CreateArea(props) {
   const [note, setNote] = useState({
     title: "",
@@ -8,16 +9,6 @@ function CreateArea(props) {
   });
 
   const [isValid, setIsValid] = useState(false);
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setNote((prevNote) => {
-      return {
-        ...prevNote,
-        [name]: value
-      };
-    });
-  }
 
   function validateForm() {
     setIsValid(note.title.trim() !== "" && note.content.trim() !== "");
@@ -29,6 +20,7 @@ function CreateArea(props) {
         event.preventDefault();
         return; 
     }
+    
     if (isValid) {
       props.onAdd(note);
       setNote({
@@ -40,16 +32,29 @@ function CreateArea(props) {
     event.preventDefault();
   }
 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setNote((prevNote) => {
+      return {
+        ...prevNote,
+        [name]: value
+      };
+    });
+  }
+  
   return (
-    <div className="CreateArea">
-      <form className="form-container">
+    <div>
+      <form className="CreateArea">
         <input
           name="title"
           value={note.title}
           onChange={handleChange}
           onBlur={validateForm}
           placeholder="Title"
+          className="CreateArea-input"
+          autoComplete="true"
         />
+
         <textarea
           name="content"
           value={note.content}
@@ -57,11 +62,16 @@ function CreateArea(props) {
           onBlur={validateForm}
           placeholder="Stick up your Notes!..."
           rows="3"
+          className="CreateArea-textarea"
+          autoComplete="true"
         />
-        <button onClick={submitNote}>
+
+        <button className="CreateArea-btn" onClick={submitNote}>
           Add
         </button>
+
       </form>
+
     </div>
   );
 }

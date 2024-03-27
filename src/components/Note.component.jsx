@@ -5,7 +5,7 @@ import '../css/Note.component.css';
 
 function Note(props) {
 
-    function handleClick() {
+    function handleDelete() {
         props.onDelete(props.id);
     }
 
@@ -18,17 +18,16 @@ function Note(props) {
     }
 
     return (
-        <div className={`note ${props.checked && "check"} ${props.held && "hold"}`}>
-            {props.checked && <h2 className="note-pin">📍</h2>}
+        <div className={`note ${props.checked && "note-check"} ${props.held && "note-hold"}`}>
             <div className="note-container">
                 <h1 className="note-title">{props.title}</h1>
                 <p className="note-content">{props.content}</p> 
             </div>
             {props.all && (
                 <div className="note-btns">
-                    <button onClick={handleClick} className="delete-btn"> <FaTrash /> </button>
-                    <button onClick={handleCheck} className={`${props.checked && "check-btn"}`}> <FaCheckCircle className={`${props.checked && "checked"}`} /> </button>
-                    <button onClick={handleHold} className={`${props.held && "hold-btn"}`}>  <FaHandPaper className={`${props.held && "held"}`}/> </button>
+                    <button onClick={handleDelete} className={`note-btn note-delete-btn`}> <FaTrash /> </button>
+                    <button onClick={handleCheck} className={`note-btn ${props.checked && "note-check-btn"}`}> <FaCheckCircle className={`${props.checked && "note-checked"}`} /> </button>
+                    <button onClick={handleHold} className={`note-btn ${props.held && "note-hold-btn"}`}>  <FaHandPaper className={`${props.held && "note-held"}`}/> </button>
                 </div>
             )}
         </div>

@@ -1,12 +1,13 @@
 .navbar{
     display: block;
-    background-color: lightskyblue;
+    background-color: #3498db;
     padding: 16px;
 }
 
 .nav-board{
     text-decoration: none;
     float: left;
+    cursor: default;
 }
 
 .nav-items{

@@ -1,0 +1,14 @@
+.table-container{
+    display: table;
+    justify-content: center;
+}
+
+.table-head{
+    background-color: black;
+    color: white;
+    margin-right: 10px;
+    text-align: center;
+    padding: 15px;
+    width: 500px;
+}
+

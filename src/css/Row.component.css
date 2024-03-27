@@ -1,0 +1,116 @@
+.row{
+    color: black;
+    background-color: lightgoldenrodyellow;
+    height: 35px;
+    width: 500px;
+  }
+  
+.row:hover{
+    transform: scale(1.01);
+    transition-property: border-radius,background-color,transform;
+    transition: 0.7s ease-in-out;
+}
+
+.row-data{
+    color: black;
+    font-size: 1em;
+    font-style: italic;
+}
+
+.row-btns{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.row-btn{
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    border-radius: 100px;
+}
+
+.row-delete{
+    color: lightcoral;
+    background-color: #eee;
+    border-radius: 20px;
+}
+
+.row-delete:hover{
+    transform: scale(1.1);
+    background-color: red;
+    transition: background-color 1s, tranform 0.7s;
+}
+
+.row-check{
+    color: lightgreen;
+    background-color: #90ed90;
+}
+
+.row-check:hover{
+    transition: background-color 1s, transform 0.7s;
+}
+
+.row-hold{
+    color: lightblue;
+    background-color: #87cefa;
+}
+
+.row-hold:hover{
+    transition: background-color 1s, transform 0.7s;
+}
+
+.row-btn{
+    margin-right: 5px;
+    border-radius: 50px;
+}
+
+.row-delete-btn:hover{
+    background-color: red;
+    animation-duration: 0.5s;
+    animation-name: checkBounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.row-check-btn{
+    border-radius: 50px;
+}
+
+.row-check-btn:hover{
+    animation-duration: 0.5s;
+    animation-name: checkBounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background-color: lightgreen;
+}
+
+@keyframes checkBounce{
+    from{
+        transform: translateY(0px);
+    }
+
+    to{
+        transform: translateY(-3px);
+    }
+}
+
+.row-hold-btn{
+    border-radius: 50px;
+}
+
+.row-hold-btn:hover{
+    animation-duration: 0.5s;
+    animation-name: checkBounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    background-color: lightblue;
+}
+
+.row-checked{
+    color: green;
+}
+
+.row-held{
+    color: blue;
+}

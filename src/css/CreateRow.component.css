@@ -1,0 +1,34 @@
+.Tables-form-container{
+    display: inline-flex;
+    flex-direction: row;
+    margin-left: 100px;
+    margin-top: 5px;
+    padding: 20px;
+}
+
+.Tables-form-group{
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.Tables-form-control{
+    font-size: 16px;
+    color: black;
+    border-radius: 20px;
+    margin-left: 5px;
+    text-align: center;
+    border: 3px inset blue;
+    opacity: 80%;
+}
+
+.Tables-submit-btn{
+    background-color: #FF6B6B;
+    border-radius: 20px;
+}
+
+.Tables-submit-btn:hover{
+    background-color: lightseagreen;
+    transform: scale(1.02);
+    transition: background-color,transform;
+    transition: 0.7s ease-in-out;
+}

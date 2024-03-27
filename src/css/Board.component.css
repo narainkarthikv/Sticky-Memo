@@ -1,0 +1,90 @@
+.Board {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 500px;
+  border: 3px inset red;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden; 
+}
+
+.Checked-Board {
+  border-color: green;
+}
+
+.Held-Board {
+  border-color: blue;
+}
+
+.Board-title {
+  margin: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.Board-content { 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.Board:hover .Board-content {
+  opacity: 1; 
+}
+
+.Board-btns {
+  position: absolute;
+  top: 50%;
+  right: 50px; 
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center; 
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.Board:hover .Board-btns {
+  opacity: 1; 
+}
+
+.board-btn {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 5px; 
+  margin-right: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease; 
+}
+
+.board-delete-btn:hover {
+  background-color: red;
+  transform: scale(1.1); 
+}
+
+.board-check-btn:hover {
+  background-color: lightgreen;
+  transform: scale(1.1); 
+}
+
+.board-hold-btn:hover {
+  background-color: lightblue;
+  transform: scale(1.1); 
+}
+
+.board-checked {
+  color: green;
+}
+
+.board-held {
+  color: blue;
+}

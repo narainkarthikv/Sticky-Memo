@@ -1,10 +1,12 @@
 .NoteList{
     display: flex;
-    flex-direction: row;
     box-sizing: border-box;
+    position: fixed;
 }
 
-.notes-container{
-    padding-top: 25px;
+.notes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 

@@ -1,0 +1,20 @@
+.filter-input{
+    font-size: 18px;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px inset blue;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.filter-input::placeholder{
+    text-align: center;
+}
+
+.filter-notes{
+    margin-left: 10px;
+}
