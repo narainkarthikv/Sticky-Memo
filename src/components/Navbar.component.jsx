@@ -10,7 +10,7 @@ const Navbar = () => {
             {/* <a href="/Calendar" className="nav-items"><FaCalendarAlt/><span className="nav-hide">&nbsp;Calendar</span></a> */}
             <a href="/Tables" className="nav-items"><FaTable/><span className="nav-hide">&nbsp;Tables</span></a>
             <div className="nav-profile">
-                <FaUserAlt/>
+                <FaUserAlt className="profile-logo"/>
                 <div className="dropdown">
                     <a href="/editUser" className="dropdown-items"><span>Edit Profile</span></a>
                     <a href="/logout" className="dropdown-items"><span>Logout</span></a>

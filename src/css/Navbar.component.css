@@ -63,6 +63,10 @@
     float: right;
     font-size: 20px;
 }
+.profile-logo:hover{
+    color: white;
+    cursor: pointer;
+}
 
 .nav-profile .dropdown{
     display: none;
@@ -96,4 +100,5 @@
     color: red;
     transition-property: color, font-size; 
     transition: ease-in 0.3s;
+    cursor: pointer;
 }
