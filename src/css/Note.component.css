@@ -3,7 +3,7 @@
   flex-direction: column;
   background-color: rgb(248, 248, 154);
   border-radius: 10px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
   width: 250px;
   height: 175px;
   text-align: left;
@@ -12,7 +12,7 @@
 
 .note:hover {
   transform: scale(1.05);
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.15s ease-in-out;
 }
 
 .note-check{
@@ -65,7 +65,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: transform 0.7s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .note-btn:hover{
