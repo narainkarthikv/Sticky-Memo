@@ -1,15 +1,32 @@
 .BoardList {
-  display: inline-flex;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   margin-top: 5px;
+  align-items: center;
+}
+
+.BoardListTable {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.boards-filter {
+  width: 500px;
+  margin-top: 20px;
 }
 
 .all-boards,
 .held-boards,
 .checked-boards {
-  padding: 0px 50px;
-  margin-right: 200px;
-  border-radius: 15px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  min-width: 300px;
 }
 
 .BoardList-header {
@@ -17,7 +34,6 @@
   border-radius: 50px;
   padding: 10px;
   width: 150px;
-  margin-left: 25px;
   background-color: #f7f7f7;
   text-align: center;
   font-weight: bold;
