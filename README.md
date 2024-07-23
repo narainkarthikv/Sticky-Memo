@@ -15,6 +15,7 @@ Sticky-Memo is a sticky notes application built using React.js. This documentati
   - [Committing Changes](#committing-changes)
   - [Pushing Changes](#pushing-changes)
   - [Creating a Pull Request](#creating-a-pull-request)
+- [Contributors](#contributors)
 - [License](#license)
 
 ## Installation
@@ -101,6 +102,10 @@ We welcome contributions! To contribute to Sticky-Memo, follow these steps:
 ### Creating a Pull Request
 
 9. Create a pull request from your forked repository to the main repository. Go to the "Pull Requests" tab on the main repository, and click "New Pull Request". Follow the instructions to create your pull request.
+
+## Contributors
+
+We appreciate the contributions of the following individuals: [Contributors](https://github.com/narainkarthikv/Sticky-Memo/blob/main/Contributors.md)
 
 This is just the beginning! I look forward to making more meaningful contributions and collaborating with this amazing community. Let's build something great together and make Sticky-Memo the best it can be! ❤️🤝
 

@@ -6,9 +6,11 @@ const Navbar = () => {
     return(
         <div className="navbar">
             <a href="/" className="nav-board">Sticky-Memo</a>
+            <div className="navbar-center-btns">
             <a href="/Boards" className="nav-items"><FaChalkboard/><span className="nav-hide">&nbsp;Boards</span></a>
-            {/* <a href="/Calendar" className="nav-items"><FaCalendarAlt/><span className="nav-hide">&nbsp;Calendar</span></a> */}
             <a href="/Tables" className="nav-items"><FaTable/><span className="nav-hide">&nbsp;Tables</span></a>
+            {/* <a href="/Calendar" className="nav-items"><FaCalendarAlt/><span className="nav-hide">&nbsp;Calendar</span></a> */}
+            </div>
             <div className="nav-profile">
                 <FaUserAlt className="profile-logo"/>
                 <div className="dropdown">
