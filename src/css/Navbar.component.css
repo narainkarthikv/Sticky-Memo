@@ -101,3 +101,12 @@
   transition-property: color, font-size;
   transition: ease-in 0.3s;
 }
+
+.profile-logo{
+  color: #f1f1f1;
+  transition: 0.5s ease-in-out;
+}
+
+.profile-logo:hover{
+  color: #333;
+}

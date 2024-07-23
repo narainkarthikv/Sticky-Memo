@@ -1,20 +1,24 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { FaUserAlt, FaChalkboard, FaTable } from "react-icons/fa";
 import '../css/Navbar.component.css';
 
 const Navbar = () => {
-    return(
+    return (
         <div className="navbar">
-            <a href="/" className="nav-board">Sticky-Memo</a>
+            <Link to="/" className="nav-board">Sticky-Memo</Link>
             <div className="navbar-center-btns">
-            <a href="/Boards" className="nav-items"><FaChalkboard/><span className="nav-hide">&nbsp;Boards</span></a>
-            <a href="/Tables" className="nav-items"><FaTable/><span className="nav-hide">&nbsp;Tables</span></a>
-            {/* <a href="/Calendar" className="nav-items"><FaCalendarAlt/><span className="nav-hide">&nbsp;Calendar</span></a> */}
+                <Link to="/Boards" className="nav-items">
+                    <FaChalkboard /><span className="nav-hide">&nbsp;Boards</span>
+                </Link>
+                <Link to="/Tables" className="nav-items">
+                    <FaTable /><span className="nav-hide">&nbsp;Tables</span>
+                </Link>
             </div>
             <div className="nav-profile">
-                <FaUserAlt/>
+                <FaUserAlt className="profile-logo" />
                 <div className="dropdown">
-                    <a href="/editUser" className="dropdown-items"><span>Edit Profile</span></a>
+                    <Link to="/editUser" className="dropdown-items"><span>Edit Profile</span></Link>
                     <a href="/logout" className="dropdown-items"><span>Logout</span></a>
                 </div>
             </div>
