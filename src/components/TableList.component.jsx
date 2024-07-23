@@ -45,7 +45,6 @@ const TableList = () => {
 
     return(
         <div className="TableList">
-            <CreateRow onAdd={addRow}/>
             <table className="table-container">
                 <thead>
                     <tr>
@@ -71,6 +70,7 @@ const TableList = () => {
                     ))}
                 </tbody>
             </table>
+            <CreateRow onAdd={addRow}/>
         </div>
     )
 };
