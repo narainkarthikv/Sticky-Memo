@@ -1,6 +1,7 @@
 .table-container{
     display: table;
     justify-content: center;
+    margin: auto;
 }
 
 .table-head{
