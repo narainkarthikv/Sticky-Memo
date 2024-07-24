@@ -1,3 +1,16 @@
+table{
+    width: 100%;
+}
+thead {
+    position: sticky;
+    top: 0;
+}
+.scrollable-table{
+    height: 500px;
+    width: 1000px;
+    overflow-y: auto;
+    margin: auto;
+}
 .table-container{
     display: table;
     justify-content: center;
@@ -7,9 +20,6 @@
 .table-head{
     background-color: black;
     color: white;
-    margin-right: 10px;
     text-align: center;
     padding: 15px;
-    width: 500px;
 }
-

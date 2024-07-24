@@ -1,8 +1,7 @@
 .Tables-form-container{
     display: inline-flex;
     flex-direction: row;
-    margin-left: 100px;
-    margin-top: 5px;
+    margin: 5px auto;
     padding: 20px;
 }
 

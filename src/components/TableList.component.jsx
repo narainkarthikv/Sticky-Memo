@@ -45,31 +45,33 @@ const TableList = () => {
 
     return(
         <div className="TableList">
-            <table className="table-container">
-                <thead>
-                    <tr>
-                        <th className="table-head">Title</th>
-                        <th className="table-head">Content</th>
-                        <th className="table-head">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {allRows.map((rowItem, index) => (
-                        <Row
-                            key={index}
-                            id={index}
-                            title={rowItem.title}
-                            content={rowItem.content}
-                            onDelete={deleteRow}
-                            onCheck={checkRow}
-                            onHold={holdRow}
-                            checked={rowItem.checked}
-                            held={rowItem.held}
-                            all={rowItem.all}
-                        />
-                    ))}
-                </tbody>
-            </table>
+            <div className="scrollable-table">
+                <table className="table-container">
+                    <thead>
+                        <tr>
+                            <th className="table-head">Title</th>
+                            <th className="table-head">Content</th>
+                            <th className="table-head">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            {allRows.map((rowItem, index) => (
+                                <Row
+                                    key={index}
+                                    id={index}
+                                    title={rowItem.title}
+                                    content={rowItem.content}
+                                    onDelete={deleteRow}
+                                    onCheck={checkRow}
+                                    onHold={holdRow}
+                                    checked={rowItem.checked}
+                                    held={rowItem.held}
+                                    all={rowItem.all}
+                                />
+                            ))}
+                    </tbody>
+                </table>
+            </div>
             <CreateRow onAdd={addRow}/>
         </div>
     )
