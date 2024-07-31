@@ -4,9 +4,10 @@ Sticky-Memo is a sticky notes application built using React.js. This documentati
 
 ## Table of Contents
 - [Installation](#installation)
-  - [Frontend](#frontend)
+  - [Clone the Repository](#clone-the-repository)
+  - [Frontend Installation](#frontend-installation)
+  - [Docker Installation](#docker-installation)
 - [Project Structure](#project-structure)
-  - [Frontend](#frontend-structure)
 - [Contributing](#contributing)
   - [Forking the Repository](#forking-the-repository)
   - [Cloning the Repository](#cloning-the-repository)
@@ -20,24 +21,48 @@ Sticky-Memo is a sticky notes application built using React.js. This documentati
 
 ## Installation
 
-### Frontend
+### Clone the Repository
 
-1. Navigate to the `frontend` directory:
+1. **Fork the repository** by clicking the "Fork" button at the top right of the repository page on GitHub.
+   ![Forking the Repository](https://user-images.githubusercontent.com/github-fork-button.png)
+2. **Clone your forked repository** to your local machine:
     ```sh
-    cd frontend
+    git clone https://github.com/your-username/Sticky-Memo.git
     ```
-2. Install the dependencies:
+3. Navigate to the project directory:
+    ```sh
+    cd Sticky-Memo
+    ```
+
+### Frontend Installation
+
+After cloning the repository:
+
+1. **Install the dependencies**:
     ```sh
     npm install
     ```
-3. Start the development server:
+2. **Start the development server**:
     ```sh
     npm start
     ```
 
+### Docker Installation
+
+If you prefer using Docker:
+
+1. **Pull the Docker image**:
+    ```sh
+    docker pull narainkarthik/stickymemo:v1.0.0
+    ```
+2. **Run the Docker container**:
+    ```sh
+    docker run -d -p 3000:3000 narainkarthik/stickymemo:v1.0.0
+    ```
+
 ## Project Structure
 
-### Frontend
+### Project
 
 The `frontend` directory contains the React application.
 
