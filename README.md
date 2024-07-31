@@ -6,7 +6,7 @@ Sticky-Memo is a sticky notes application built using React.js. This documentati
 - [Installation](#installation)
   - [Clone the Repository](#clone-the-repository)
   - [Frontend Installation](#frontend-installation)
-  - [Docker Installation](#docker-installation)
+  <!-- - [Docker Installation](#docker-installation) -->
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
   - [Forking the Repository](#forking-the-repository)
@@ -47,7 +47,7 @@ After cloning the repository:
     npm start
     ```
 
-### Docker Installation
+<!-- ### Docker Installation
 
 If you prefer using Docker:
 
@@ -58,7 +58,7 @@ If you prefer using Docker:
 2. **Run the Docker container**:
     ```sh
     docker run -d -p 3000:3000 narainkarthik/stickymemo:v1.0.0
-    ```
+    ``` -->
 
 ## Project Structure
 

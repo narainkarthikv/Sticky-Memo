@@ -3,10 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #3498db;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding: 0.5rem 1.5rem;
 }
 
 .navbar-center-btns {
@@ -14,11 +11,11 @@
   gap: 1rem;
 }
 
-.nav-board {
+.nav-brand {
+  color: whitesmoke;
   text-decoration: none;
   cursor: pointer;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .nav-items {
@@ -28,7 +25,7 @@
   width: 3rem;
   height: 3rem;
   aspect-ratio: 1 / 1;
-  border-radius: 9999px;
+  border-radius: 100px;
   background-color: whitesmoke;
   transition: width 0.3s ease;
   overflow: hidden;
