@@ -68,10 +68,18 @@ The `frontend` directory contains the React application.
 
 - `public`: Contains the public assets of the application.
 - `src`: Contains the source code of the application.
+  - `assets`: asset directory
+    - `fonts`
+    - `icons`  
   - `components`: Reusable UI components.
-    - `list of components`: List of all components of sticky notes application
-  - `css`: Styling
-    - `list of styles`: List of all stylesheets of sticky notes application   
+    - `list of components`: List of all components
+  - `images`: images directory
+  - `pages`: pages
+    - `list of pages`: List of all pages 
+  - `styles`: Styling
+    - `list of styles`: List of all stylesheets
+  - `utils`
+    - `list of utils`: List of all utilities    
 - `App.js`: The main component that sets up routes.
 - `index.js`: The entry point of the React application.
 
