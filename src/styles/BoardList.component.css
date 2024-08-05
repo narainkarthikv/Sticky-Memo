@@ -1,0 +1,189 @@
+.BoardList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.BoardListTable {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.boards-filter {
+  width: 500px;
+  margin-top: 20px;
+}
+
+.all-boards,
+.held-boards,
+.checked-boards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  min-width: 300px;
+}
+
+.BoardList-header {
+  border: 1px solid #333;
+  border-radius: 50px;
+  padding: 10px;
+  width: 150px;
+  background-color: #f7f7f7;
+  text-align: center;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.Board {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 500px;
+  border: 3px inset red;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+  overflow: hidden; 
+}
+
+.Checked-Board {
+  border-color: green;
+}
+
+.Held-Board {
+  border-color: blue;
+}
+
+.Board-title {
+  margin: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.Board-content { 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.Board:hover .Board-content {
+  opacity: 1; 
+}
+
+.Board-btns {
+  position: absolute;
+  top: 50%;
+  right: 50px; 
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center; 
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.Board:hover .Board-btns {
+  opacity: 1; 
+}
+
+.board-btn {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 5px; 
+  margin-right: 5px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease; 
+}
+
+.board-delete-btn:hover {
+  background-color: red;
+  transform: scale(1.1); 
+}
+
+.board-check-btn:hover {
+  background-color: lightgreen;
+  transform: scale(1.1); 
+}
+
+.board-hold-btn:hover {
+  background-color: lightblue;
+  transform: scale(1.1); 
+}
+
+.board-checked {
+  color: green;
+}
+
+.board-held {
+  color: blue;
+}
+
+.CreateBoard{
+  position: relative;
+  width: 200px;
+  height: 75px;
+  background: #fff;
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: solid 10 2px 5px #aaa; 
+  border: 3px lightseagreen outset;
+}
+
+.CreateBoard-title{
+  display: flex;
+  border: #333;
+  font-size: 1em;
+  font-family: inherit;
+  outline: none;
+}
+
+.CreateBoard-content{
+  display: flex;
+  border: #333;
+  font-size: 1em;
+  font-family: inherit;
+  outline: none;
+  resize: none;
+}
+
+.CreateBoard-submit-btn{
+  position: absolute;
+  font-size: 18px;
+  right: 18px;
+  bottom: -18px;
+  background: #FF6B6B;
+  color: #fff;
+  border: none;
+  border-radius: 50%; 
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+}
+
+.CreateBoard-submit-btn:hover{
+  background: lightseagreen;
+  transform: scale(1.05);
+  transition-property: background, transform;
+  transition: 0.7s ease-in-out;
+}
+
+.CreateBoard-header{
+  background-color: red;
+}

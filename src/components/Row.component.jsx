@@ -1,6 +1,6 @@
 import { FaTrash, FaCheckCircle, FaHandPaper } from "react-icons/fa";
-import '../css/Row.component.css';
-import '../css/Note.component.css';
+import '../styles/TableList.component.css';
+import '../styles/NoteList.component.css';
 
 function Row(props){
 

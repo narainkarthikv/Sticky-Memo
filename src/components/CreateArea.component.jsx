@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../css/CreateArea.component.css';
+import '../styles/NoteList.component.css';
 
 
 function CreateArea(props) {

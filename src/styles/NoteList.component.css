@@ -1,0 +1,204 @@
+.NoteList{
+    display: flex;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+.notes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.filter-input{
+    font-size: 18px;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px inset blue;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.filter-input::placeholder{
+    text-align: center;
+}
+
+.filter-notes{
+    margin-left: 10px;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(248, 248, 154);
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    height: 175px;
+    text-align: left;
+    margin: 20px 0px 0px 15px;
+  }
+  
+  .note:hover {
+    transform: scale(1.05);
+    transition: transform 0.7s ease-in-out;
+  }
+  
+  .note-check{
+    background-color: rgb(119, 237, 119);
+  }
+  
+  .note-hold{
+    background-color: rgb(115, 191, 238);
+  }
+  
+  .note-title {
+    background-color: #3498db;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+    margin-top: -5px;
+    text-align: center;
+  }
+  
+  .note-content {
+    display: block;
+    padding-left: 5px;
+    margin-top: -5px;
+    height: 100px;
+    color: #333333;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  .note-btns {
+    position: absolute;
+    top: 75px;
+    right: 75px; 
+    display: none;
+  }
+  
+  .note:hover .note-btns {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  
+  .note-btn {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.7s ease-in-out;
+  }
+  
+  .note-btn:hover{
+    transform: scale(1.1);
+    transition: transform 0.7s ease-in-out;
+  }
+  
+  @keyframes checkBounce{
+    from{
+      transform: translateY(0px);
+    }
+  
+    to{
+      transform: translateY(-3px);
+    }
+  }
+  
+  .note-delete-btn {
+    color: #e74c3c;
+    background-color: #f2f2f2;
+  }
+  
+  .note-delete-btn:hover{
+    animation-duration: 0.5s;
+    animation-name: checkBounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .note-check-btn {
+    color: #27ae60;
+    background-color: #f2f2f2;
+  }
+  
+  .note-check-btn:hover{
+    animation-duration: 0.5s;
+    animation-name: checkBounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .note-hold-btn {
+    color: #3498db;
+    background-color: #f2f2f2;
+  }
+  
+  .note-hold-btn:hover{
+    animation-duration: 0.5s;
+    animation-name: checkBounce;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  .note-checked {
+    color: #27ae60;
+  }
+  
+  .note-held {
+    color: #3498db;
+  }
+  
+  .CreateArea{
+    position: relative;
+    width: 200px;
+    height: 150px;
+    margin: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 50px;
+    box-shadow: solid 10 2px 5px #aaa; 
+    border: 3px lightseagreen outset;
+}
+
+.CreateArea-textarea, .CreateArea-input{
+    display: flex;
+    flex-direction: column;
+    border: #333;
+    font-size: 1em;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+}
+  
+.CreateArea-btn{
+    position: absolute;
+    right: 18px;
+    bottom: -15px;
+    background: #FF6B6B;
+    color: #fff;
+    border: none;
+    border-radius: 50%; 
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+}
+  
+.CreateArea-btn:hover {
+    transform: scale(1.1);
+    background-color: lightseagreen;
+    transition: background-color 1s, transform 0.7s ;
+} 
