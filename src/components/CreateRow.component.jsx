@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import '../css/CreateRow.component.css';
+import '../styles/TableList.component.css';
 
 function CreateRow(props){
 

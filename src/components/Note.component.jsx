@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCheckCircle, FaTrash, FaHandPaper } from "react-icons/fa";
-import '../css/Note.component.css';
+import '../styles/NoteList.component.css';
 
 
 function Note(props) {

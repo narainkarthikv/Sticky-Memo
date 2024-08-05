@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Note from "./Note.component";
-import '../css/FilterNotes.component.css';
+import Note from "../components/Note.component";
+import '../styles/NoteList.component.css';
 
 
 const FilterNotes = (props) => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { FaUserAlt, FaChalkboard, FaTable } from "react-icons/fa";
-import '../css/Navbar.component.css';
+import '../styles/Navbar.component.css';
 
 const Navbar = () => {
     return (

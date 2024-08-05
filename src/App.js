@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes,Route } from 'react-router-dom/dist';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from "./components/Navbar.component";
-import NoteList from "./components/NoteList.component";
-import TableList from "./components/TableList.component";
-import BoardList from "./components/BoardList.component";
+import NoteList from "./pages/NoteList.component";
+import TableList from "./pages/TableList.component";
+import BoardList from "./pages/BoardList.component";
 
 function App() {
  
