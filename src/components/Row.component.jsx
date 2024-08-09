@@ -1,33 +1,60 @@
+import React from 'react';
+import { useDrag, useDrop } from 'react-dnd';
 import { FaTrash, FaCheckCircle, FaHandPaper } from "react-icons/fa";
 import '../styles/TableList.component.css';
 import '../styles/NoteList.component.css';
 
-function Row(props){
+const ItemType = 'ROW';
 
-    function handleDelete() {
-        props.onDelete(props.id);
-    }
+function Row({ id, index, title, content, onDelete, onCheck, onHold, checked, held, moveRow }) {
 
-    function handleCheck(){
-        props.onCheck(props.id);
-    }
+    const ref = React.useRef(null);
 
-    function handleHold(){
-        props.onHold(props.id);
-    }
+    const [, drop] = useDrop({
+        accept: ItemType,
+        hover(item) {
+            if (!ref.current) {
+                return;
+            }
+            const dragIndex = item.index;
+            const hoverIndex = index;
 
-    return(
-        <tr className={`row ${props.checked && "row-check"} ${props.held && "row-hold"}`}>
-            <td className="row-data">{props.title}</td>
-            <td className="row-data">{props.content}</td>
+            if (dragIndex === hoverIndex) {
+                return;
+            }
+
+            moveRow(dragIndex, hoverIndex);
+            item.index = hoverIndex;
+        },
+    });
+
+    const [{ isDragging }, drag] = useDrag({
+        type: ItemType,
+        item: { type: ItemType, id, index },
+        collect: (monitor) => ({
+            isDragging: monitor.isDragging(),
+        }),
+    });
+
+    drag(drop(ref));
+
+    return (
+        <tr
+            ref={ref}
+            className={`row ${checked ? "row-check" : ""} ${held ? "row-hold" : ""}`}
+            style={{ opacity: isDragging ? 0.5 : 1 }}
+        >
+            <td className="row-data">{title}</td>
+            <td className="row-data">{content}</td>
             <td className="row-data">
                 <div className="row-btns">
-                    <button onClick={handleDelete} className="row-btn row-delete-btn" > <FaTrash /> </button>
-                    <button onClick={handleCheck} className={`row-btn ${props.checked && "row-check-btn"}`}> <FaCheckCircle className={`${props.checked && "row-checked"}`} /> </button>
-                    <button onClick={handleHold} className={`row-btn ${props.held && "row-hold-btn"}`}>  <FaHandPaper className={`${props.held && "row-held"}`}/> </button>
+                    <button onClick={() => onDelete(id)} className="row-btn row-delete-btn"><FaTrash /></button>
+                    <button onClick={() => onCheck(id)} className={`row-btn ${checked ? "row-check-btn" : ""}`}><FaCheckCircle className={`${checked ? "row-checked" : ""}`} /></button>
+                    <button onClick={() => onHold(id)} className={`row-btn ${held ? "row-hold-btn" : ""}`}><FaHandPaper className={`${held ? "row-held" : ""}`} /></button>
                 </div>
-            </td>              
+            </td>
         </tr>
-)};
+    );
+}
 
 export default Row;
