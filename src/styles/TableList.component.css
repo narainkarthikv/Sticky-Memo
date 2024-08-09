@@ -1,42 +1,46 @@
-table{
+
+table {
     width: 100%;
 }
+
 thead {
     position: sticky;
     top: 0;
 }
-.scrollable-table{
+
+.scrollable-table {
     height: 500px;
-    width: 1000px;
+    width: 90%; 
+    max-width: 1000px;
     overflow-y: auto;
     margin: auto;
 }
-.table-container{
+
+.table-container {
     display: table;
-    justify-content: center;
     margin: auto;
 }
 
-.table-head{
+.table-head {
     background-color: black;
     color: white;
     text-align: center;
     padding: 15px;
 }
 
-.Tables-form-container{
+.Tables-form-container {
     display: inline-flex;
     flex-direction: row;
     margin: 5px auto;
     padding: 20px;
 }
 
-.Tables-form-group{
+.Tables-form-group {
     margin-right: 5px;
     font-size: 16px;
 }
 
-.Tables-form-control{
+.Tables-form-control {
     font-size: 16px;
     color: black;
     border-radius: 20px;
@@ -46,86 +50,87 @@ thead {
     opacity: 80%;
 }
 
-.Tables-submit-btn{
+.Tables-submit-btn {
     background-color: #FF6B6B;
     border-radius: 20px;
 }
 
-.Tables-submit-btn:hover{
+.Tables-submit-btn:hover {
     background-color: lightseagreen;
     transform: scale(1.02);
-    transition: background-color,transform;
+    transition: background-color, transform;
     transition: 0.7s ease-in-out;
 }
 
-.row{
+/* Row styles */
+.row {
     color: black;
     background-color: lightgoldenrodyellow;
-    height: 35px;
-    width: 500px;
-  }
-  
-.row:hover{
+    height: auto;
+    width: 100%;
+}
+
+.row:hover {
     transform: scale(1.01);
-    transition-property: border-radius,background-color,transform;
+    transition-property: border-radius, background-color, transform;
     transition: 0.7s ease-in-out;
 }
 
-.row-data{
+.row-data {
     color: black;
     font-size: 1em;
     font-style: italic;
 }
 
-.row-btns{
+.row-btns {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
 }
 
-.row-btn{
+.row-btn {
     height: 30px;
     width: 30px;
     align-items: center;
     border-radius: 100px;
 }
 
-.row-delete{
+.row-delete {
     color: lightcoral;
     background-color: #eee;
     border-radius: 20px;
 }
 
-.row-delete:hover{
+.row-delete:hover {
     transform: scale(1.1);
     background-color: red;
-    transition: background-color 1s, tranform 0.7s;
+    transition: background-color 1s, transform 0.7s;
 }
 
-.row-check{
+.row-check {
     color: lightgreen;
     background-color: #90ed90;
 }
 
-.row-check:hover{
+.row-check:hover {
     transition: background-color 1s, transform 0.7s;
 }
 
-.row-hold{
+.row-hold {
     color: lightblue;
     background-color: #87cefa;
 }
 
-.row-hold:hover{
+.row-hold:hover {
     transition: background-color 1s, transform 0.7s;
 }
 
-.row-btn{
+.row-btn {
     margin-right: 5px;
     border-radius: 50px;
 }
 
-.row-delete-btn:hover{
+.row-delete-btn:hover {
     background-color: red;
     animation-duration: 0.5s;
     animation-name: checkBounce;
@@ -133,11 +138,11 @@ thead {
     animation-direction: alternate;
 }
 
-.row-check-btn{
+.row-check-btn {
     border-radius: 50px;
 }
 
-.row-check-btn:hover{
+.row-check-btn:hover {
     animation-duration: 0.5s;
     animation-name: checkBounce;
     animation-iteration-count: infinite;
@@ -145,21 +150,21 @@ thead {
     background-color: lightgreen;
 }
 
-@keyframes checkBounce{
-    from{
+@keyframes checkBounce {
+    from {
         transform: translateY(0px);
     }
 
-    to{
+    to {
         transform: translateY(-3px);
     }
 }
 
-.row-hold-btn{
+.row-hold-btn {
     border-radius: 50px;
 }
 
-.row-hold-btn:hover{
+.row-hold-btn:hover {
     animation-duration: 0.5s;
     animation-name: checkBounce;
     animation-iteration-count: infinite;
@@ -167,10 +172,103 @@ thead {
     background-color: lightblue;
 }
 
-.row-checked{
+.row-checked {
     color: green;
 }
 
-.row-held{
+.row-held {
     color: blue;
+}
+
+
+/* Drag and drop css */
+.row {
+    color: black;
+    height: auto;
+    width: 100%;
+    cursor: move; 
+}
+
+.row:hover {
+    transform: scale(1.01);
+    transition-property: border-radius, background-color, transform;
+    transition: 0.7s ease-in-out;
+}
+
+
+/*
+   Responsive styles 
+*/
+
+@media (max-width: 768px) {
+    .scrollable-table {
+        width: 100%;
+    }
+
+    .table-container {
+        width: 100%;
+    }
+
+    .Tables-form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Tables-form-group {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .Tables-form-control {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .Tables-submit-btn {
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    .row {
+        width: 90%;
+    }
+
+    .row-data {
+        font-size: 0.9em;
+    }
+
+    .row-btns {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .row-btn {
+        margin-right: 10px;
+    }
+
+    .row-delete-btn,
+    .row-check-btn,
+    .row-hold-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .Tables-form-group {
+        font-size: 14px;
+    }
+
+    .Tables-form-control {
+        font-size: 14px;
+    }
+
+    .row-data {
+        font-size: 0.8em;
+    }
+
+    .row-btn {
+        width: 35px;
+        height: 35px;
+    }
 }
