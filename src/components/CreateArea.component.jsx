@@ -52,6 +52,7 @@ function CreateArea(props) {
           placeholder="Title"
           className="CreateArea-input"
           autoComplete="true"
+          style={{ maxWidth: "100%", backgroundColor: "transparent" }}
         />
 
         <textarea
