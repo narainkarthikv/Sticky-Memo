@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import '../styles/NoteList.component.css';
-
+import "../styles/NoteList.component.css";
 
 function CreateArea(props) {
   const [note, setNote] = useState({
     title: "",
-    content: ""
+    content: "",
   });
 
   const [isValid, setIsValid] = useState(false);
@@ -16,16 +15,16 @@ function CreateArea(props) {
 
   function submitNote(event) {
     if (!isValid) {
-        alert("Don't Waste Notes :)");
-        event.preventDefault();
-        return; 
+      alert("Don't Waste Notes :)");
+      event.preventDefault();
+      return;
     }
-    
+
     if (isValid) {
       props.onAdd(note);
       setNote({
         title: "",
-        content: ""
+        content: "",
       });
       setIsValid(false);
     }
@@ -37,11 +36,11 @@ function CreateArea(props) {
     setNote((prevNote) => {
       return {
         ...prevNote,
-        [name]: value
+        [name]: value,
       };
     });
   }
-  
+
   return (
     <div>
       <form className="CreateArea">
@@ -53,6 +52,7 @@ function CreateArea(props) {
           placeholder="Title"
           className="CreateArea-input"
           autoComplete="true"
+          style={{ maxWidth: "100%", backgroundColor: "transparent" }}
         />
 
         <textarea
@@ -69,9 +69,7 @@ function CreateArea(props) {
         <button className="CreateArea-btn" onClick={submitNote}>
           Add
         </button>
-
       </form>
-
     </div>
   );
 }
