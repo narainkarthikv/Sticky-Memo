@@ -7,4 +7,5 @@
 - [Bicheka](https://github.com/Bicheka) **First Contribution**
 - [m1her](https://github.com/m1her) **Contributed**
 - [Jatin Tyagi](https://github.com/jatintyagi1) **contributed**
-- [Vimal Vinod](https://github.com/dalekvim) **Contributed to this Project**
+- [AndresCasasola](https://github.com/AndresCasasola) **Contributed**
+- [Vimal Vinod](https://github.com/dalekvim) **Contributed**
