@@ -50,9 +50,8 @@ function CreateArea(props) {
           onChange={handleChange}
           onBlur={validateForm}
           placeholder="Title"
-          className="CreateArea-input"
+          className="CreateArea-input w-full"
           autoComplete="true"
-          style={{ maxWidth: "100%", backgroundColor: "transparent" }}
         />
 
         <textarea
