@@ -30,7 +30,7 @@ const NoteList = () => {
   };
 
   return (
-    <div className="NoteList">
+    <div className="NoteList grid">
       <div className="create-and-filter-container">
         <CreateArea onAdd={(newItem) => addItem(setItems, newItem)} />
       </div>
