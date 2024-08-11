@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useRecoilState } from 'recoil';
-import { itemsState } from '../utils/state';
-import CreateArea from '../components/CreateArea.component';
-import Note from '../components/Note.component';
-import '../styles/NoteList.component.css';
-import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
+import React, { useState } from "react";
+import { useRecoilState } from "recoil";
+import CreateArea from "../components/CreateArea.component";
+import Note from "../components/Note.component";
+import "../styles/NoteList.component.css";
+import { addItem, checkItem, deleteItem, holdItem } from "../utils/helper";
+import { itemsState } from "../utils/state";
 
 const NoteList = () => {
   const [items, setItems] = useRecoilState(itemsState);
