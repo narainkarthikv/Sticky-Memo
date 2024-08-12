@@ -67,7 +67,7 @@ function CreateArea(props) {
         />
 
         <button className="CreateArea-btn" onClick={submitNote}>
-          Add
+          +
         </button>
       </form>
     </div>

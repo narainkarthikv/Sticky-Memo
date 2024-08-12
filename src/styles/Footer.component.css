@@ -1,0 +1,23 @@
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    background-color: lightseagreen;
+    color: #FFFFFF; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+    font-size: 14px;
+}
+
+.footer .link {
+    color: #8B0000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease; 
+}
+
+.footer .link:hover {
+    text-decoration: underline;
+}
