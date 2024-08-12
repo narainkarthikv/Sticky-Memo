@@ -74,7 +74,7 @@ function CreateRow(props){
                 </div>
 
                 <button className="Tables-submit-btn" onClick={submitRow}>
-                    Add
+                    +
                 </button>
 
             </form>

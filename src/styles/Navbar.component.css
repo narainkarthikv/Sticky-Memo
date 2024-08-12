@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3498db;
+  background-color: lightseagreen;
   padding: 0.5rem 1.5rem;
 }
 
@@ -34,7 +34,6 @@
 }
 
 .nav-items:hover {
-  background-color: lightseagreen;
   width: 6rem;
   transition: width 0.3s ease, background-color 0.3s ease;
 }
