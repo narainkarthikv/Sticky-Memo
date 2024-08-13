@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { FaUserAlt, FaChalkboard, FaTable } from "react-icons/fa";
+import { FaUserAlt, FaHome, FaTable } from "react-icons/fa";
 import '../styles/Navbar.component.css';
 
 const Navbar = () => {
@@ -8,8 +8,8 @@ const Navbar = () => {
         <div className="navbar">
             <Link to="/" className="nav-brand">Sticky-Memo</Link>
             <div className="navbar-center-btns">
-                <Link to="/Boards" className="nav-items">
-                    <FaChalkboard /><span className="nav-hide">&nbsp;Boards</span>
+                <Link to="/" className="nav-items">
+                    <FaHome /><span className="nav-hide">&nbsp;Home</span>
                 </Link>
                 <Link to="/Tables" className="nav-items">
                     <FaTable /><span className="nav-hide">&nbsp;Tables</span>

@@ -9,7 +9,7 @@ thead {
 }
 
 .scrollable-table {
-    height: 500px;
+    height: 400px;
     width: 90%; 
     max-width: 1000px;
     overflow-y: auto;
@@ -22,37 +22,49 @@ thead {
 }
 
 .table-head {
-    background-color: black;
+    background-color: #E85D56;
     color: white;
     text-align: center;
     padding: 15px;
 }
 
 .Tables-form-container {
-    display: inline-flex;
-    flex-direction: row;
-    margin: 5px auto;
-    padding: 20px;
+    transform: translateY(283px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background: #E8DCD0;
 }
 
 .Tables-form-group {
-    margin-right: 5px;
+    width: 350px;
     font-size: 16px;
+    margin: 5px;
 }
 
 .Tables-form-control {
     font-size: 16px;
-    color: black;
-    border-radius: 20px;
+    border: none;
+    outline: none;
+    color: #E85D56;
     margin-left: 5px;
-    text-align: center;
-    border: 3px inset blue;
-    opacity: 80%;
+    padding: 5px;
+    width: 260px;
+
 }
 
 .Tables-submit-btn {
+    color: #E8DCD0;
     background-color: #FF6B6B;
     border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .Tables-submit-btn:hover {
@@ -65,7 +77,7 @@ thead {
 /* Row styles */
 .row {
     color: black;
-    background-color: lightgoldenrodyellow;
+    background-color: #E8DCD0;
     height: auto;
     width: 100%;
 }
@@ -89,6 +101,8 @@ thead {
 }
 
 .row-btn {
+    border: none;
+    outline: none;
     height: 30px;
     width: 30px;
     align-items: center;
@@ -186,7 +200,6 @@ thead {
     color: black;
     height: auto;
     width: 100%;
-    cursor: move; 
 }
 
 .row:hover {
@@ -199,61 +212,6 @@ thead {
 /*
    Responsive styles 
 */
-
-@media (max-width: 768px) {
-    .scrollable-table {
-        width: 100%;
-    }
-
-    .table-container {
-        width: 100%;
-    }
-
-    .Tables-form-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .Tables-form-group {
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    .Tables-form-control {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .Tables-submit-btn {
-        width: 90%;
-        margin-top: 10px;
-    }
-
-    .row {
-        width: 90%;
-    }
-
-    .row-data {
-        font-size: 0.9em;
-    }
-
-    .row-btns {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .row-btn {
-        margin-right: 10px;
-    }
-
-    .row-delete-btn,
-    .row-check-btn,
-    .row-hold-btn {
-        width: 40px;
-        height: 40px;
-    }
-}
-
 @media (max-width: 480px) {
     .Tables-form-group {
         font-size: 14px;
@@ -270,5 +228,20 @@ thead {
     .row-btn {
         width: 35px;
         height: 35px;
+    }
+
+    .Tables-form-container {
+        transform: translateY(220px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        background: #E8DCD0;
+    }
+    
+    .Tables-form-control {
+        font-size: 12px;
+        width: 200px;
     }
 }

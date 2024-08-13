@@ -2,8 +2,8 @@
     width: 100%;
     text-align: center;
     padding: 5px;
-    background-color: lightseagreen;
-    color: #FFFFFF; 
+    background-color: #E8DCD0;
+    color: black; 
     position: fixed;
     bottom: 0;
     left: 0;
@@ -12,7 +12,7 @@
 }
 
 .footer .link {
-    color: #8B0000;
+    color: #E85D56;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease; 
@@ -20,4 +20,17 @@
 
 .footer .link:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 410px) {
+    .footer {
+        width: 100%;
+        height: 30px;
+        padding: 5px;
+        background-color: #E8DCD0;
+        color: black; 
+        position: fixed;
+        bottom: 0;
+        font-size: 9px;
+    }
 }
