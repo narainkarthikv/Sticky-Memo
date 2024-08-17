@@ -1,5 +1,7 @@
 .NoteList {
   width: 100%;
+  height: 87vh;
+  background: var(--body_bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,12 +39,12 @@
 .note {
   display: flex;
   flex-direction: column;
-  background-color: #6d6c69;
+  background-color: var(--note_bg);
   border-radius: 10px;
   width: 200px;
   height: 275px;
   text-align: left;
-  color: #E8DCD0;
+  color: var(--note_txt);
   margin: 10px;
 }
 
@@ -52,18 +54,18 @@
 }
 
 .note-check {
-  background-color: #27ae5f4b;
-  color: black;
+  background-color: var(--note_check);
+  color: var(--note_check_txt);
 }
 
 .note-hold {
-  background-color: #e8dcd0b0;
-  color: black;
+  background-color: var(--note_hold);
+  color: var(--note_hold_txt);
 }
 
 .note-title {
-  background-color: #e74d3c98;
-  color: #E8DCD0;
+  background-color: var(--note_title_bg);
+  color: var(--note_title_txt);
   font-size: 1.3em;
   font-weight: bold;
   padding: 10px;
@@ -120,8 +122,8 @@
 }
 
 .note-delete-btn {
-  color: #E8DCD0;
-  background-color: #e74d3c98;
+  color: var(--note_del_btn);
+  background-color: var(--note_del_txt);
   outline: none;
   border: none;
 
@@ -135,8 +137,8 @@
 }
 
 .note-check-btn {
-  color: #27ae60;
-  background-color: #e74d3c98;
+  color: var(--note_check_btn);
+  background-color: var(--note_check_txt);
 }
 
 .note-check-btn:hover {
@@ -147,8 +149,8 @@
 }
 
 .note-hold-btn {
-  color: #3498db;
-  background-color: #f2f2f2;
+  color: var(--note_hold_btn);
+  background-color: var(--note_hold_txt);
 }
 
 .note-hold-btn:hover {
@@ -159,11 +161,11 @@
 }
 
 .note-checked {
-  color: #27ae60;
+  color: var(--note_checked_txt);
 }
 
 .note-held {
-  color: #3498db;
+  color: var(--hote_held_txt);
 }
 
 .CreateArea {
@@ -175,7 +177,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #E8DCD0;
+  background: var(--createarea_bg);
 }
 
 .CreateArea-textarea, 
@@ -183,7 +185,7 @@
   width: 100%;
   border: none;
   margin-bottom: 10px;
-  color: #333333;
+  color: var(--input_txt);
   outline: none;
 }
 
@@ -192,14 +194,15 @@
   font-size: 1.3rem;
   padding-bottom: 5px;
   font-weight: bold;
-  color: #e74c3c;
+  color: var(--create_txt);
 }
 .CreateArea-textarea{
   /* border: 1px solid blue; */
   margin-bottom: 15px;
   padding: 5px;
   font-size: 0.8rem;
-  color: black;
+  color: var(--text_area);
+  background: var(--body_bg);
 }
 
 .CreateArea-btn {
@@ -208,8 +211,8 @@
   font-weight: bold;
   right: 18px;
   bottom: -15px;
-  background: #ff6b6b;
-  color: #fff;
+  background: var(--create_btn);
+  color: var(--create_btn_txt);
   border: none;
   border-radius: 50%;
   width: 36px;
@@ -221,7 +224,7 @@
 
 .CreateArea-btn:hover {
   transform: scale(1.1);
-  background-color: #333333;
+  background-color: var(--create_btn_hover);
   transition: background-color 1s, transform 0.7s;
 }
 

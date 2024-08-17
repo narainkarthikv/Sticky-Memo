@@ -7,6 +7,10 @@ thead {
     position: sticky;
     top: 0;
 }
+.TableList{
+    background: var(--body_bg);
+    height: 87vh;
+}
 
 .scrollable-table {
     height: 400px;
@@ -22,8 +26,8 @@ thead {
 }
 
 .table-head {
-    background-color: #E85D56;
-    color: white;
+    background-color: var(--table_head_bg);
+    color: var(--table_head_txt);
     text-align: center;
     padding: 15px;
 }
@@ -35,7 +39,7 @@ thead {
     align-items: center;
     justify-content: center;
     padding: 5px;
-    background: #E8DCD0;
+    background: var(--table_form_bg);
 }
 
 .Tables-form-group {
@@ -48,7 +52,7 @@ thead {
     font-size: 16px;
     border: none;
     outline: none;
-    color: #E85D56;
+    color: var(--table_form_txt);
     margin-left: 5px;
     padding: 5px;
     width: 260px;
@@ -56,8 +60,8 @@ thead {
 }
 
 .Tables-submit-btn {
-    color: #E8DCD0;
-    background-color: #FF6B6B;
+    color: var(--table_submit_txt);
+    background-color: var(--table_submit_bg);
     border-radius: 20px;
     width: 40px;
     height: 40px;
@@ -68,7 +72,7 @@ thead {
 }
 
 .Tables-submit-btn:hover {
-    background-color: lightseagreen;
+    background-color: var(--table_submit_txt_hover);
     transform: scale(1.02);
     transition: background-color, transform;
     transition: 0.7s ease-in-out;
@@ -76,8 +80,8 @@ thead {
 
 /* Row styles */
 .row {
-    color: black;
-    background-color: #E8DCD0;
+    color: var(--row_txt);
+    background-color: var(--row_bg);
     height: auto;
     width: 100%;
 }
@@ -89,7 +93,7 @@ thead {
 }
 
 .row-data {
-    color: black;
+    color: var(--row_data);
     font-size: 1em;
     font-style: italic;
 }
@@ -237,7 +241,6 @@ thead {
         align-items: center;
         justify-content: center;
         padding: 5px;
-        background: #E8DCD0;
     }
     
     .Tables-form-control {

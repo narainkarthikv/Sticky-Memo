@@ -1,3 +1,179 @@
+
+
+:root {
+
+  /*body*/
+  --body_bg:white;
+
+  /* navbar */
+  --nav_bg:#E8DCD0;
+  --nav_txt:#E85D56;
+  --nav_item_bg:#E85D56;
+  --nav_item-color:#E8DCD0;
+  --profile_dropdown:#E85D56;
+  --dropdown_txt:black;
+  --dropdown_txt_hover:#E8DCD0;
+  --profile:#E85D56;
+  --profile_hover:gray;
+
+  /* footer */
+  --footer_bg:#E8DCD0;
+  --footer_txt:black;;
+  --footer_link:#E85D56;
+
+  /* board list */
+  --board_txt:#E85D56;
+  --board_border:#E85D56;
+  --board_list_bg:#E8DCD0;
+  --board_bg:white;
+  --board_head:#E8DCD0;
+  --board_head_txt:#E85D56;
+  --Board_bg:#e9a09ca6;
+  --checked:rgba(193, 221, 193, 0.733);
+  --held:rgba(119, 119, 173, 0.705);
+  --del_btn:red;
+  --check_btn:lightgreen;
+  --hold_btn:lightblue;
+  --check_board:green;
+  --hold_board:blue;
+  --create_board:white;
+  --create_border:lightseagreen;
+  --create_ttl_border:#333;
+  --submit_btn:#FF6B6B;
+  --submit_txt:white;
+
+
+  /* notelist */
+  --note_bg:#6d6c69;
+  --note_txt:#E8DCD0;
+  --note_check:#27ae5f4b;
+  --note_check_txt:black;
+  --note_hold:#e8dcd0b0;
+  --note_hold_txt:black;
+  --note_title_bg:#e74d3c98;
+  --note_title_txt:#E8DCD0;
+  --note_del_btn:#E8DCD0;
+  --note_del_txt:#e74d3c98;
+  --note_check_btn:#e74d3c98;
+  --note_check_txt:#27ae60;
+  --note_hold_btn:#f2f2f2;
+  --note_hold_txt:#3498db;
+  --note_checked_txt:#27ae60;
+  --note_held_txt:#3498db;
+  --createarea_bg:#E8DCD0;
+  --input_txt:#333333;
+  --create_txt:#e74c3c;
+  --text_area:black;
+  --create_btn:#ff6b6b;
+  --create_btn_txt:white;
+  --create_btn_hover:#333333;
+
+
+  /* table list */
+  --table_head_bg:#E85D56;
+  --table_head_txt:white;
+  --table_form_bg:#E8DCD0;
+  --table_form_txt:#E85D56;
+  --table_submit_bg:#FF6B6B;
+  --table_submit_txt:#E8DCD0;
+  --table_submit_txt_hover:lightseagreen;
+  --row_bg:#E8DCD0;
+  --row_txt:black;
+  --row_data:black;
+
+  --shadow:rgba(0, 0, 0, 0.1);
+  
+
+}
+
+
+
+
+
+[data-theme="dark"]{
+  /*body*/
+  --body_bg:gray;
+
+  /* navbar */
+  --nav_bg:#17232f;
+  --nav_txt:#17a2a9;
+  --nav_item_bg:#17a2a9;
+  --nav_item-color:#17232f;
+  --profile_dropdown:#17a2a9;
+  --dropdown_txt:black;
+  --dropdown_txt_hover:#17232f;
+  --profile:#17a2a9;
+  --profile_hover:gray;
+
+  /* footer */
+  --footer_bg:#17232f;
+  --footer_txt:black;;
+  --footer_link:#17a2a9;
+
+  /* board list */
+  --board_txt:#17a2a9;
+  --board_border:#17a2a9;
+  --board_list_bg:#17232f;
+  --board_bg:gray;
+  --board_head:#17232f;
+  --board_head_txt:#17a2a9;
+  --Board_bg:#e9a09ca6;
+  --checked:rgba(193, 221, 193, 0.733);
+  --held:rgba(119, 119, 173, 0.705);
+  --del_btn:red;
+  --check_btn:lightgreen;
+  --hold_btn:lightblue;
+  --check_board:green;
+  --hold_board:blue;
+  --create_board:white;
+  --create_border:lightseagreen;
+  --create_ttl_border:#333;
+  --submit_btn:#FF6B6B;
+  --submit_txt:white;
+
+
+  /* notelist */
+  --note_bg:#6d6c69;
+  --note_txt:#17232f;
+  --note_check:#27ae5f4b;
+  --note_check_txt:black;
+  --note_hold:#e8dcd0b0;
+  --note_hold_txt:black;
+  --note_title_bg:#e74d3c98;
+  --note_title_txt:#17232f;
+  --note_del_btn:#17232f;
+  --note_del_txt:#e74d3c98;
+  --note_check_btn:#e74d3c98;
+  --note_check_txt:#27ae60;
+  --note_hold_btn:#f2f2f2;
+  --note_hold_txt:#3498db;
+  --note_checked_txt:#27ae60;
+  --note_held_txt:#3498db;
+  --createarea_bg:#17232f;
+  --input_txt:#333333;
+  --create_txt:#e74c3c;
+  --text_area:black;
+  --create_btn:#ff6b6b;
+  --create_btn_txt:white;
+  --create_btn_hover:#333333;
+
+
+  /* table list */
+  --table_head_bg:#17a2a9;
+  --table_head_txt:white;
+  --table_form_bg:#17232f;
+  --table_form_txt:#17a2a9;
+  --table_submit_bg:#FF6B6B;
+  --table_submit_txt:#17232f;
+  --table_submit_txt_hover:lightseagreen;
+  --row_bg:#17232f;
+  --row_txt:black;
+  --row_data:black;
+
+  --shadow:rgba(202, 181, 181, 0.1);
+
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
