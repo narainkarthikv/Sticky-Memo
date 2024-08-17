@@ -28,9 +28,9 @@
   --board_bg:white;
   --board_head:#E8DCD0;
   --board_head_txt:#E85D56;
-  --Board_bg:#e9a09ca6;
-  --checked:rgba(193, 221, 193, 0.733);
-  --held:rgba(119, 119, 173, 0.705);
+  --Board_bg:#f5c73def;
+  --checked:#27ae5f4b;
+  --held:rgb(194, 223, 255);
   --del_btn:red;
   --check_btn:lightgreen;
   --hold_btn:lightblue;
@@ -44,11 +44,11 @@
 
 
   /* notelist */
-  --note_bg:#6d6c69;
-  --note_txt:#E8DCD0;
+  --note_bg:#f5c73def;
+  --note_txt:black;
   --note_check:#27ae5f4b;
   --note_check_txt:black;
-  --note_hold:#e8dcd0b0;
+  --note_hold:rgb(194, 223, 255);
   --note_hold_txt:black;
   --note_title_bg:#e74d3c98;
   --note_title_txt:#E8DCD0;
@@ -77,7 +77,7 @@
   --table_submit_bg:#FF6B6B;
   --table_submit_txt:#E8DCD0;
   --table_submit_txt_hover:lightseagreen;
-  --row_bg:#E8DCD0;
+  --row_bg:#f5c73def;
   --row_txt:black;
   --row_data:black;
 
@@ -107,7 +107,7 @@
 
   /* footer */
   --footer_bg:#17232f;
-  --footer_txt:black;;
+  --footer_txt:white;
   --footer_link:#17a2a9;
 
   /* board list */
@@ -117,9 +117,9 @@
   --board_bg:gray;
   --board_head:#17232f;
   --board_head_txt:#17a2a9;
-  --Board_bg:#e9a09ca6;
-  --checked:rgba(193, 221, 193, 0.733);
-  --held:rgba(119, 119, 173, 0.705);
+  /* --Board_bg:#e9a09ca6; */
+  /* --checked:rgba(193, 221, 193, 0.733); */
+  /* --held:rgba(119, 119, 173, 0.705); */
   --del_btn:red;
   --check_btn:lightgreen;
   --hold_btn:lightblue;
@@ -133,18 +133,17 @@
 
 
   /* notelist */
-  --note_bg:#6d6c69;
+  --note_bg:#c49403ef;
   --note_txt:#17232f;
-  --note_check:#27ae5f4b;
+  --note_check:#1f8a4cb7;
   --note_check_txt:black;
-  --note_hold:#e8dcd0b0;
+  --note_hold:rgb(137, 191, 248);
   --note_hold_txt:black;
   --note_title_bg:#e74d3c98;
   --note_title_txt:#17232f;
   --note_del_btn:#17232f;
   --note_del_txt:#e74d3c98;
   --note_check_btn:#e74d3c98;
-  --note_check_txt:#27ae60;
   --note_hold_btn:#f2f2f2;
   --note_hold_txt:#3498db;
   --note_checked_txt:#27ae60;
@@ -166,7 +165,7 @@
   --table_submit_bg:#FF6B6B;
   --table_submit_txt:#17232f;
   --table_submit_txt_hover:lightseagreen;
-  --row_bg:#17232f;
+  --row_bg:#c49403ef;
   --row_txt:black;
   --row_data:black;
 
