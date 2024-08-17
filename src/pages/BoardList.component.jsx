@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
 import Board from '../components/Board.component';
-import CreateBoard from '../components/CreateBoard.component';
+// import CreateBoard from '../components/CreateBoard.component';
 import '../styles/BoardList.component.css';
 import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
 
@@ -49,7 +49,7 @@ const BoardList = () => {
               all={item.all}
             />
           ))}
-          <CreateBoard onAdd={(newItem) => addItem(setItems, newItem)} />
+          {/* <CreateBoard onAdd={(newItem) => addItem(setItems, newItem)} /> */}
         </div>
         <div className="held-boards">
           <h4 className="BoardList-header">Held Boards</h4>
