@@ -1,4 +1,3 @@
-// NoteList.jsx
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
@@ -30,6 +29,13 @@ const NoteList = () => {
     setDraggingIndex(null);
   };
 
+  const handleSave = (id, newTitle, newContent) => {
+    const updatedItems = items.map((item, index) =>
+      index === id ? { ...item, title: newTitle, content: newContent } : item
+    );
+    setItems(updatedItems);
+  };
+
   return (
     <div className="note-list">
       <div>
@@ -45,6 +51,7 @@ const NoteList = () => {
             onDelete={() => deleteItem(setItems, index)}
             onCheck={() => checkItem(setItems, index)}
             onHold={() => holdItem(setItems, index)}
+            onSave={handleSave}
             checked={item.checked}
             held={item.held}
             all={item.all}

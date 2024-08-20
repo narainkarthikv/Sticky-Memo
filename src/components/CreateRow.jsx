@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import '../styles/TableList.css';
+import { toast } from "react-toastify";
 
 function CreateRow(props){
 
@@ -16,7 +17,7 @@ function CreateRow(props){
 
     function submitRow(event) {
        if(!isValid) {
-            alert("Don't Waste Rows :)");
+            toast.warn("Don't Waste Rows :)");
             event.preventDefault();
             return;
        }
@@ -28,6 +29,7 @@ function CreateRow(props){
             content: ""
         });
         setIsValid(false);
+        toast.success('Note Added Successfully');
        }
        event.preventDefault();
     }

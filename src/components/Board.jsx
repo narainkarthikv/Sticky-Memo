@@ -1,9 +1,11 @@
 import { FaCheckCircle, FaTrash, FaHandPaper } from "react-icons/fa";
+import { toast } from "react-toastify";
 import '../styles/BoardList.css';
 
 const Board = (props) => {
     function handleDelete(){
         props.onDelete(props.id);
+        toast.success('Note Delete Successfully');
     }
 
     function handleHold(){

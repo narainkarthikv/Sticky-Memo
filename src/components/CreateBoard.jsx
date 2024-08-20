@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 import '../styles/BoardList.css';
 
 const CreateBoard = (props) => {
@@ -15,7 +16,7 @@ const CreateBoard = (props) => {
 
     function submitBoard(event){
         if(!isValid){
-            alert("Don't Waste Boards :)");
+            toast.warn("Don't Waste Boards :)");
             event.preventDefault();
             return 
         }
@@ -26,6 +27,7 @@ const CreateBoard = (props) => {
                 content: ""
             });
             setIsValid(false);
+            toast.success('Note Added Successfully');
         }
         event.preventDefault();
     }
