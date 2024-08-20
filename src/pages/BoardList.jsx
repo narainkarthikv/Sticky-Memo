@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
-import Board from '../components/Board.component';
-import CreateBoard from '../components/CreateBoard.component';
-import '../styles/BoardList.component.css';
+import Board from '../components/Board';
+import CreateBoard from '../components/CreateBoard';
+import '../styles/BoardList.css';
 import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
 
 const BoardList = () => {

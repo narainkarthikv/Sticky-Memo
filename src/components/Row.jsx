@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import { FaTrash, FaCheckCircle, FaHandPaper } from "react-icons/fa";
-import '../styles/TableList.component.css';
-import '../styles/NoteList.component.css';
+import '../styles/TableList.css';
+import '../styles/NoteList.css';
 
 const ItemType = 'ROW';
 
