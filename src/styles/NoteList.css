@@ -84,6 +84,8 @@
   top: 75px;
   right: 75px;
   display: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .note:hover .note-buttons {
@@ -203,4 +205,16 @@
   transform: scale(1.1);
   background-color: lightseagreen;
   transition: background-color 1s, transform 0.7s;
+}
+
+.note-edit-button{
+  color: #008000;
+  background-color: #f2f2f2;
+}
+
+.note-edit-button:hover {
+  animation-duration: 0.5s;
+  animation-name: checkBounce;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }

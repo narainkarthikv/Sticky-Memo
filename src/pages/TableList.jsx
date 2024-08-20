@@ -20,6 +20,13 @@ const TableList = () => {
     setItems(updatedItems);
   };
 
+  const handleSave = (id, newTitle, newContent) => {
+    const updatedItems = items.map((item, index) =>
+      index === id ? { ...item, title: newTitle, content: newContent } : item
+    );
+    setItems(updatedItems);
+  };
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="TableList">
@@ -43,6 +50,7 @@ const TableList = () => {
                   onDelete={() => deleteItem(setItems, index)}
                   onCheck={() => checkItem(setItems, index)}
                   onHold={() => holdItem(setItems, index)}
+                  onSave={handleSave}
                   checked={item.checked}
                   held={item.held}
                   all={item.all}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from 'react-toastify';
 import "../styles/NoteList.css";
 
 function CreateArea(props) {
@@ -15,11 +16,11 @@ function CreateArea(props) {
 
   function submitNote(event) {
     if (!isValid) {
-      alert("Don't Waste Notes :)");
+      toast.warn("Don't Waste Notes :)");
       event.preventDefault();
       return;
     }
-
+  
     if (isValid) {
       props.onAdd(note);
       setNote({
@@ -27,6 +28,7 @@ function CreateArea(props) {
         content: "",
       });
       setIsValid(false);
+      toast.success("Note added successfully!");
     }
     event.preventDefault();
   }
