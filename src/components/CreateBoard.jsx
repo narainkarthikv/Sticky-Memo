@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../styles/BoardList.component.css';
+import '../styles/BoardList.css';
 
 const CreateBoard = (props) => {
 

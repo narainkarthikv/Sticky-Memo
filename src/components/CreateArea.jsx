@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/NoteList.component.css";
+import "../styles/NoteList.css";
 
 function CreateArea(props) {
   const [note, setNote] = useState({
@@ -43,14 +43,14 @@ function CreateArea(props) {
 
   return (
     <div>
-      <form className="CreateArea">
+      <form className="create-area">
         <input
           name="title"
           value={note.title}
           onChange={handleChange}
           onBlur={validateForm}
           placeholder="Title"
-          className="CreateArea-input"
+          className="create-area-input"
           autoComplete="true"
           style={{ maxWidth: "100%", backgroundColor: "transparent" }}
         />
@@ -62,11 +62,11 @@ function CreateArea(props) {
           onBlur={validateForm}
           placeholder="Stick up your Notes!..."
           rows="3"
-          className="CreateArea-textarea"
+          className="create-area-textarea"
           autoComplete="true"
         />
 
-        <button className="CreateArea-btn" onClick={submitNote}>
+        <button className="create-area-button" onClick={submitNote}>
           +
         </button>
       </form>

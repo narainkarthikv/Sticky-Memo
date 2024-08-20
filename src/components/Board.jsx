@@ -1,4 +1,5 @@
 import { FaCheckCircle, FaTrash, FaHandPaper } from "react-icons/fa";
+import '../styles/BoardList.css';
 
 const Board = (props) => {
     function handleDelete(){

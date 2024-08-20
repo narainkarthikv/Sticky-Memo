@@ -2,11 +2,11 @@ import React from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
 import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
-import CreateRow from '../components/CreateRow.component';
-import Row from '../components/Row.component';
+import CreateRow from '../components/CreateRow';
+import Row from '../components/Row';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import '../styles/TableList.component.css';
+import '../styles/TableList.css';
 
 const TableList = () => {
   const [items, setItems] = useRecoilState(itemsState);
