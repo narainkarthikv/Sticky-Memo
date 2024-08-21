@@ -19,6 +19,8 @@ const Navbar = () => {
                     <FaTable /><span className="nav-hide">&nbsp;Tables</span>
                 </Link>
             </div>
+            <div className="nav-content">
+                <DarkMode />
             <div className="nav-profile">
                 <FaUserAlt className="profile-logo" />
                 <div className="dropdown">
@@ -42,6 +44,7 @@ const Navbar = () => {
                     )}
                 </div>
             </div>
+        </div>
         </div>
     );
 };
