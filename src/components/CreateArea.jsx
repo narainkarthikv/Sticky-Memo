@@ -45,14 +45,14 @@ function CreateArea(props) {
 
   return (
     <div>
-      <form className="create-area">
+      <form className="CreateArea">
         <input
           name="title"
           value={note.title}
           onChange={handleChange}
           onBlur={validateForm}
           placeholder="Title"
-          className="create-area-input"
+          className="CreateArea-input"
           autoComplete="true"
           style={{ maxWidth: "100%", backgroundColor: "transparent" }}
         />
@@ -64,11 +64,11 @@ function CreateArea(props) {
           onBlur={validateForm}
           placeholder="Stick up your Notes!..."
           rows="3"
-          className="create-area-textarea"
+          className="CreateArea-textarea"
           autoComplete="true"
         />
 
-        <button className="create-area-button" onClick={submitNote}>
+        <button className="CreateArea-btn" onClick={submitNote}>
           +
         </button>
       </form>

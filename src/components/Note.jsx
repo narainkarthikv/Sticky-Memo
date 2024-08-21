@@ -32,7 +32,7 @@ const Note = (props) => {
 
   return (
     <div
-      className={`note ${props.checked && 'note-checked'} ${props.held && 'note-held'} ${props.isDragging && 'note-dragging'}`}
+      className={`note ${props.checked && 'note-check'} ${props.held && 'note-held'} ${props.isDragging && 'note-dragging'}`}
       draggable
       onDragStart={props.onDragStart}
       onDragOver={props.onDragOver}
@@ -61,14 +61,14 @@ const Note = (props) => {
         )}
       </div>
       {props.all && (
-        <div className="note-buttons">
-          <button onClick={handleDelete} className="note-button note-delete-button"><FaTrash /></button>
-          <button onClick={handleCheck} className={`note-button ${props.checked && 'note-checked-button'}`}><FaCheckCircle className={`${props.checked && 'note-checked-icon'}`} /></button>
-          <button onClick={handleHold} className={`note-button ${props.held && 'note-held-button'}`}><FaHandPaper className={`${props.held && 'note-held-icon'}`} /></button>
+        <div className="note-btns">
+          <button onClick={handleDelete} className={`note-btn note-delete-btn`}><FaTrash /></button>
+          <button onClick={handleCheck} className={`note-btn ${props.checked && "note-check-btn"}`}><FaCheckCircle className={`${props.checked && 'note-checked-icon'}`} /></button>
+          <button onClick={handleHold} className={`note-btn ${props.held && "note-hold-btn"}`}> <FaHandPaper className={`${props.held && "note-held"}`} /></button>
           {isEditing ? (
-            <button onClick={handleSave} className="note-button note-save-button"><FaSave /></button>
+            <button onClick={handleSave} className="note-btn note-save-button"><FaSave /></button>
           ) : (
-            <button onClick={handleEdit} className="note-button note-edit-button"><FaPlus className={`${props.held && 'note-held-icon'}`} /></button>
+            <button onClick={handleEdit} className="note-btn note-edit-button"><FaPlus className={`${props.held && 'note-held-icon'}`} /></button>
           )}
         </div>
       )}
