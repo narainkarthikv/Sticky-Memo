@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lightseagreen;
+  background-color: var(--nav_bg);
   padding: 0.5rem 1.5rem;
 }
 
@@ -12,10 +12,11 @@
 }
 
 .nav-brand {
-  color: whitesmoke;
+  color: var(--nav_txt);
   text-decoration: none;
   cursor: pointer;
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .nav-items {
@@ -26,11 +27,11 @@
   height: 3rem;
   aspect-ratio: 1 / 1;
   border-radius: 100px;
-  background-color: whitesmoke;
+  background-color: var(--nav_item_bg);
   transition: width 0.3s ease;
   overflow: hidden;
   text-decoration: none;
-  color: black;
+  color: var(--nav_item_color);
 }
 
 .nav-items:hover {
@@ -58,28 +59,28 @@
 
 .nav-profile {
   position: relative;
-  display: block;
   float: right;
   font-size: 20px;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .nav-profile .dropdown {
   display: none;
   position: absolute;
   right: 0;
-  background-color: #f1f1f1;
-  width: 160px;
+  background-color: var(--profile_dropdown);
+  width: 130px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 15px;
 }
 
 .nav-profile .dropdown .dropdown-items {
-  color: black;
+  color: var(--dropdown_txt);
   padding: 12px 14px;
   text-decoration: none;
   display: block;
@@ -93,16 +94,29 @@
 
 .nav-profile .dropdown .dropdown-items span:hover {
   font-size: 18px;
-  color: red;
+  color: var(--dropdown_txt_hover);
   transition-property: color, font-size;
-  transition: ease-in 0.3s;
+  transition: ease-in-out 0.3s;
 }
 
 .profile-logo{
-  color: #f1f1f1;
+  color: var(--profile);
   transition: 0.5s ease-in-out;
+  margin-left: 10px;
 }
 
 .profile-logo:hover{
-  color: #333;
+  color: var(--profile_hover);
+}
+
+.btn-pro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
