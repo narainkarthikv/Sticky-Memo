@@ -27,7 +27,7 @@ const CreateBoard = (props) => {
                 content: ""
             });
             setIsValid(false);
-            toast.success('Note Added Successfully');
+            toast.success('Board Added Successfully');
         }
         event.preventDefault();
     }

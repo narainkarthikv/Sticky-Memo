@@ -6,7 +6,6 @@
 }
 
 .notes-container {
-  overflow-y: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
