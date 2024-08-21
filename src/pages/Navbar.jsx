@@ -37,7 +37,7 @@ const Navbar = () => {
                         </Link>
                     ) : (
                         <Link to="/register" className="dropdown-items">
-                            <span>Register</span>
+                            <span>Register </span>
                         </Link>
                     )}
                 </div>
