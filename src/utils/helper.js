@@ -1,4 +1,3 @@
-// src/utils/helpers.js
 export const addItem = (setItems, newItem) => {
     setItems((prevItems) => [
       ...prevItems,

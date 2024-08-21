@@ -5,7 +5,7 @@ import '../styles/BoardList.css';
 const Board = (props) => {
     function handleDelete(){
         props.onDelete(props.id);
-        toast.success('Note Delete Successfully');
+        toast.error('Board Deleted Successfully');
     }
 
     function handleHold(){

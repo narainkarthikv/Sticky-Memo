@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
+import { toast } from "react-toastify";
 import { FaTrash, FaCheckCircle, FaHandPaper, FaSave, FaPlus } from "react-icons/fa";
 import '../styles/TableList.css';
 import '../styles/NoteList.css';
@@ -58,6 +59,19 @@ function Row({ id, index, title, content, onDelete, onCheck, onHold, onSave, che
         setEditedContent(event.target.value);
     };
 
+    function handleDelete(){
+        onDelete(id);
+        toast.error('Row Deleted Successfully');
+    }
+
+    function handleHold(){
+        onHold(id);
+    }
+
+    function handleCheck(){
+        onCheck(id);
+    }
+
     return (
         <tr
             ref={ref}
@@ -89,9 +103,9 @@ function Row({ id, index, title, content, onDelete, onCheck, onHold, onSave, che
             </td>
             <td className="row-data">
                 <div className="row-btns">
-                    <button onClick={() => onDelete(id)} className="row-btn row-delete-btn"><FaTrash /></button>
-                    <button onClick={() => onCheck(id)} className={`row-btn ${checked ? "row-check-btn" : ""}`}><FaCheckCircle className={`${checked ? "row-checked" : ""}`} /></button>
-                    <button onClick={() => onHold(id)} className={`row-btn ${held ? "row-hold-btn" : ""}`}><FaHandPaper className={`${held ? "row-held" : ""}`} /></button>
+                    <button onClick={handleDelete} className="row-btn row-delete-btn"><FaTrash /></button>
+                    <button onClick={handleCheck} className={`row-btn ${checked ? "row-check-btn" : ""}`}><FaCheckCircle className={`${checked ? "row-checked" : ""}`} /></button>
+                    <button onClick={handleHold} className={`row-btn ${held ? "row-hold-btn" : ""}`}><FaHandPaper className={`${held ? "row-held" : ""}`} /></button>
                     {isEditing ? (
                         <button onClick={handleSave} className="row-btn row-save-btn"><FaSave /></button>
                     ) : (

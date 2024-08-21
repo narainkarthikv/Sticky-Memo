@@ -10,7 +10,7 @@ const Note = (props) => {
 
   const handleDelete = () => {
     props.onDelete(props.id);
-    toast.success('Notes Delete Successfully')
+    toast.error('Note Delete Successfully');
   };
 
   const handleCheck = () => {
