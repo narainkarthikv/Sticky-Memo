@@ -37,7 +37,7 @@ const NoteList = () => {
   };
 
   return (
-    <div className="note-list">
+    <div className="NoteList">
       <div>
         <CreateArea onAdd={(newItem) => addItem(setItems, newItem)} />
       </div>
