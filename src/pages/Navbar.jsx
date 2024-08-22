@@ -6,7 +6,7 @@ import '../styles/Navbar.css';
 const Navbar = () => {
     return (
         <div className="navbar">
-            <Link to="/" className="nav-brand">Sticky-Memo</Link>
+            <Link to="/" className="nav-brand">Sticky Memo</Link>
             <div className="navbar-center-btns">
                 <Link to="/Boards" className="nav-items">
                     <FaChalkboard /><span className="nav-hide">&nbsp;Boards</span>

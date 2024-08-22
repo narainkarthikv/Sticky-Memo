@@ -1,0 +1,88 @@
+.Item-btn {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #FF6B6B;
+  color: #fff;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Item-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.Item-btn:hover {
+  background-color: #4CAF50;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.Item-btns {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.Item-delete-btn:hover {
+  background-color: red;
+}
+
+.Item-checked-btn:hover {
+  background-color: green;
+}
+
+.Item-held-btn:hover {
+  background-color: blue;
+}
+
+.Item-edit-btn:hover {
+  background-color: slategrey;
+}
+
+.Item-save-btn:hover {
+  background-color: steelblue;
+}
+
+.Item-btn {
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+}
+
+.Item-btn:active {
+  transform: scale(0.95);
+  background-color: #3e8e41;
+}
+
+.CreateItem-btn {
+  position: absolute;
+  right: 18px;
+  bottom: -15px;
+  background-color: #58a6ff;
+  font-size: 1.3em;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 48px; 
+  height: 48px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.CreateItem-btn:hover {
+  background-color: #1a73e8;
+  transform: translateY(-2px); 
+}
+
+.CreateItem-btn:active {
+  transform: translateY(1px); 
+}

@@ -3,12 +3,12 @@ import { toast } from 'react-toastify';
 import '../styles/BoardList.css';
 
 const CreateBoard = (props) => {
-
     const [isValid, setIsValid] = useState(false);
 
     function validateForm(){
         setIsValid(board.title.trim() !== "" && board.content.trim() !== "");
     }
+
     const [board, setBoard] = useState({
         title: "",
         content: ""
@@ -18,7 +18,7 @@ const CreateBoard = (props) => {
         if(!isValid){
             toast.warn("Don't Waste Boards :)");
             event.preventDefault();
-            return 
+            return;
         }
         if(isValid){
             props.onAdd(board);
@@ -58,17 +58,17 @@ const CreateBoard = (props) => {
                 id="content"
                 name="content"
                 value={board.content}
-                placeholder="Your Board Content"
+                placeholder="Type your Content !..."
                 onBlur={validateForm}
                 onChange={handleChange}
                 autoComplete="true"
                 className="CreateBoard-content"
             />
-            <button className="CreateBoard-submit-btn" onClick={submitBoard}>
+            <button className="CreateNote-btn" onClick={submitBoard}>
                 +
             </button>
         </div>
-    )
+    );
 }
 
 export default CreateBoard;

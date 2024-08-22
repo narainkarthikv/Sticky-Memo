@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { toast } from 'react-toastify';
 import "../styles/NoteList.css";
+import '../styles/Button.css';
 
-function CreateArea(props) {
+function CreateNote(props) {
   const [note, setNote] = useState({
     title: "",
     content: "",
@@ -62,13 +63,13 @@ function CreateArea(props) {
           value={note.content}
           onChange={handleChange}
           onBlur={validateForm}
-          placeholder="Stick up your Notes!..."
+          placeholder="Type your Content !..."
           rows="3"
           className="create-area-textarea"
           autoComplete="true"
         />
 
-        <button className="create-area-button" onClick={submitNote}>
+        <button className="CreateNote-btn" onClick={submitNote}>
           +
         </button>
       </form>
@@ -76,4 +77,4 @@ function CreateArea(props) {
   );
 }
 
-export default CreateArea;
+export default CreateNote;

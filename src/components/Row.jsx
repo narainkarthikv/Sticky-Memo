@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { FaTrash, FaCheckCircle, FaHandPaper, FaSave, FaPlus } from "react-icons/fa";
 import '../styles/TableList.css';
 import '../styles/NoteList.css';
+import '../styles/Button.css';
 
 const ItemType = 'ROW';
 
@@ -102,14 +103,14 @@ function Row({ id, index, title, content, onDelete, onCheck, onHold, onSave, che
                 )}
             </td>
             <td className="row-data">
-                <div className="row-btns">
-                    <button onClick={handleDelete} className="row-btn row-delete-btn"><FaTrash /></button>
-                    <button onClick={handleCheck} className={`row-btn ${checked ? "row-check-btn" : ""}`}><FaCheckCircle className={`${checked ? "row-checked" : ""}`} /></button>
-                    <button onClick={handleHold} className={`row-btn ${held ? "row-hold-btn" : ""}`}><FaHandPaper className={`${held ? "row-held" : ""}`} /></button>
+                <div className="Item-btns">
+                    <button onClick={handleDelete} className="Item-btn Item-delete-btn"><FaTrash /></button>
+                    <button onClick={handleCheck} className="Item-btn Item-checked-btn"><FaCheckCircle /></button>
+                    <button onClick={handleHold} className="Item-btn Item-held-btn"><FaHandPaper /></button>
                     {isEditing ? (
-                        <button onClick={handleSave} className="row-btn row-save-btn"><FaSave /></button>
+                        <button onClick={handleSave} className="Item-btn Item-save-btn"><FaSave /></button>
                     ) : (
-                        <button onClick={handleEdit} className="row-btn row-edit-btn"><FaPlus /></button>
+                        <button onClick={handleEdit} className="Item-btn Item-edit-btn"><FaPlus /></button>
                     )}
                 </div>
             </td>

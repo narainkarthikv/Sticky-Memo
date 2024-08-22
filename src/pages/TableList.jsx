@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
 import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
@@ -10,6 +10,7 @@ import '../styles/TableList.css';
 
 const TableList = () => {
   const [items, setItems] = useRecoilState(itemsState);
+  const [filter, setFilter] = useState('');
 
   // Function to drag and drop the row 
   const moveRow = (dragIndex, hoverIndex) => {
@@ -27,12 +28,24 @@ const TableList = () => {
     setItems(updatedItems);
   };
 
+  // Filter items based on the filter state
+  const filteredItems = items.filter((item) =>
+    item.title.toLowerCase().includes(filter.toLowerCase()) ||
+    item.content.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="TableList">
+        <input
+          className="filter-input boards-filter"
+          placeholder="Filter Rows!..."
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        />
         <div className="scrollable-table">
           <table className="table-container">
-            <thead>
+            <thead className="table-header">
               <tr>
                 <th className="table-head">Title</th>
                 <th className="table-head">Content</th>
@@ -40,7 +53,7 @@ const TableList = () => {
               </tr>
             </thead>
             <tbody>
-              {items.map((item, index) => (
+              {filteredItems.map((item, index) => (
                 <Row
                   key={index}
                   id={index}

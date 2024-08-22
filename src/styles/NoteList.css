@@ -13,6 +13,7 @@
 
 .filter-input {
   font-size: 18px;
+  font-weight: bold;
   font-family: inherit;
   outline: none;
   resize: none;
@@ -45,8 +46,8 @@
 }
 
 .note:hover {
-  transform: scale(1.05);
-  transition: transform 0.7s ease-in-out;
+  transform: scale(1.01);
+  transition: transform 0.3s ease-in;
 }
 
 .note-checked {
@@ -78,90 +79,6 @@
   font-weight: bold;
 }
 
-.note-buttons {
-  position: absolute;
-  top: 75px;
-  right: 75px;
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.note:hover .note-buttons {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.note-button {
-  height: 30px;
-  width: 30px;
-  margin-left: 5px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.7s ease-in-out;
-}
-
-.note-button:hover {
-  transform: scale(1.1);
-  transition: transform 0.7s ease-in-out;
-}
-
-@keyframes checkBounce {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-3px);
-  }
-}
-
-.note-delete-button {
-  color: #e74c3c;
-  background-color: #f2f2f2;
-}
-
-.note-delete-button:hover {
-  animation-duration: 0.5s;
-  animation-name: checkBounce;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-.note-checked-button {
-  color: #27ae60;
-  background-color: #f2f2f2;
-}
-
-.note-checked-button:hover {
-  animation-duration: 0.5s;
-  animation-name: checkBounce;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-.note-held-button {
-  color: #3498db;
-  background-color: #f2f2f2;
-}
-
-.note-held-button:hover {
-  animation-duration: 0.5s;
-  animation-name: checkBounce;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-.note-checked-icon {
-  color: #27ae60;
-}
-
-.note-held-icon {
-  color: #3498db;
-}
-
 .create-area {
   position: relative;
   width: 200px;
@@ -185,35 +102,40 @@
   resize: none;
 }
 
-.create-area-button {
+/* Existing styles omitted for brevity */
+
+.CreateNote-btn {
   position: absolute;
   right: 18px;
   bottom: -15px;
-  background: #FF6B6B;
+  background-color: #58a6ff;
+  font-size: 1.3em;
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  width: 48px; /* Increased size to match Duolingo style */
+  height: 48px; /* Increased size to match Duolingo style */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted shadow for Duolingo style */
   cursor: pointer;
   outline: none;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
-.create-area-button:hover {
-  transform: scale(1.1);
-  background-color: lightseagreen;
-  transition: background-color 1s, transform 0.7s;
+.CreateNote-btn:hover {
+  background-color: #1a73e8;
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
-.note-edit-button{
-  color: #008000;
-  background-color: #f2f2f2;
+.CreateNote-btn:active {
+  transform: translateY(1px); /* Slight push effect */
 }
 
-.note-edit-button:hover {
-  animation-duration: 0.5s;
-  animation-name: checkBounce;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+/* Add keyframe animation for hover effects if needed */
+@keyframes checkBounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-3px);
+  }
 }
