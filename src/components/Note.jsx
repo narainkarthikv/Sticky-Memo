@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { FaCheckCircle, FaTrash, FaHandPaper, FaPlus, FaSave } from 'react-icons/fa';
 import '../styles/NoteList.css';
+import '../styles/Button.css';
 
 const Note = (props) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -10,7 +11,7 @@ const Note = (props) => {
 
   const handleDelete = () => {
     props.onDelete(props.id);
-    toast.error('Note Delete Successfully');
+    toast.error('Note Deleted Successfully');
   };
 
   const handleCheck = () => {
@@ -45,12 +46,12 @@ const Note = (props) => {
               type="text" 
               value={editedTitle} 
               onChange={(e) => setEditedTitle(e.target.value)} 
-              className="note-edit-title" 
+              className="note-title" 
             />
             <textarea 
               value={editedContent} 
               onChange={(e) => setEditedContent(e.target.value)} 
-              className="note-edit-content"
+              className="note-content"
             />
           </div>
         ) : (
@@ -61,14 +62,14 @@ const Note = (props) => {
         )}
       </div>
       {props.all && (
-        <div className="note-buttons">
-          <button onClick={handleDelete} className="note-button note-delete-button"><FaTrash /></button>
-          <button onClick={handleCheck} className={`note-button ${props.checked && 'note-checked-button'}`}><FaCheckCircle className={`${props.checked && 'note-checked-icon'}`} /></button>
-          <button onClick={handleHold} className={`note-button ${props.held && 'note-held-button'}`}><FaHandPaper className={`${props.held && 'note-held-icon'}`} /></button>
+        <div className="Item-btns">
+          <button onClick={handleDelete} className="Item-btn Item-delete-btn"><FaTrash /></button>
+          <button onClick={handleCheck} className="Item-btn Item-checked-btn"><FaCheckCircle /></button>
+          <button onClick={handleHold} className="Item-btn Item-held-btn"><FaHandPaper /></button>
           {isEditing ? (
-            <button onClick={handleSave} className="note-button note-save-button"><FaSave /></button>
+            <button onClick={handleSave} className="Item-btn Item-save-btn"><FaSave /></button>
           ) : (
-            <button onClick={handleEdit} className="note-button note-edit-button"><FaPlus className={`${props.held && 'note-held-icon'}`} /></button>
+            <button onClick={handleEdit} className="Item-btn Item-edit-btn"><FaPlus /></button>
           )}
         </div>
       )}

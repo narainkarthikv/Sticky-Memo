@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
-import CreateArea from '../components/CreateArea';
+import CreateNote from '../components/CreateNote';
 import Note from '../components/Note';
-import '../styles/NoteList.css';
 import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
+import '../styles/NoteList.css';
 
 const NoteList = () => {
   const [items, setItems] = useRecoilState(itemsState);
+  const [filter, setFilter] = useState('');
   const [draggingIndex, setDraggingIndex] = useState(null);
 
   const handleDragStart = (index) => {
@@ -36,13 +37,25 @@ const NoteList = () => {
     setItems(updatedItems);
   };
 
+  // Filter notes based on the filter state
+  const filteredItems = items.filter((item) =>
+    item.title.toLowerCase().includes(filter.toLowerCase()) ||
+    item.content.toLowerCase().includes(filter.toLowerCase())
+  );
+
   return (
     <div className="note-list">
       <div>
-        <CreateArea onAdd={(newItem) => addItem(setItems, newItem)} />
+        <CreateNote onAdd={(newItem) => addItem(setItems, newItem)} />
+        <input
+          className="filter-input"
+          placeholder="Filter Notes!..."
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+        />
       </div>
       <div className="notes-container">
-        {items.map((item, index) => (
+        {filteredItems.map((item, index) => (
           <Note
             key={index}
             id={index}

@@ -6,16 +6,16 @@
   padding: 0.5rem 1.5rem;
 }
 
-.navbar-center-btns {
-  display: flex;
-  gap: 1rem;
-}
-
 .nav-brand {
   color: whitesmoke;
   text-decoration: none;
   cursor: pointer;
   font-size: 1.5rem;
+}
+
+.navbar-center-btns {
+  display: flex;
+  gap: 1rem;
 }
 
 .nav-items {
@@ -38,6 +38,11 @@
   transition: width 0.3s ease, background-color 0.3s ease;
 }
 
+.nav-items:hover {
+  width: 6rem;
+  border-radius: 20px;
+}
+
 .nav-hide {
   display: none;
 }
@@ -47,62 +52,51 @@
   margin-left: 0.3rem;
 }
 
-@keyframes smoothHide {
-  from {
-    max-width: 0%;
-  }
-  to {
-    max-width: 100%;
-  }
-}
-
 .nav-profile {
   position: relative;
-  display: block;
-  float: right;
-  font-size: 20px;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+}
+
+.nav-profile .profile-logo {
+  color: #f1f1f1;
+  transition: color 0.2s ease-in;
+}
+
+.nav-profile:hover .profile-logo {
+  color: #333;
 }
 
 .nav-profile .dropdown {
   display: none;
   position: absolute;
   right: 0;
+  top: 100%;
   background-color: #f1f1f1;
   width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   border-radius: 15px;
-}
-
-.nav-profile .dropdown .dropdown-items {
-  color: black;
-  padding: 12px 14px;
-  text-decoration: none;
-  display: block;
-  font-size: 14px;
-  cursor: default;
+  padding: 10px 0;
 }
 
 .nav-profile:hover .dropdown {
   display: block;
 }
 
-.nav-profile .dropdown .dropdown-items span:hover {
-  font-size: 18px;
+.dropdown-items {
+  color: black;
+  padding: 12px 14px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  cursor: pointer;
+  transition: font-size 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-items:hover {
+  font-size: 16px;
   color: red;
-  transition-property: color, font-size;
-  transition: ease-in 0.3s;
 }
 
-.profile-logo{
-  color: #f1f1f1;
-  transition: 0.5s ease-in-out;
-}
-
-.profile-logo:hover{
-  color: #333;
-}

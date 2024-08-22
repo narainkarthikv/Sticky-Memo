@@ -1,15 +1,15 @@
 
-table {
+.table-container {
     width: 100%;
 }
 
-thead {
+.table-header {
     position: sticky;
     top: 0;
 }
 
 .scrollable-table {
-    height: 500px;
+    height: 450px;
     width: 90%; 
     max-width: 1000px;
     overflow-y: auto;
@@ -29,43 +29,70 @@ thead {
 }
 
 .Tables-form-container {
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
-    margin: 5px auto;
-    padding: 20px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
 }
 
 .Tables-form-group {
-    margin-right: 5px;
-    font-size: 16px;
+    margin-right: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
 }
 
 .Tables-form-control {
-    font-size: 16px;
-    color: black;
-    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 8px;
     margin-left: 5px;
     text-align: center;
-    border: 3px inset blue;
-    opacity: 80%;
+    border: 2px solid #007bff;
+    padding: 8px 12px;
+    background-color: #fff;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s, box-shadow 0.3s;
 }
 
-.Tables-submit-btn {
-    background-color: #FF6B6B;
-    border-radius: 20px;
+.Tables-form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
 
-.Tables-submit-btn:hover {
-    background-color: lightseagreen;
-    transform: scale(1.02);
-    transition: background-color, transform;
-    transition: 0.7s ease-in-out;
-}
+.CreateRow-btn {
+    position: relative;
+    top: -3px;
+    background-color: #58a6ff;
+    font-size: 1.3em;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px; 
+    height: 36px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  
+  .CreateRow-btn:hover {
+    background-color: #1a73e8;
+    transform: translateY(-2px); 
+  }
+  
+  .CreateRow-btn:active {
+    transform: translateY(1px); 
+  }
+  
 
 /* Row styles */
 .row {
     color: black;
-    background-color: lightgoldenrodyellow;
+    background-color: rgb(248, 248, 154);
     height: auto;
     width: 100%;
 }
@@ -73,113 +100,22 @@ thead {
 .row:hover {
     transform: scale(1.01);
     transition-property: border-radius, background-color, transform;
-    transition: 0.7s ease-in-out;
+    transition: 0.3s ease-in;
 }
+
+.row-check{
+  background-color: rgb(119, 237, 119);
+}
+
+.row-hold{
+    background-color: rgb(115, 191, 238);
+  }
 
 .row-data {
     color: black;
     font-size: 1em;
     font-style: italic;
 }
-
-.row-btns {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-}
-
-.row-btn {
-    height: 30px;
-    width: 30px;
-    align-items: center;
-    border-radius: 100px;
-}
-
-.row-delete {
-    color: lightcoral;
-    background-color: #eee;
-    border-radius: 20px;
-}
-
-.row-delete:hover {
-    transform: scale(1.1);
-    background-color: red;
-    transition: background-color 1s, transform 0.7s;
-}
-
-.row-check {
-    color: lightgreen;
-    background-color: #90ed90;
-}
-
-.row-check:hover {
-    transition: background-color 1s, transform 0.7s;
-}
-
-.row-hold {
-    color: lightblue;
-    background-color: #87cefa;
-}
-
-.row-hold:hover {
-    transition: background-color 1s, transform 0.7s;
-}
-
-.row-btn {
-    margin-right: 5px;
-    border-radius: 50px;
-}
-
-.row-delete-btn:hover {
-    background-color: red;
-    animation-duration: 0.5s;
-    animation-name: checkBounce;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-.row-check-btn {
-    border-radius: 50px;
-}
-
-.row-check-btn:hover {
-    animation-duration: 0.5s;
-    animation-name: checkBounce;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    background-color: lightgreen;
-}
-
-@keyframes checkBounce {
-    from {
-        transform: translateY(0px);
-    }
-
-    to {
-        transform: translateY(-3px);
-    }
-}
-
-.row-hold-btn {
-    border-radius: 50px;
-}
-
-.row-hold-btn:hover {
-    animation-duration: 0.5s;
-    animation-name: checkBounce;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    background-color: lightblue;
-}
-
-.row-checked {
-    color: green;
-}
-
-.row-held {
-    color: blue;
-}
-
 
 /* Drag and drop css */
 .row {
@@ -193,82 +129,4 @@ thead {
     transform: scale(1.01);
     transition-property: border-radius, background-color, transform;
     transition: 0.7s ease-in-out;
-}
-
-
-/*
-   Responsive styles 
-*/
-
-@media (max-width: 768px) {
-    .scrollable-table {
-        width: 100%;
-    }
-
-    .table-container {
-        width: 100%;
-    }
-
-    .Tables-form-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .Tables-form-group {
-        width: 100%;
-        margin: 5px 0;
-    }
-
-    .Tables-form-control {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .Tables-submit-btn {
-        width: 90%;
-        margin-top: 10px;
-    }
-
-    .row {
-        width: 90%;
-    }
-
-    .row-data {
-        font-size: 0.9em;
-    }
-
-    .row-btns {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .row-btn {
-        margin-right: 10px;
-    }
-
-    .row-delete-btn,
-    .row-check-btn,
-    .row-hold-btn {
-        width: 40px;
-        height: 40px;
-    }
-}
-
-@media (max-width: 480px) {
-    .Tables-form-group {
-        font-size: 14px;
-    }
-
-    .Tables-form-control {
-        font-size: 14px;
-    }
-
-    .row-data {
-        font-size: 0.8em;
-    }
-
-    .row-btn {
-        width: 35px;
-        height: 35px;
-    }
 }
