@@ -49,8 +49,8 @@ const BoardList = () => {
               all={item.all}
             />
           ))}
+          <CreateBoard onAdd={(newItem) => addItem(setItems, newItem)} />
         </div>
-        
         <div className="held-boards">
           <h4 className="BoardList-header">Held Boards</h4>
           {heldItems.map((item, index) => (
@@ -86,7 +86,6 @@ const BoardList = () => {
           ))}
         </div>
       </div>
-      <CreateBoard onAdd={(newItem) => addItem(setItems, newItem)} />
     </div>
   );
 };
