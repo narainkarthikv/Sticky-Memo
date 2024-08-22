@@ -1,54 +1,43 @@
 .BoardList {
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  margin-top: 5px;
   align-items: center;
-  box-sizing: border-box;
-  background: var(--body_bg);
 }
-
-.boards-filter {
-  width: 250px;
-  margin-top: 20px;
-  font-weight: 1.3rem;
-  font-weight: bold;
-  color: var(--board_txt);
-  border-bottom: var(--board_border) 3px solid;
-  background: var(--body_bg);
-}
-
 
 .BoardListTable {
   display: flex;
   width: 100%;
-  height: fit-content;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 5px;
-  background: var(--board_list_bg);
-  padding: 10px;
+}
+
+.boards-filter {
+  width: 500px;
+  margin-top: 20px;
 }
 
 .all-boards,
 .held-boards,
 .checked-boards {
-  background: var(--board_bg);
-  width: 29%;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 15px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  min-width: 300px;
 }
 
 .BoardList-header {
-  background-color: var(--board_head);
-  color: var(--board_head_txt);
-  width: 90%;
+  border: 1px solid #333;
+  border-radius: 50px;
   padding: 10px;
+  width: 150px;
+  background-color: #f7f7f7;
   text-align: center;
   font-weight: bold;
+  color: #333;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
@@ -56,22 +45,22 @@
 .Board {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid black; */
-  border-radius: 5px;
-  background: var(--Board_bg);
-  width: 90%;
-  padding: 5px;
-  margin: 5px;
+  width: 200px;
+  height: 500px;
+  border: 3px inset red;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  padding: 10px;
   position: relative;
   overflow: hidden; 
 }
 
 .Checked-Board {
-  background: var(--checked);
+  border-color: green;
 }
 
 .Held-Board {
-  background:var(--held);
+  border-color: blue;
 }
 
 .Board-title {
@@ -109,8 +98,6 @@
 }
 
 .board-btn {
-  border: none;
-  outline: none;
   height: 30px;
   width: 30px;
   margin-bottom: 5px; 
@@ -124,57 +111,54 @@
 }
 
 .board-delete-btn:hover {
-  background-color: var(--del_btn);
+  background-color: red;
   transform: scale(1.1); 
 }
 
 .board-check-btn:hover {
-  background-color: var(--check_btn);
+  background-color: lightgreen;
   transform: scale(1.1); 
 }
 
 .board-hold-btn:hover {
-  background-color: var(--hold_btn);
+  background-color: lightblue;
   transform: scale(1.1); 
 }
 
 .board-checked {
-  color: var(--check_board);
+  color: green;
 }
 
 .board-held {
-  color: var(--hold_board);
+  color: blue;
 }
 
 .CreateBoard{
   position: relative;
   width: 200px;
   height: 75px;
-  background:var(--board_bg);
+  background: #fff;
   padding: 10px;
   border-radius: 30px;
   box-shadow: solid 10 2px 5px #aaa; 
-  border: 3px var(--create_border) outset;
-  margin-top: 20px;
+  border: 3px lightseagreen outset;
 }
 
 .CreateBoard-title{
   display: flex;
-  border: var(--create_ttl_border);
+  border: #333;
+  font-size: 1em;
   font-family: inherit;
   outline: none;
-  background: var(--board_bg);
 }
 
 .CreateBoard-content{
   display: flex;
-  border:  var(--create_ttl_border);
+  border: #333;
   font-size: 1em;
-  width: 100%;
   font-family: inherit;
   outline: none;
   resize: none;
-  background: var(--board_bg);
 }
 
 .CreateBoard-submit-btn{
@@ -182,8 +166,8 @@
   font-size: 18px;
   right: 18px;
   bottom: -18px;
-  background: var(--submit-btn);
-  color: var(--btn_txt);
+  background: #FF6B6B;
+  color: #fff;
   border: none;
   border-radius: 50%; 
   width: 36px;
@@ -191,16 +175,15 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
-  border: 1px solid black;
 }
 
 .CreateBoard-submit-btn:hover{
-  background: var(--create_border);
+  background: lightseagreen;
   transform: scale(1.05);
   transition-property: background, transform;
   transition: 0.7s ease-in-out;
 }
 
 .CreateBoard-header{
-  background-color: var(--del_btn);
+  background-color: red;
 }

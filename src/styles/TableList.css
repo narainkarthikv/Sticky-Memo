@@ -7,13 +7,9 @@ thead {
     position: sticky;
     top: 0;
 }
-.TableList{
-    background: var(--body_bg);
-    height: 87vh;
-}
 
 .scrollable-table {
-    height: 400px;
+    height: 500px;
     width: 90%; 
     max-width: 1000px;
     overflow-y: auto;
@@ -26,53 +22,41 @@ thead {
 }
 
 .table-head {
-    background-color: var(--table_head_bg);
-    color: var(--table_head_txt);
+    background-color: black;
+    color: white;
     text-align: center;
     padding: 15px;
 }
 
 .Tables-form-container {
-    transform: translateY(283px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    background: var(--table_form_bg);
+    display: inline-flex;
+    flex-direction: row;
+    margin: 5px auto;
+    padding: 20px;
 }
 
 .Tables-form-group {
-    width: 350px;
+    margin-right: 5px;
     font-size: 16px;
-    margin: 5px;
 }
 
 .Tables-form-control {
     font-size: 16px;
-    border: none;
-    outline: none;
-    color: var(--table_form_txt);
+    color: black;
+    border-radius: 20px;
     margin-left: 5px;
-    padding: 5px;
-    width: 260px;
-
+    text-align: center;
+    border: 3px inset blue;
+    opacity: 80%;
 }
 
 .Tables-submit-btn {
-    color: var(--table_submit_txt);
-    background-color: var(--table_submit_bg);
+    background-color: #FF6B6B;
     border-radius: 20px;
-    width: 40px;
-    height: 40px;
-    border: none;
-    outline: none;
-    font-size: 1.4rem;
-    font-weight: bold;
 }
 
 .Tables-submit-btn:hover {
-    background-color: var(--table_submit_txt_hover);
+    background-color: lightseagreen;
     transform: scale(1.02);
     transition: background-color, transform;
     transition: 0.7s ease-in-out;
@@ -80,8 +64,8 @@ thead {
 
 /* Row styles */
 .row {
-    color: var(--row_txt);
-    background-color: var(--row_bg);
+    color: black;
+    background-color: lightgoldenrodyellow;
     height: auto;
     width: 100%;
 }
@@ -93,7 +77,7 @@ thead {
 }
 
 .row-data {
-    color: var(--row_data);
+    color: black;
     font-size: 1em;
     font-style: italic;
 }
@@ -105,8 +89,6 @@ thead {
 }
 
 .row-btn {
-    border: none;
-    outline: none;
     height: 30px;
     width: 30px;
     align-items: center;
@@ -127,7 +109,7 @@ thead {
 
 .row-check {
     color: lightgreen;
-    background-color: var(--note_check);
+    background-color: #90ed90;
 }
 
 .row-check:hover {
@@ -204,6 +186,7 @@ thead {
     color: black;
     height: auto;
     width: 100%;
+    cursor: move; 
 }
 
 .row:hover {
@@ -216,6 +199,61 @@ thead {
 /*
    Responsive styles 
 */
+
+@media (max-width: 768px) {
+    .scrollable-table {
+        width: 100%;
+    }
+
+    .table-container {
+        width: 100%;
+    }
+
+    .Tables-form-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Tables-form-group {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .Tables-form-control {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .Tables-submit-btn {
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    .row {
+        width: 90%;
+    }
+
+    .row-data {
+        font-size: 0.9em;
+    }
+
+    .row-btns {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .row-btn {
+        margin-right: 10px;
+    }
+
+    .row-delete-btn,
+    .row-check-btn,
+    .row-hold-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
 @media (max-width: 480px) {
     .Tables-form-group {
         font-size: 14px;
@@ -232,19 +270,5 @@ thead {
     .row-btn {
         width: 35px;
         height: 35px;
-    }
-
-    .Tables-form-container {
-        transform: translateY(220px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 5px;
-    }
-    
-    .Tables-form-control {
-        font-size: 12px;
-        width: 200px;
     }
 }
