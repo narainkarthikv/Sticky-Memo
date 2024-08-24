@@ -103,29 +103,20 @@
   width: 200px;
   height: 75px;
   background: #fff;
-  padding: 10px;
+  padding: 20px;
   border-radius: 30px;
   box-shadow: solid 10 2px 5px #aaa; 
   border: 3px lightseagreen outset;
 }
 
-.CreateBoard-title{
+.CreateBoard-title,
+.CreateBoard-content
+{
   display: flex;
-  border: #333;
-  font-size: 1em;
-  font-family: inherit;
-  outline: none;
-}
-
-.CreateBoard-content{
-  display: flex;
+  flex-direction: column;
   border: #333;
   font-size: 1em;
   font-family: inherit;
   outline: none;
   resize: none;
-}
-
-.CreateBoard-header{
-  background-color: red;
 }

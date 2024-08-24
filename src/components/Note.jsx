@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { FaCheckCircle, FaTrash, FaHandPaper, FaPlus, FaSave } from 'react-icons/fa';
+import { FaCheckCircle, FaTrash, FaHandPaper, FaPlus, FaSave, FaEllipsisV } from 'react-icons/fa';
 import '../styles/NoteList.css';
 import '../styles/Button.css';
 
@@ -8,6 +8,7 @@ const Note = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(props.title);
   const [editedContent, setEditedContent] = useState(props.content);
+  const [showButtons, setShowButtons] = useState(false);
 
   const handleDelete = () => {
     props.onDelete(props.id);
@@ -29,6 +30,10 @@ const Note = (props) => {
   const handleSave = () => {
     props.onSave(props.id, editedTitle, editedContent);
     setIsEditing(false);
+  };
+
+  const toggleButtons = () => {
+    setShowButtons((prevState) => !prevState);
   };
 
   return (
@@ -58,11 +63,14 @@ const Note = (props) => {
           <>
             <h1 className="note-title">{props.title}</h1>
             <p className="note-content">{props.content}</p>
+            <button onClick={toggleButtons} className="note-ellipse-btn">
+              <FaEllipsisV />
+            </button>
           </>
         )}
       </div>
-      {props.all && (
-        <div className="Item-btns">
+      {showButtons && (
+        <div className={`Note-btns ${showButtons ? 'show' : ''}`}>
           <button onClick={handleDelete} className="Item-btn Item-delete-btn"><FaTrash /></button>
           <button onClick={handleCheck} className="Item-btn Item-checked-btn"><FaCheckCircle /></button>
           <button onClick={handleHold} className="Item-btn Item-held-btn"><FaHandPaper /></button>
