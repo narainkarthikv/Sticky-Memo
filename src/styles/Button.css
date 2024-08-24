@@ -1,6 +1,56 @@
+.Note-btns {
+  display: none;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  position: relative;
+  top: -50%;
+  left: 20%;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background-color: #3498db;
+  padding: 1rem;
+  border-radius: 20px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.Note-btns.show {
+  display: flex;
+  opacity: 1;
+}
+
+.Row-btns {
+  position: absolute;
+  left: 35%; 
+  top: 50%;
+  transform: translateY(-50%);
+  display: none;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  background-color: #3498db;
+  padding: 1rem;
+  border-radius: 20px;
+  opacity: 0;
+  z-index: 2;
+}
+
+.Row-btns.show {
+  display: flex;
+  opacity: 1;
+}
+
+.Item-btns{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .Item-btn {
-  height: 36px;
-  width: 36px;
+  height: 2em;
+  width: 2em;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -13,23 +63,9 @@
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.Item-btn:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
 .Item-btn:hover {
-  background-color: #4CAF50;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.Item-btns {
-  display: flex;
-  flex-direction: row-reverse;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
 }
 
 .Item-delete-btn:hover {
@@ -52,37 +88,28 @@
   background-color: steelblue;
 }
 
-.Item-btn {
-  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
-}
-
-.Item-btn:active {
-  transform: scale(0.95);
-  background-color: #3e8e41;
-}
-
-.CreateItem-btn {
+.CreateNote-btn {
   position: absolute;
   right: 18px;
   bottom: -15px;
-  background-color: #58a6ff;
+  background-color: #FF6B6B;
   font-size: 1.3em;
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 48px; 
-  height: 48px; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  width: 2em; /* Increased size to match Duolingo style */
+  height: 2em; /* Increased size to match Duolingo style */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted shadow for Duolingo style */
   cursor: pointer;
   outline: none;
   transition: background-color 0.2s, transform 0.2s;
 }
 
-.CreateItem-btn:hover {
-  background-color: #1a73e8;
-  transform: translateY(-2px); 
+.CreateNote-btn:hover {
+  background-color: #fe4848;
+  transform: translateY(-2px); /* Slight lift effect */
 }
 
-.CreateItem-btn:active {
-  transform: translateY(1px); 
+.CreateNote-btn:active {
+  transform: translateY(1px); /* Slight push effect */
 }
