@@ -1,36 +1,88 @@
-import { FaCheckCircle, FaTrash, FaHandPaper } from "react-icons/fa";
-import { toast } from "react-toastify";
-import '../styles/Button.css';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import { FaCheckCircle, FaTrash, FaHandPaper, FaSave, FaEllipsisV, FaEdit } from 'react-icons/fa';
+import '../styles/BoardList.css';
 
 const Board = (props) => {
-    function handleDelete() {
-        props.onDelete(props.id);
-        toast.error('Board Deleted Successfully');
-    }
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedTitle, setEditedTitle] = useState(props.title);
+  const [editedContent, setEditedContent] = useState(props.content);
+  const [showButtons, setShowButtons] = useState(false);
 
-    function handleHold() {
-        props.onHold(props.id);
-    }
+  const handleDelete = () => {
+    props.onDelete(props.id);
+    toast.error('Board Deleted Successfully');
+  };
 
-    function handleCheck() {
-        props.onCheck(props.id);
-    }
+  const handleCheck = () => {
+    props.onCheck(props.id);
+  };
 
-    return (
-        <div className={`Board ${props.checked && "Checked-Board"} ${props.held && "Held-Board"}`} style={{height: props.expanded ? "200px" : "50px"}}>
-            <h3 className="Board-title">{props.title}</h3>
-            <div className="Board-content">
-                <p>{props.content}</p>
-                {props.all && (
-                    <div className="Board-btns">
-                        <button onClick={handleDelete} className="Item-btn Item-delete-btn"><FaTrash /></button>
-                        <button onClick={handleCheck} className="Item-btn Item-checked-btn"><FaCheckCircle /></button>
-                        <button onClick={handleHold} className="Item-btn Item-held-btn"><FaHandPaper /></button>
-                    </div>
-                )}
-            </div>
+  const handleHold = () => {
+    props.onHold(props.id);
+  };
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    props.onSave(props.id, editedTitle, editedContent);
+    setIsEditing(false);
+  };
+
+  const toggleButtons = () => {
+    setShowButtons((prevState) => !prevState);
+  };
+
+  return (
+    <div
+      className={`Board ${props.checked ? 'Checked-Board' : ''} ${props.held ? 'Held-Board' : ''}`}
+      draggable
+      onDragStart={props.onDragStart}
+      onDragOver={props.onDragOver}
+      onDrop={props.onDrop}
+    >
+      <div className="Board-header">
+        {isEditing ? (
+          <input 
+            type="text" 
+            value={editedTitle} 
+            onChange={(e) => setEditedTitle(e.target.value)} 
+            className="Board-title-input" 
+          />
+        ) : (
+          <h3 className="Board-title">{props.title}</h3>
+        )}
+        <button onClick={toggleButtons} className="Board-ellipse-btn">
+          <FaEllipsisV />
+        </button>
+      </div>
+      <div className="Board-body">
+        {isEditing ? (
+          <textarea 
+            value={editedContent} 
+            onChange={(e) => setEditedContent(e.target.value)} 
+            className="Board-content-input"
+          />
+        ) : (
+          <p className="Board-content">{props.content}</p>
+        )}
+      </div>
+      {showButtons && (
+        <div className="Board-btns">
+          <button onClick={handleDelete} className="Item-btn Item-delete-btn"><FaTrash /></button>
+          <button onClick={handleCheck} className="Item-btn Item-checked-btn"><FaCheckCircle /></button>
+          <button onClick={handleHold} className="Item-btn Item-held-btn"><FaHandPaper /></button>
+          {isEditing ? (
+            <button onClick={handleSave} className="Item-btn Item-save-btn"><FaSave /></button>
+          ) : (
+            <button onClick={handleEdit} className="Item-btn Item-edit-btn"><FaEdit /></button>
+          )}
         </div>
-    );
-}
+      )}
+    </div>
+  );
+};
 
 export default Board;

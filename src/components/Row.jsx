@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { FaCheckCircle, FaTrash, FaHandPaper, FaPlus, FaSave, FaEllipsisV } from 'react-icons/fa';
+import { FaCheckCircle, FaTrash, FaHandPaper, FaEdit, FaSave, FaEllipsisV } from 'react-icons/fa';
 import '../styles/NoteList.css';
 import '../styles/Button.css';
 
@@ -87,7 +87,7 @@ const Row = (props) => {
                 </button>
               ) : (
                 <button onClick={handleEdit} className="Item-btn Item-edit-btn">
-                  <FaPlus />
+                  <FaEdit />
                 </button>
               )}
             </div>

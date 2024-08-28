@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { FaCheckCircle, FaTrash, FaHandPaper, FaPlus, FaSave, FaEllipsisV } from 'react-icons/fa';
+import { FaCheckCircle, FaTrash, FaHandPaper, FaSave, FaEllipsisV, FaEdit } from 'react-icons/fa';
 import '../styles/NoteList.css';
 import '../styles/Button.css';
 
@@ -77,7 +77,7 @@ const Note = (props) => {
           {isEditing ? (
             <button onClick={handleSave} className="Item-btn Item-save-btn"><FaSave /></button>
           ) : (
-            <button onClick={handleEdit} className="Item-btn Item-edit-btn"><FaPlus /></button>
+            <button onClick={handleEdit} className="Item-btn Item-edit-btn"><FaEdit /></button>
           )}
         </div>
       )}
