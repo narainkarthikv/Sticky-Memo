@@ -5,6 +5,7 @@ import CreateBoard from '../components/CreateBoard';
 import Board from '../components/Board';
 import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
 import '../styles/BoardList.css';
+import '../styles/utils.css';
 
 const BoardList = () => {
   const [items, setItems] = useRecoilState(itemsState);
@@ -45,8 +46,8 @@ const BoardList = () => {
   return (
     <div className="BoardList">
         <input
-          className="filter-input boards-filter"
-          placeholder="Filter Boards..."
+          className="filter-input"
+          placeholder="Filter Boards!..."
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
         />

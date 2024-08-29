@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
   background-color: #f4f5f7;
   min-height: 100vh;
 }
@@ -10,18 +9,17 @@
 .BoardList-header {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  margin-bottom: 20px;
 }
 
 .boards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 1.1em;
 }
 
 .Board {
-  background-color: white;
+  background-color:rgb(248, 248, 154);
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   width: 300px;
@@ -44,14 +42,6 @@
   margin: 0;
   font-size: 1.2em;
   font-weight: bold;
-}
-
-.Board-title-input {
-  width: 100%;
-  padding: 5px;
-  font-size: 1.2em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
 }
 
 .Board-ellipse-btn {
@@ -88,19 +78,12 @@
   border-radius: 4px;
 }
 
-.Board-btns {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  padding-top: 10px;
-}
-
 .Checked-Board {
-  border-left: 5px solid rgb(119, 237, 119);
+  background-color: rgb(119, 237, 119);
 }
 
 .Held-Board {
-  border-left: 5px solid rgb(115, 191, 238);
+  background-color: rgb(115, 191, 238);
 }
 
 .CreateBoard{
@@ -108,7 +91,8 @@
   width: 200px;
   height: 75px;
   background: #fff;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 1.3em;
   border-radius: 30px;
   box-shadow: solid 10 2px 5px #aaa; 
   border: 3px lightseagreen outset;

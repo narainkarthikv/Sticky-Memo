@@ -5,6 +5,7 @@ import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
 import CreateRow from '../components/CreateRow';
 import Row from '../components/Row';
 import '../styles/TableList.css';
+import '../styles/utils.css';
 
 const TableList = () => {
   const [items, setItems] = useRecoilState(itemsState);
@@ -45,7 +46,7 @@ const TableList = () => {
   return (
     <div className="TableList">
       <input
-        className="filter-input boards-filter"
+        className="filter-input"
         placeholder="Filter Rows!..."
         value={filter}
         onChange={(e) => setFilter(e.target.value)}

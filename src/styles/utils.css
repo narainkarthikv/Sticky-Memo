@@ -1,0 +1,17 @@
+.filter-input {
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: inherit;
+    outline: none;
+    resize: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 3px inset blue;
+    margin: 1.3em 0.5em;
+    text-align: center;
+  }
+  
+.filter-input::placeholder {
+    text-align: center;
+}
