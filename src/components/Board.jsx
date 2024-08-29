@@ -70,7 +70,7 @@ const Board = (props) => {
         )}
       </div>
       {showButtons && (
-        <div className="Board-btns">
+        <div className={`Board-btns ${showButtons ? 'show' : ''}`}>
           <button onClick={handleDelete} className="Item-btn Item-delete-btn"><FaTrash /></button>
           <button onClick={handleCheck} className="Item-btn Item-checked-btn"><FaCheckCircle /></button>
           <button onClick={handleHold} className="Item-btn Item-held-btn"><FaHandPaper /></button>

@@ -5,6 +5,7 @@ import CreateNote from '../components/CreateNote';
 import Note from '../components/Note';
 import { addItem, deleteItem, checkItem, holdItem } from '../utils/helper';
 import '../styles/NoteList.css';
+import '../styles/utils.css';
 
 const NoteList = () => {
   const [items, setItems] = useRecoilState(itemsState);
