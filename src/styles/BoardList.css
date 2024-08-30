@@ -1,9 +1,44 @@
-.BoardList {
+/* 
+    Board List and Header:
+    - .board-list: Flexbox layout for board list with a background color.
+    - .BoardList-header: Flexbox layout for header with space between items.
+*/
+
+/* Boards Container:
+    - .boards-container: Flexbox layout with wrapping for boards, padding, and scrollable area.
+*/
+
+/* Board Styles:
+    - .Board: Base board styling with background color, border-radius, shadow, and hover effect.
+    - .Board-header: Flexbox layout for board header with space between items.
+    - .Board-title: Board title styling.
+    - .Board-ellipse-btn: Ellipse button styling for board actions.
+*/
+
+/* Board Body and Content:
+    - .Board-body: Margin styling for the board body.
+    - .Board-content: Text content inside the board.
+    - .Board-content-input: Input field styling inside the board.
+*/
+
+/* Checked and Held Boards:
+    - .Checked-Board: Styling for boards marked as checked.
+    - .Held-Board: Styling for boards marked as held.
+*/
+
+/* Create Board Form:
+    - .CreateBoard: Styling for the create board form with padding, border, and shadow.
+    - .CreateBoard-title: Title styling for the create board form.
+    - .CreateBoard-content: Content styling for the create board form.
+*/
+
+/* Board List and Header */
+
+.board-list {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f4f5f7;
-  min-height: 100vh;
 }
 
 .BoardList-header {
@@ -11,25 +46,52 @@
   justify-content: space-between;
 }
 
+/* Boards Container */
+
 .boards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  padding: 1.1em;
+  justify-content: center;
+  padding: 1em;
+  overflow-y: auto;
+  height: 300px;
 }
 
-.Board {
-  background-color:rgb(248, 248, 154);
+.boards-container::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f1f1f1; 
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  padding: 15px;
-  position: relative;
-  transition: box-shadow 0.3s ease;
+}
+
+.boards-container::-webkit-scrollbar-thumb {
+  background-color: #888; 
+  border-radius: 8px; 
+  transition: background-color 0.3s ease-in-out; 
+}
+
+.boards-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.boards-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 8px; 
+}
+
+/* Board Styles */
+
+.Board {
+  background-color: rgb(248, 248, 154);
+  border-radius: 8px;
+  width: 250px;
+  height: 100px; 
+  padding: 1.1em;
+  transition: transform 0.3s ease-in, background-color 0.3s ease-in;
+  margin: 20px 0px 0px 15px;
 }
 
 .Board:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
 }
 
 .Board-header {
@@ -60,6 +122,8 @@
   border: none;
 }
 
+/* Board Body and Content */
+
 .Board-body {
   margin-top: 10px;
 }
@@ -78,6 +142,8 @@
   border-radius: 4px;
 }
 
+/* Checked and Held Boards */
+
 .Checked-Board {
   background-color: rgb(119, 237, 119);
 }
@@ -86,21 +152,22 @@
   background-color: rgb(115, 191, 238);
 }
 
-.CreateBoard{
+/* Create Board Form */
+
+.CreateBoard {
   position: relative;
-  width: 200px;
+  width: 250px;
   height: 75px;
   background: #fff;
   margin: 0 auto;
   padding: 1.3em;
-  border-radius: 30px;
+  border-radius: 20px;
   box-shadow: solid 10 2px 5px #aaa; 
   border: 3px lightseagreen outset;
 }
 
 .CreateBoard-title,
-.CreateBoard-content
-{
+.CreateBoard-content {
   display: flex;
   flex-direction: column;
   border: #333;

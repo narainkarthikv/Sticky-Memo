@@ -44,7 +44,7 @@ const BoardList = () => {
   );
 
   return (
-    <div className="BoardList">
+    <div className="board-list">
         <input
           className="filter-input"
           placeholder="Filter Boards!..."
