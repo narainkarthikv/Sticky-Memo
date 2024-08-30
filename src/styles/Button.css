@@ -1,3 +1,4 @@
+/* Note Buttons (Hidden by Default, Show on Toggle) */
 .Note-btns {
   display: none;
   flex-direction: row-reverse;
@@ -14,11 +15,13 @@
   height: fit-content;
 }
 
+/* Show Note Buttons on Toggle */
 .Note-btns.show {
   display: flex;
   opacity: 1;
 }
 
+/* Row Buttons (Hidden by Default, Show on Toggle) */
 .Row-btns {
   position: absolute;
   left: 35%; 
@@ -35,11 +38,13 @@
   z-index: 2;
 }
 
+/* Show Row Buttons on Toggle */
 .Row-btns.show {
   display: flex;
   opacity: 1;
 }
 
+/* Board Buttons (Hidden by Default, Show on Toggle) */
 .Board-btns {
   display: none;
   flex-direction: row-reverse;
@@ -53,11 +58,13 @@
   z-index: 1;
 }
 
-.Board-btns.show{
+/* Show Board Buttons on Toggle */
+.Board-btns.show {
   display: flex;
   opacity: 1;
 }
 
+/* General Item Buttons (Style for All Item Buttons) */
 .Item-btn {
   height: 2em;
   width: 2em;
@@ -73,11 +80,13 @@
   transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover Effect for Item Buttons */
 .Item-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Specific Hover Effects for Different Item Buttons */
 .Item-delete-btn:hover {
   background-color: red;
 }
@@ -98,6 +107,7 @@
   background-color: steelblue;
 }
 
+/* Create Note Button (Floating Action Button Style) */
 .CreateNote-btn {
   position: absolute;
   right: 18px;
@@ -107,19 +117,21 @@
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 2em; /* Increased size to match Duolingo style */
-  height: 2em; /* Increased size to match Duolingo style */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted shadow for Duolingo style */
+  width: 2em; 
+  height: 2em; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
   cursor: pointer;
   outline: none;
   transition: background-color 0.2s, transform 0.2s;
 }
 
+/* Hover Effect for Create Note Button */
 .CreateNote-btn:hover {
   background-color: #fe4848;
-  transform: translateY(-2px); /* Slight lift effect */
+  transform: translateY(-2px); 
 }
 
+/* Active Effect for Create Note Button */
 .CreateNote-btn:active {
-  transform: translateY(1px); /* Slight push effect */
+  transform: translateY(1px);
 }

@@ -1,3 +1,25 @@
+/* Note List and Header:
+    - .note-list: Flexbox layout for note list with fixed position.
+    - .notes-container: Flexbox layout for notes with wrapping.
+*/
+
+/* Notes Container:
+    - .filter-notes: Styling for the filter options in the note list.
+*/
+
+/* Note Styles:
+    - .note: Base note styling with background color, border-radius, shadow, and hover effect.
+    - .note-title: Styling for note title.
+    - .note-content: Styling for note content.
+    - .note-ellipse-btn: Ellipse button styling for note actions.
+*/
+
+/* Create Area:
+    - .create-area: Styling for the create area with padding, border, and shadow.
+    - .create-area-textarea, .create-area-input: Input and textarea styling within the create area.
+*/
+
+
 /* NoteList.css */
 .note-list {
   display: flex;
@@ -24,12 +46,12 @@
   width: 250px;
   height: 175px;
   text-align: left;
+  transition: transform 0.3s ease-in, background-color 0.3s ease-in;
   margin: 20px 0px 0px 15px;
 }
 
 .note:hover {
   transform: scale(1.01);
-  transition: transform 0.3s ease-in;
 }
 
 .note-checked {
@@ -88,7 +110,7 @@
   margin: 20px;
   background: #fff;
   padding: 15px;
-  border-radius: 50px;
+  border-radius: 20px;
   box-shadow: solid 10 2px 5px #aaa;
   border: 3px lightseagreen outset;
 }
