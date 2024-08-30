@@ -44,7 +44,7 @@ const TableList = () => {
   );
 
   return (
-    <div className="TableList">
+    <div className="table-list">
       <input
         className="filter-input"
         placeholder="Filter Rows!..."
