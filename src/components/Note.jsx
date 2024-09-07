@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { FaCheckCircle, FaTrash, FaHandPaper, FaSave, FaEllipsisV, FaEdit } from 'react-icons/fa';
+import { FaCheckCircle, FaTrash, FaHandPaper, FaEdit, FaSave, FaEllipsisV } from 'react-icons/fa';
 import '../styles/NoteList.css';
 import '../styles/Button.css';
 
@@ -46,7 +46,7 @@ const Note = (props) => {
     >
       <div className="note-container">
         {isEditing ? (
-          <div>
+          <>
             <input 
               type="text" 
               value={editedTitle} 
@@ -58,26 +58,36 @@ const Note = (props) => {
               onChange={(e) => setEditedContent(e.target.value)} 
               className="note-content"
             />
-          </div>
+          </>
         ) : (
           <>
             <h1 className="note-title">{props.title}</h1>
             <p className="note-content">{props.content}</p>
-            <button onClick={toggleButtons} className="note-ellipse-btn">
-              <FaEllipsisV />
-            </button>
           </>
         )}
+        <button onClick={toggleButtons} className="note-ellipse-btn">
+          <FaEllipsisV />
+        </button>
       </div>
       {showButtons && (
         <div className={`Note-btns ${showButtons ? 'show' : ''}`}>
-          <button onClick={handleDelete} className="Item-btn Item-delete-btn"><FaTrash /></button>
-          <button onClick={handleCheck} className="Item-btn Item-checked-btn"><FaCheckCircle /></button>
-          <button onClick={handleHold} className="Item-btn Item-held-btn"><FaHandPaper /></button>
+          <button onClick={handleDelete} className="Item-btn Item-delete-btn">
+            <FaTrash />
+          </button>
+          <button onClick={handleCheck} className="Item-btn Item-checked-btn">
+            <FaCheckCircle />
+          </button>
+          <button onClick={handleHold} className="Item-btn Item-held-btn">
+            <FaHandPaper />
+          </button>
           {isEditing ? (
-            <button onClick={handleSave} className="Item-btn Item-save-btn"><FaSave /></button>
+            <button onClick={handleSave} className="Item-btn Item-save-btn">
+              <FaSave />
+            </button>
           ) : (
-            <button onClick={handleEdit} className="Item-btn Item-edit-btn"><FaEdit /></button>
+            <button onClick={handleEdit} className="Item-btn Item-edit-btn">
+              <FaEdit />
+            </button>
           )}
         </div>
       )}
