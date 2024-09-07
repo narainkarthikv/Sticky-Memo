@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
-import { FaCheckCircle, FaTrash, FaHandPaper, FaSave, FaEllipsisV, FaEdit } from 'react-icons/fa';
+import { FaCheckCircle, FaTrash, FaHandPaper, FaEdit, FaSave, FaEllipsisV } from 'react-icons/fa';
 import '../styles/BoardList.css';
 
 const Board = (props) => {
@@ -71,13 +71,23 @@ const Board = (props) => {
       </div>
       {showButtons && (
         <div className={`Board-btns ${showButtons ? 'show' : ''}`}>
-          <button onClick={handleDelete} className="Item-btn Item-delete-btn"><FaTrash /></button>
-          <button onClick={handleCheck} className="Item-btn Item-checked-btn"><FaCheckCircle /></button>
-          <button onClick={handleHold} className="Item-btn Item-held-btn"><FaHandPaper /></button>
+          <button onClick={handleDelete} className="Item-btn Item-delete-btn">
+            <FaTrash />
+          </button>
+          <button onClick={handleCheck} className="Item-btn Item-checked-btn">
+            <FaCheckCircle />
+          </button>
+          <button onClick={handleHold} className="Item-btn Item-held-btn">
+            <FaHandPaper />
+          </button>
           {isEditing ? (
-            <button onClick={handleSave} className="Item-btn Item-save-btn"><FaSave /></button>
+            <button onClick={handleSave} className="Item-btn Item-save-btn">
+              <FaSave />
+            </button>
           ) : (
-            <button onClick={handleEdit} className="Item-btn Item-edit-btn"><FaEdit /></button>
+            <button onClick={handleEdit} className="Item-btn Item-edit-btn">
+              <FaEdit />
+            </button>
           )}
         </div>
       )}

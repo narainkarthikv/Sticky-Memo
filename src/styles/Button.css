@@ -86,6 +86,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Active Effect for Item Buttons */
+.Item-btn:active {
+  transform: translateY(1px); 
+}
+
 /* Specific Hover Effects for Different Item Buttons */
 .Item-delete-btn:hover {
   background-color: red;
@@ -108,7 +113,7 @@
 }
 
 /* Create Note Button (Floating Action Button Style) */
-.CreateNote-btn {
+.CreateItem-btn {
   position: absolute;
   right: 18px;
   bottom: -15px;
@@ -122,16 +127,44 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
   cursor: pointer;
   outline: none;
-  transition: background-color 0.2s, transform 0.2s;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 /* Hover Effect for Create Note Button */
-.CreateNote-btn:hover {
+.CreateItem-btn:hover {
   background-color: #fe4848;
   transform: translateY(-2px); 
 }
 
 /* Active Effect for Create Note Button */
-.CreateNote-btn:active {
+.CreateItem-btn:active {
   transform: translateY(1px);
+}
+
+/* Create Row Button */
+.CreateRow-btn {
+  position: relative;
+  top: -3px;
+  background-color: #FF6B6B;
+  font-size: 1.3em;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px; 
+  height: 36px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Hover Effect for Create Row Button */
+.CreateRow-btn:hover {
+  background-color: #fe4848;
+  transform: translateY(-2px); 
+}
+
+/* Active Effect for Create Row Button */
+.CreateRow-btn:active {
+  transform: translateY(1px); 
 }

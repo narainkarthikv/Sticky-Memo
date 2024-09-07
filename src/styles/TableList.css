@@ -139,32 +139,6 @@
     outline: none;
 }
 
-/* Create Row Button */
-.CreateRow-btn {
-    position: relative;
-    top: -3px;
-    background-color: #FF6B6B;
-    font-size: 1.3em;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 36px; 
-    height: 36px; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.CreateRow-btn:hover {
-    background-color: #fe4848;
-    transform: translateY(-2px); 
-}
-
-.CreateRow-btn:active {
-    transform: translateY(1px); 
-}
-
 /* Row Styles */
 .row {
     color: black;

@@ -64,7 +64,7 @@ const CreateBoard = (props) => {
                 autoComplete="true"
                 className="CreateBoard-content"
             />
-            <button className="CreateNote-btn" onClick={submitBoard}>
+            <button className="CreateItem-btn" onClick={submitBoard}>
                 +
             </button>
         </div>

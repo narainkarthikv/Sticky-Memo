@@ -125,13 +125,3 @@
   outline: none;
   resize: none;
 }
-
-/* Add keyframe animation for hover effects if needed */
-@keyframes checkBounce {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-3px);
-  }
-}

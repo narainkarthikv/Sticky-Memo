@@ -69,7 +69,7 @@ function CreateNote(props) {
           autoComplete="true"
         />
 
-        <button className="CreateNote-btn" onClick={submitNote}>
+        <button className="CreateItem-btn" onClick={submitNote}>
           +
         </button>
       </form>
