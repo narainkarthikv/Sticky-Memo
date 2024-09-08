@@ -50,6 +50,10 @@ const TableList = () => {
 
   return (
     <div className="table-list">
+
+      {/* Component to add a new row to the table */}
+      <CreateRow onAdd={(newItem) => addItem(setItems, newItem)} />
+      
       {/* Input to filter rows based on title or content */}
       <input
         className="filter-input"
@@ -57,7 +61,7 @@ const TableList = () => {
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       />
-
+      
       {/* Scrollable table container */}
       <div className="scrollable-table">
         <table className="table-container">
@@ -91,8 +95,6 @@ const TableList = () => {
         </table>
       </div>
 
-      {/* Component to add a new row to the table */}
-      <CreateRow onAdd={(newItem) => addItem(setItems, newItem)} />
     </div>
   );
 };

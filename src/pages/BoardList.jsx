@@ -52,6 +52,12 @@ const BoardList = () => {
 
   return (
     <div className="board-list">
+
+      {/* Header section with a component to add a new board */}
+      <div className="BoardList-header">
+        <CreateBoard onAdd={(newItem) => addItem(setItems, newItem)} />
+      </div>
+
       {/* Input to filter boards based on title or content */}
       <input
         className="filter-input"
@@ -59,12 +65,7 @@ const BoardList = () => {
         value={filter}
         onChange={(e) => setFilter(e.target.value)}
       />
-
-      {/* Header section with a component to add a new board */}
-      <div className="BoardList-header">
-        <CreateBoard onAdd={(newItem) => addItem(setItems, newItem)} />
-      </div>
-
+      
       {/* Container to display the list of filtered boards */}
       <div className="boards-container">
         {filteredItems.map((item, index) => (
