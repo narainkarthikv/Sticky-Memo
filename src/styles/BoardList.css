@@ -64,13 +64,13 @@
 }
 
 .boards-container::-webkit-scrollbar-thumb {
-  background-color: #888; 
+  background-color: lightseagreen; 
   border-radius: 8px; 
   transition: background-color 0.3s ease-in-out; 
 }
 
 .boards-container::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
+  background-color: lightgreen;
 }
 
 .boards-container::-webkit-scrollbar-track {
@@ -132,6 +132,8 @@
   margin: 0;
   font-size: 1em;
   color: #333;
+  display: block;
+  white-space: pre-wrap;
 }
 
 .Board-content-input {
@@ -159,7 +161,7 @@
   width: 250px;
   height: 75px;
   background: #fff;
-  margin: 0 auto;
+  margin: 1em auto;
   padding: 1.3em;
   border-radius: 20px;
   box-shadow: solid 10 2px 5px #aaa; 
@@ -172,6 +174,7 @@
   flex-direction: column;
   border: #333;
   font-size: 1em;
+  font-weight: bold;
   font-family: inherit;
   outline: none;
   resize: none;

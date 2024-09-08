@@ -69,30 +69,30 @@
     height: 400px;
     width: 90%;
     overflow-y: auto;
-    margin: 0 auto; /* Central alignment with margin */
+    margin: 0 auto; 
 }
 
 /* Modernized Scrollbar Styles */
 
 .scrollable-table::-webkit-scrollbar {
     width: 8px;
-    background-color: #f1f1f1; /* Light background color for the scrollbar track */
+    background-color: #f1f1f1; 
     border-radius: 8px;
 }
 
 .scrollable-table::-webkit-scrollbar-thumb {
-    background-color: #888; /* Darker thumb color */
-    border-radius: 8px; /* Rounded corners for a modern look */
-    transition: background-color 0.3s ease-in-out; /* Smooth transition on hover */
+    background-color: lightseagreen; 
+    border-radius: 8px; 
+    transition: background-color 0.3s ease-in-out; 
 }
 
 .scrollable-table::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Darker shade on hover */
+    background-color: lightgreen; 
 }
 
 .scrollable-table::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Light background for the track */
-    border-radius: 8px; /* Matching rounded corners for the track */
+    background-color: #f1f1f1; 
+    border-radius: 8px; 
 }
 
 /* Table Header Cells */
@@ -124,18 +124,15 @@
     font-weight: bold;
     color: #333;
     border-radius: 8px;
-    margin-left: 5px;
+    margin-left: 1em;
     text-align: center;
-    border: 2px solid #007bff;
     padding: 8px 12px;
     background-color: #fff;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-    transition: border 0.3s, box-shadow 0.3s;
+    box-shadow: solid 10 2px 5px #aaa;
+    border: 3px lightseagreen outset;
 }
 
-.Tables-form-control:focus {
-    border-color: #0056b3;
-    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+.Tables-form-control:focus{
     outline: none;
 }
 
