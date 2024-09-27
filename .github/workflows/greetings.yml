@@ -1,11 +1,12 @@
 name: Greetings
 
-on: 
+on:
   pull_request_target:
     types: [closed]
 
 jobs:
   greeting:
+    if: github.event.pull_request.merged == true && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -13,5 +14,4 @@ jobs:
     - uses: actions/first-interaction@v1
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: "👋 Welcome to the Wisdom Fox community! Thank you for contributing to the sticky-memo repository. We're thrilled to have you onboard and excited to see what we can create together. If you have any questions or need help, feel free to reach out. Let's build something awesome!"
         pr-message: "🎉 Welcome to your first pull request on the sticky-memo repository! The Wisdom Fox community appreciates your contribution and can't wait to review your work. If you need any assistance or clarification, don’t hesitate to ask. Thanks for helping us improve sticky-memo!"
