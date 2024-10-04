@@ -8,18 +8,17 @@ import TableList from "./pages/TableList";
 import BoardList from "./pages/BoardList";
 
 function App() {
- 
   return (
     <Router>
-    <div className="App">
-      <Navbar />
-      <Routes>
+      <div className="App">
+        <Navbar />
+        <Routes>
           <Route exact path='/' element={<NoteList/>} />
           <Route path='/tables' element={<TableList/>} />
           <Route path='/boards' element={<BoardList/>} />
         </Routes>
         <Footer />
-    </div>
+      </div>
     </Router>
   );
 }
