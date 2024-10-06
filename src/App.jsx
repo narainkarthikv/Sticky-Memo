@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import NoteList from "./pages/NoteList";
 import TableList from "./pages/TableList";
 import BoardList from "./pages/BoardList";
@@ -17,7 +16,6 @@ function App() {
           <Route path='/tables' element={<TableList/>} />
           <Route path='/boards' element={<BoardList/>} />
         </Routes>
-        <Footer />
       </div>
     </Router>
   );

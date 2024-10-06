@@ -55,6 +55,7 @@
   padding: 1em;
   overflow-y: auto;
   height: 300px;
+  overflow-wrap:break-word ; 
 }
 
 .boards-container::-webkit-scrollbar {
