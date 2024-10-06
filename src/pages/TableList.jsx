@@ -4,6 +4,7 @@ import { itemsState } from '../utils/state';
 import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
 import CreateRow from '../components/CreateRow';
 import Row from '../components/Row';
+import Footer from "../components/Footer"
 import '../styles/TableList.css';
 import '../styles/utils.css';
 
@@ -94,7 +95,7 @@ const TableList = () => {
           </tbody>
         </table>
       </div>
-
+     <Footer />
     </div>
   );
 };
