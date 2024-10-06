@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
 import CreateNote from '../components/CreateNote';
 import Note from '../components/Note';
+import Footer from "../components/Footer"
 import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
 import '../styles/NoteList.css';
 import '../styles/utils.css';
@@ -85,6 +86,7 @@ const NoteList = () => {
           />
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };

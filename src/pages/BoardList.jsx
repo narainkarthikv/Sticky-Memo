@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
 import CreateBoard from '../components/CreateBoard';
 import Board from '../components/Board';
+import Footer from "../components/Footer"
 import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
 import '../styles/BoardList.css';
 import '../styles/utils.css';
@@ -86,6 +87,7 @@ const BoardList = () => {
           />
         ))}
       </div>
+      <Footer/>
     </div>
   );
 };
