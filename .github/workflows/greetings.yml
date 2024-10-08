@@ -1,12 +1,12 @@
 name: Greetings
 
 on:
-  pull_request_target:
-    types: [closed]
+  push:
+    branches:
+      - Develop
 
 jobs:
   greeting:
-    if: github.event.pull_request.merged == true && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
