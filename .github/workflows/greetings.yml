@@ -3,7 +3,7 @@ name: Greetings
 on:
   push:
     branches:
-      - Develop
+      - develop
 
 jobs:
   greeting:
