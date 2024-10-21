@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState } from '../utils/state';
-import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
+import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/useItemUtils';
 import CreateRow from '../components/CreateRow';
 import Row from '../components/Row';
 import Footer from "../components/Footer"

@@ -4,7 +4,7 @@ import { itemsState } from '../utils/state';
 import CreateNote from '../components/CreateNote';
 import Note from '../components/Note';
 import Footer from "../components/Footer"
-import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
+import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/useItemUtils';
 import '../styles/NoteList.css';
 import '../styles/utils.css';
 
