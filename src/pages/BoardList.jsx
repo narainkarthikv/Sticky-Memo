@@ -67,7 +67,7 @@ const BoardList = () => {
         onChange={(e) => setFilter(e.target.value)}
       />
       
-      {/* Container to display the list of filtered boards */}
+      {/* Container to display the list of filtered boards */} 
       <div className="boards-container">
         {filteredItems.map((item, index) => (
           <Board
