@@ -1,40 +1,24 @@
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
+import React from 'react';
 import { FaCheckCircle, FaTrash, FaHandPaper, FaEdit, FaSave, FaEllipsisV } from 'react-icons/fa';
+import { useItemUtils } from '../utils/useItemUtils';
 import '../styles/NoteList.css';
 import '../styles/Button.css';
 
 const Note = (props) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(props.title);
-  const [editedContent, setEditedContent] = useState(props.content);
-  const [showButtons, setShowButtons] = useState(false);
-
-  const handleDelete = () => {
-    props.onDelete(props.id);
-    toast.error('Note Deleted Successfully');
-  };
-
-  const handleCheck = () => {
-    props.onCheck(props.id);
-  };
-
-  const handleHold = () => {
-    props.onHold(props.id);
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
-  const handleSave = () => {
-    props.onSave(props.id, editedTitle, editedContent);
-    setIsEditing(false);
-  };
-
-  const toggleButtons = () => {
-    setShowButtons((prevState) => !prevState);
-  };
+  const {
+    isEditing,
+    editedTitle,
+    setEditedTitle,
+    editedContent,
+    setEditedContent,
+    showButtons,
+    handleDelete,
+    handleCheck,
+    handleHold,
+    handleEdit,
+    handleSave,
+    toggleButtons,
+  } = useItemUtils({ ...props, type: 'Note' });
 
   return (
     <div
