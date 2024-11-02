@@ -16,7 +16,7 @@ const ProfileDropdown = () => (
         
         {/* Dropdown for user actions: Edit Profile and Logout */}
         <div className="dropdown">
-            <Link to="/editUser" className="dropdown-items edit"><span>Edit Profile</span></Link>
+            <Link to="/edituser" className="dropdown-items edit"><span>Edit Profile</span></Link>
             <a href="/logout" className="dropdown-items logout"><span>Logout</span></a>
         </div>
     </div>
@@ -29,8 +29,8 @@ const Navbar = () => (
         
         {/* Center section of the navbar containing navigation items */}
         <div className="navbar-center-btns">
-            <NavItem to="/Boards" icon={<FaChalkboard />} label="Boards" />
-            <NavItem to="/Tables" icon={<FaTable />} label="Tables" />
+            <NavItem to="/boards" icon={<FaChalkboard />} label="boards" />
+            <NavItem to="/tables" icon={<FaTable />} label="tables" />
         </div>
         
         {/* Profile section with dropdown menu */}
