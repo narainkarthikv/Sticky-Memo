@@ -21,6 +21,8 @@ export const useItemUtils = (props) => {
   };
 
   const handleEdit = () => {
+    setEditedContent(null)
+    setEditedTitle(null)
     setIsEditing(true);
   };
 
