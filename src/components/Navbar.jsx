@@ -1,41 +1,128 @@
-import React from "react";
-import { Link } from 'react-router-dom';
-import { FaUserAlt, FaChalkboard, FaTable } from "react-icons/fa";
-import '../styles/Navbar.css';
+import React, { useState } from "react";
+import { AppBar, Box, Container, IconButton, Menu, MenuItem, Typography } from "@mui/material";
+import Link from '@mui/material/Link';
+import PersonIcon from '@mui/icons-material/Person';
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
+
 
 const NavItem = ({ to, icon, label }) => (
-    <Link to={to} className="nav-items">
-        {/* Icon followed by a label */}
-        {icon}<span className="nav-hide">&nbsp;{label}</span>
-    </Link>
+    <IconButton
+        sx={{
+            width: '3rem',
+            height: '3rem',
+            backgroundColor: 'white',
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'all 0.3s ease',
+            color: 'black',
+            '&:hover': {
+                width: '6rem',
+                borderRadius: '20px',
+                backgroundColor: 'white',
+            },
+        }}
+    >
+        {/* The link element is used to create styled links. */}
+        <Link
+            href={to}
+            underline="none"
+            color="inherit"
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                textDecoration: 'none',
+                color: 'inherit',
+            }}
+        >
+            <Box>{icon}</Box>
+            {/* The typography element allows to render texts */}
+            <Typography
+                variant="body2"
+                sx={{
+                    ml: 0.5,
+                    display: 'none',
+                    transition: 'display 0.3s ease',
+                    '.MuiIconButton-root:hover &': {
+                        display: 'inline',
+                    },
+                    color: 'black'
+                }}
+            >
+                {label}
+            </Typography>
+        </Link>
+    </IconButton>
 );
 
-const ProfileDropdown = () => (
-    <div className="nav-profile">
-        <FaUserAlt className="profile-logo" />
-        
-        {/* Dropdown for user actions: Edit Profile and Logout */}
-        <div className="dropdown">
-            <Link to="/edituser" className="dropdown-items edit"><span>Edit Profile</span></Link>
-            <a href="/logout" className="dropdown-items logout"><span>Logout</span></a>
-        </div>
-    </div>
-);
+const ProfileDropdown = () => {
+    const [anchorEl, setAnchorEl] = useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    return (
+        /* Dropdown for user actions: Edit Profile and Logout */
+        <Box>
+            <IconButton onClick={handleClick}>
+                <PersonIcon sx={{ color: 'white' }} />
+            </IconButton>
+
+            {/* Element from MUI to render a list of options */}
+            <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                    'aria-labelledby': 'basic-button',
+                }}
+            >
+                <MenuItem onClick={handleClose}>
+                    <Link href="/editUser" underline="none" color="black" sx={{ fontSize: '14px', '&:hover': { color: 'blue' } }}>Edit Profile</Link>
+                </MenuItem>
+                <MenuItem onClick={handleClose}>
+                    <Link href="/logout" underline="none" color="black" sx={{ fontSize: '14px', '&:hover': { color: 'red' } }}>Logout</Link>
+                </MenuItem>
+            </Menu>
+
+        </Box>
+    )
+};
 
 const Navbar = () => (
-    <nav className="navbar">
-        {/* Brand name that links to the homepage */}
-        <Link to="/" className="nav-brand">Sticky Memo</Link>
-        
-        {/* Center section of the navbar containing navigation items */}
-        <div className="navbar-center-btns">
-            <NavItem to="/boards" icon={<FaChalkboard />} label="boards" />
-            <NavItem to="/tables" icon={<FaTable />} label="tables" />
-        </div>
-        
-        {/* Profile section with dropdown menu */}
-        <ProfileDropdown />
-    </nav>
+    <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static">
+            <Container maxWidth="none" sx={{ display: 'flex', justifyContent: 'space-between', padding: ' 0.5rem 1.5rem', alignItems: 'center', margin: 0 }}>
+                {/* Brand name that links to the homepage */}
+                <Link
+                    href="/"
+                    color="whitesmoke"
+                    underline="none"
+                    sx={{
+                        fontSize: '1.5rem',
+                        '&:hover': { cursor: 'pointer' },
+                        mr: 1
+                    }} >
+                    Sticky Memo
+                </Link>
+
+                {/* Center section of the navbar containing navigation items */}
+                <Box sx={{ display: 'flex', gap: '10px' }}>
+                    <NavItem to="/Boards" icon={<DashboardOutlinedIcon />} label="Boards" />
+                    <NavItem to="/Tables" icon={<TableChartOutlinedIcon />} label="Tables" />
+                </Box>
+
+                {/* Profile section with dropdown menu */}
+                <ProfileDropdown />
+            </Container>
+        </AppBar>
+    </Box>
 );
 
 export default Navbar;
