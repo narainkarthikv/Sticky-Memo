@@ -186,7 +186,7 @@ const BoardList = (props) => {
                     onClose={handleClosePopover}
                     anchorOrigin={{
                       vertical: 'top',
-                      horizontal: 'left',
+                      horizontal: 'right',
                     }}
                   >
                     <Typography
