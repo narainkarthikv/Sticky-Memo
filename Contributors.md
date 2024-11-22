@@ -11,3 +11,4 @@
 - [Aditya Amit Kinjwadekar](https://github.com/ProgrammerAditya36) **Contributed**
 - [Vimal Vinod](https://github.com/dalekvim) **Contributed**
 - [Divyansh verma](https://github.com/Divyverma) **Contributed**
+- [Yasmin Poleto](https://github.com/ypoleto) **Contributed Major UI Revamp from Traditional CSS to MUI**
