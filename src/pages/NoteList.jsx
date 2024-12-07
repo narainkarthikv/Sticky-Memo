@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { itemsState } from '../utils/state';
+import { itemsState, snackbarState } from '../utils/state';
 import CreateNote from '../components/CreateNote';
 import Footer from "../components/Footer"
-import { Box, Card, CardContent, IconButton, Popover, TextField, Typography } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Popover, TextField, Typography, Snackbar, Alert } from '@mui/material';
 import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
 import SaveIcon from '@mui/icons-material/Save';
 import BackHandIcon from '@mui/icons-material/BackHand';
@@ -16,6 +16,9 @@ import { useItemUtils } from '../utils/useItemUtils';
 const NoteList = (props) => {
   // State to manage the list of notes using Recoil
   const [items, setItems] = useRecoilState(itemsState);
+
+  // State to manage Snackbar notifications for displaying feedback messages using Recoil
+  const [snackbar, setSnackbar] = useRecoilState(snackbarState);
 
   // State to manage the filter input value
   const [filter, setFilter] = useState('');
@@ -102,9 +105,24 @@ const NoteList = (props) => {
   return (
 
     <Box sx={{ display: 'flex' }}>
+      {/* Snackbar for feedback */}
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={3000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <Alert
+          onClose={() => setSnackbar({ ...snackbar, open: false })}
+          severity={snackbar.severity} // "success", "info", "warning", "error"
+          sx={{ width: '100%' }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
       {/* Section to add a new note and filter existing notes */}
       <Box>
-        <CreateNote onAdd={(newItem) => addItem(setItems, newItem)} />
+        <CreateNote onAdd={(newItem, setSnackbar) => addItem(setItems, newItem, setSnackbar, "Note")} />
         <TextField
           sx={{ margin: '1.3em' }}
           onChange={(e) => setFilter(e.target.value)}
@@ -218,13 +236,13 @@ const NoteList = (props) => {
                           <EditIcon fontSize="small" sx={buttonStyle} />
                         )}
                       </IconButton>
-                      <IconButton onClick={() => holdItem(setItems, editingIndex)} variant='contained'>
+                      <IconButton onClick={() => holdItem(setItems, editingIndex, setSnackbar, 'Note')} variant="contained">
                         <BackHandIcon fontSize="small" sx={buttonStyle} />
                       </IconButton>
-                      <IconButton onClick={() => checkItem(setItems, editingIndex)} variant='contained'>
+                      <IconButton onClick={() => checkItem(setItems, editingIndex, setSnackbar, 'Note')} variant="contained">
                         <CheckCircleIcon fontSize="small" sx={buttonStyle} />
                       </IconButton>
-                      <IconButton onClick={() => deleteItem(setItems, editingIndex)} variant='contained'>
+                      <IconButton onClick={() => deleteItem(setItems, editingIndex, setSnackbar, 'Note')} variant="contained">
                         <DeleteIcon fontSize="small" sx={buttonStyle} />
                       </IconButton>
                     </Typography>

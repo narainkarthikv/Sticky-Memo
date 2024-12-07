@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { itemsState } from '../utils/state';
+import { itemsState, snackbarState  } from '../utils/state';
 import CreateBoard from '../components/CreateBoard';
 import Footer from "../components/Footer";
 import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
@@ -10,11 +10,12 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import DeleteIcon from '@mui/icons-material/Delete';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import EditIcon from '@mui/icons-material/Edit';
-import { Box, Card, CardContent, IconButton, Popover, TextField, Typography } from '@mui/material';
+import { Box, Card, CardContent, IconButton, Popover, TextField, Typography, Snackbar, Alert } from '@mui/material';
 import { useItemUtils } from '../utils/useItemUtils';
 
 const BoardList = (props) => {
   const [items, setItems] = useRecoilState(itemsState); // State for boards
+  const [snackbar, setSnackbar] = useRecoilState(snackbarState);  // State to manage Snackbar notifications
   const [filter, setFilter] = useState(''); // State for filtering boards
   const [draggingIndex, setDraggingIndex] = useState(null); // State for tracking dragged board
   const [editingIndex, setEditingIndex] = useState(null); //State for tracking selected board to edit
@@ -84,6 +85,20 @@ const BoardList = (props) => {
         gap: ' 10px',
       }}
     >
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={3000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <Alert
+          onClose={() => setSnackbar({ ...snackbar, open: false })}
+          severity={snackbar.severity}
+          sx={{ width: '100%' }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
 
       <Box
         sx={{
@@ -92,7 +107,7 @@ const BoardList = (props) => {
           alignItems: 'center'
         }}
       >
-        <CreateBoard onAdd={(newItem) => addItem(setItems, newItem)} />
+        <CreateBoard onAdd={(newItem, setSnackbar) => addItem(setItems, newItem, setSnackbar, "Board")} />
       </Box>
 
       {/* Mui element for form text field */}
@@ -212,13 +227,13 @@ const BoardList = (props) => {
                           <EditIcon fontSize="small" sx={buttonStyle} />
                         )}
                       </IconButton>
-                      <IconButton onClick={() => holdItem(setItems, editingIndex)} variant='contained'>
+                      <IconButton onClick={() => holdItem(setItems, editingIndex, setSnackbar, 'Board')} variant="contained">
                         <BackHandIcon fontSize="small" sx={buttonStyle} />
                       </IconButton>
-                      <IconButton onClick={() => checkItem(setItems, editingIndex)} variant='contained'>
+                      <IconButton onClick={() => checkItem(setItems, editingIndex, setSnackbar, 'Board')} variant="contained">
                         <CheckCircleIcon fontSize="small" sx={buttonStyle} />
                       </IconButton>
-                      <IconButton onClick={() => deleteItem(setItems, editingIndex)} variant='contained'>
+                      <IconButton onClick={() => deleteItem(setItems, editingIndex, setSnackbar, 'Board')} variant="contained">
                         <DeleteIcon fontSize="small" sx={buttonStyle} />
                       </IconButton>
                     </Typography>
