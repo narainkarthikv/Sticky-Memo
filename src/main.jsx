@@ -4,10 +4,15 @@ import { RecoilRoot } from 'recoil';
 import App from "./App";
 import './main.css';
 
+import { Suspense } from 'react'
+import LoadingSpinner from './components/Loading';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RecoilRoot>
-      <App />
+      <Suspense fallback={<LoadingSpinner />}>
+        <App />
+      </Suspense>
     </RecoilRoot>
   </React.StrictMode>
 );
