@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Box, IconButton, TextField, Snackbar, Alert } from "@mui/material";
+import { Box, IconButton, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
+import { useRecoilState } from "recoil";
+import { snackbarState } from "../utils/state";
 
 function CreateRow(props) {
   const [row, setRow] = useState({
@@ -8,53 +10,27 @@ function CreateRow(props) {
     content: "",
   });
 
-  const [isValid, setIsValid] = useState(false);
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: "",
-    severity: "success", // Can be "success", "warning", "error", or "info"
-  });
-
-  function validateForm() {
-    setIsValid(row.title.trim() !== "" && row.content.trim() !== "");
-  }
+  const [snackbar, setSnackbar] = useRecoilState(snackbarState); // Use global snackbarState
 
   function submitRow(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    if (!isValid) {
-      setSnackbar({
-        open: true,
-        message: "Don't Waste Rows :)",
-        severity: "warning",
+    event.preventDefault();
+  
+    // Call addItem and check if it was successful
+    const success = props.onAdd(row, setSnackbar, "Row");
+    if (success) {
+      setRow({
+        title: "",
+        content: "",
       });
-      return;
     }
-
-    props.onAdd(row);
-    setRow({
-      title: "",
-      content: "",
-    });
-    setIsValid(false);
-    setSnackbar({
-      open: true,
-      message: "Row Added Successfully",
-      severity: "success",
-    });
   }
-
+  
   function handleChange(event) {
     const { name, value } = event.target;
     setRow((prevRow) => ({
       ...prevRow,
       [name]: value,
     }));
-    validateForm(); // Validate on every change
-  }
-
-  function handleSnackbarClose() {
-    setSnackbar({ ...snackbar, open: false });
   }
 
   return (
@@ -76,7 +52,6 @@ function CreateRow(props) {
         name="title"
         value={row.title}
         placeholder="Title"
-        onBlur={validateForm}
         onChange={handleChange}
         autoComplete="true"
         fullWidth
@@ -95,7 +70,6 @@ function CreateRow(props) {
         name="content"
         value={row.content}
         placeholder="Type your Content !..."
-        onBlur={validateForm}
         onChange={handleChange}
         autoComplete="true"
         multiline
@@ -141,22 +115,6 @@ function CreateRow(props) {
       >
         <AddIcon />
       </IconButton>
-
-      {/* Snackbar for feedback */}
-      <Snackbar
-        open={snackbar.open}
-        autoHideDuration={3000}
-        onClose={handleSnackbarClose}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      >
-        <Alert
-          onClose={handleSnackbarClose}
-          severity={snackbar.severity}
-          sx={{ width: "100%" }}
-        >
-          {snackbar.message}
-        </Alert>
-      </Snackbar>
     </Box>
   );
 }

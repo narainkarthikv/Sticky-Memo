@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { itemsState } from '../utils/state';
+import { itemsState, snackbarState } from '../utils/state';
 import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
 import CreateRow from '../components/CreateRow';
 import Footer from "../components/Footer"
-import { Box, IconButton, Popover, Table, TableBody, TableCell, TableHead, TableRow, TextField, Typography } from '@mui/material';
+import { Box, IconButton, Popover, Table, TableBody, TableCell, TableHead, TableRow, TextField, Typography, Snackbar, Alert } from '@mui/material';
 import SaveIcon from '@mui/icons-material/Save';
 import BackHandIcon from '@mui/icons-material/BackHand';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -16,6 +16,9 @@ import { useItemUtils } from '../utils/useItemUtils';
 const TableList = (props) => {
   // State to manage the list of table rows using Recoil
   const [items, setItems] = useRecoilState(itemsState);
+
+  // State to manage Snackbar notifications for displaying feedback messages using Recoil
+  const [snackbar, setSnackbar] = useRecoilState(snackbarState);
 
   // State to manage the filter input value
   const [filter, setFilter] = useState('');
@@ -105,9 +108,23 @@ const TableList = (props) => {
         boxSizing: 'border-box',
       }}
     >
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={3000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <Alert
+          onClose={() => setSnackbar({ ...snackbar, open: false })}
+          severity={snackbar.severity}
+          sx={{ width: '100%' }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
 
       {/* Component to add a new row to the table */}
-      <CreateRow onAdd={(newItem) => addItem(setItems, newItem)} />
+      <CreateRow onAdd={(newItem, setSnackbar) => addItem(setItems, newItem, setSnackbar, "Row")} />
 
       {/* Input to filter rows based on title or content */}
       <TextField
@@ -250,13 +267,13 @@ const TableList = (props) => {
                             <EditIcon fontSize="small" sx={buttonStyle} />
                           )}
                         </IconButton>
-                        <IconButton onClick={() => holdItem(setItems, editingIndex)} variant='contained'>
+                        <IconButton onClick={() => holdItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
                           <BackHandIcon fontSize="small" sx={buttonStyle} />
                         </IconButton>
-                        <IconButton onClick={() => checkItem(setItems, editingIndex)} variant='contained'>
+                        <IconButton onClick={() => checkItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
                           <CheckCircleIcon fontSize="small" sx={buttonStyle} />
                         </IconButton>
-                        <IconButton onClick={() => deleteItem(setItems, editingIndex)} variant='contained'>
+                        <IconButton onClick={() => deleteItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
                           <DeleteIcon fontSize="small" sx={buttonStyle} />
                         </IconButton>
                       </Typography>

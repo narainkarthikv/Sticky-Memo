@@ -1,47 +1,29 @@
 import { useState } from 'react';
-import { Box, IconButton, TextField, Snackbar, Alert } from '@mui/material';
+import { Box, IconButton, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import { useRecoilState } from 'recoil';
+import { snackbarState } from '../utils/state';
 
 const CreateBoard = (props) => {
-    const [isValid, setIsValid] = useState(false);
     const [board, setBoard] = useState({
         title: "",
         content: ""
     });
-    const [snackbar, setSnackbar] = useState({
-        open: false,
-        message: "",
-        severity: "success", // success, warning, error, info
-    });
-
-    function validateForm() {
-        setIsValid(board.title.trim() !== "" && board.content.trim() !== "");
-    }
+    const [snackbar, setSnackbar] = useRecoilState(snackbarState); // Use global snackbarState
 
     function submitBoard(event) {
         event.preventDefault();
-
-        if (!isValid) {
-            setSnackbar({
-                open: true,
-                message: "Don't Waste Boards :)",
-                severity: "warning",
-            });
-            return;
-        }
-
-        props.onAdd(board);
-        setBoard({
+      
+        // Call addItem and check if it was successful
+        const success = props.onAdd(board, setSnackbar, "Board");
+        if (success) {
+          setBoard({
             title: "",
-            content: ""
-        });
-        setIsValid(false);
-        setSnackbar({
-            open: true,
-            message: "Board Added Successfully",
-            severity: "success",
-        });
-    }
+            content: "",
+          });
+        }
+      }
+      
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -49,10 +31,6 @@ const CreateBoard = (props) => {
             ...prevBoard,
             [name]: value
         }));
-    }
-
-    function handleSnackbarClose() {
-        setSnackbar({ ...snackbar, open: false });
     }
 
     return (
@@ -74,7 +52,6 @@ const CreateBoard = (props) => {
                 name="title"
                 value={board.title}
                 placeholder="Title"
-                onBlur={validateForm}
                 onChange={handleChange}
                 autoComplete="true"
                 fullWidth
@@ -86,7 +63,6 @@ const CreateBoard = (props) => {
                 name="content"
                 value={board.content}
                 placeholder="Type your Content !..."
-                onBlur={validateForm}
                 onChange={handleChange}
                 autoComplete="true"
                 multiline
@@ -119,17 +95,6 @@ const CreateBoard = (props) => {
             >
                 <AddIcon />
             </IconButton>
-
-            <Snackbar
-                open={snackbar.open}
-                autoHideDuration={3000}
-                onClose={handleSnackbarClose}
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            >
-                <Alert onClose={handleSnackbarClose} severity={snackbar.severity} sx={{ width: '100%' }}>
-                    {snackbar.message}
-                </Alert>
-            </Snackbar>
         </Box>
     );
 };
