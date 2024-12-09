@@ -27,7 +27,7 @@ export const useItemUtils = (props) => {
 
   const handleDelete = () => {
     props.onDelete(props.id);
-    showNotification(`${props.type} Deleted Successfully`, "error");
+    showNotification(`${props.type} Deleted`, "error");
   };
 
   const handleCheck = () => {
@@ -37,7 +37,7 @@ export const useItemUtils = (props) => {
 
   const handleHold = () => {
     props.onHold(props.id);
-    showNotification(`${props.type} Held Successfully`, "info");
+    showNotification(`${props.type} Held`, "info");
   };
 
   const handleEdit = () => {

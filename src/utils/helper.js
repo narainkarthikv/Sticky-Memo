@@ -26,7 +26,7 @@ export const addItem = (setItems, newItem, setSnackbar, context) => {
   setTimeout(() => {
     setSnackbar({
       open: true,
-      message: `${context} "${newItem.title}" added successfully!`,
+      message: `${context} "${newItem.title}" added!`,
       severity: "success",
     });
   }, 300);
@@ -45,8 +45,8 @@ export const deleteItem = (setItems, id, setSnackbar, context) => {
   setTimeout(() => {
     setSnackbar({
       open: true,
-      message: `${context} deleted successfully!`,
-      severity: "info",
+      message: `${context} deleted`,
+      severity: "error",
     });
   }, 300); // Allow the old Snackbar to fully unmount
 };
@@ -64,7 +64,7 @@ export const checkItem = (setItems, id, setSnackbar, context) => {
   setTimeout(() => {
     setSnackbar({
       open: true,
-      message: `${context} checked successfully!`,
+      message: `${context} checked!`,
       severity: "success",
     });
   }, 300); // Allow the old Snackbar to fully unmount
@@ -83,7 +83,7 @@ export const holdItem = (setItems, id, setSnackbar, context) => {
   setTimeout(() => {
     setSnackbar({
       open: true,
-      message: `${context} held successfully!`,
+      message: `${context} held!`,
       severity: "warning",
     });
   }, 300); // Allow the old Snackbar to fully unmount
