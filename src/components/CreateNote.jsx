@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import { Box, IconButton, TextField, Snackbar, Alert } from "@mui/material";
+import { Box, IconButton, TextField } from "@mui/material";
+import { useRecoilState } from "recoil";
+import { snackbarState } from "../utils/state";
 
 function CreateNote(props) {
   const [note, setNote] = useState({
@@ -8,40 +10,19 @@ function CreateNote(props) {
     content: "",
   });
 
-  const [isValid, setIsValid] = useState(false);
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: "",
-    severity: "success", // Can be "success", "warning", "error", or "info"
-  });
-
-  function validateForm() {
-    setIsValid(note.title.trim() !== "" && note.content.trim() !== "");
-  }
+  const [snackbar, setSnackbar] = useRecoilState(snackbarState); // Use global snackbarState
 
   function submitNote(event) {
     event.preventDefault();
-
-    if (!isValid) {
-      setSnackbar({
-        open: true,
-        message: "Don't Waste Notes :)",
-        severity: "warning",
+  
+    // Call addItem and check if it was successful
+    const success = props.onAdd(note, setSnackbar, "Note");
+    if (success) {
+      setNote({
+        title: "",
+        content: "",
       });
-      return;
     }
-
-    props.onAdd(note);
-    setNote({
-      title: "",
-      content: "",
-    });
-    setIsValid(false);
-    setSnackbar({
-      open: true,
-      message: "Note added successfully!",
-      severity: "success",
-    });
   }
 
   function handleChange(event) {
@@ -50,10 +31,6 @@ function CreateNote(props) {
       ...prevNote,
       [name]: value,
     }));
-  }
-
-  function handleSnackbarClose() {
-    setSnackbar({ ...snackbar, open: false });
   }
 
   return (
@@ -75,7 +52,6 @@ function CreateNote(props) {
         name="title"
         value={note.title}
         placeholder="Title"
-        onBlur={validateForm}
         onChange={handleChange}
         autoComplete="true"
         fullWidth
@@ -94,7 +70,6 @@ function CreateNote(props) {
         name="content"
         value={note.content}
         placeholder="Type your Content !..."
-        onBlur={validateForm}
         onChange={handleChange}
         autoComplete="true"
         multiline
@@ -138,22 +113,6 @@ function CreateNote(props) {
       >
         <AddIcon />
       </IconButton>
-
-      {/* Snackbar for feedback */}
-      <Snackbar
-        open={snackbar.open}
-        autoHideDuration={3000}
-        onClose={handleSnackbarClose}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      >
-        <Alert
-          onClose={handleSnackbarClose}
-          severity={snackbar.severity}
-          sx={{ width: "100%" }}
-        >
-          {snackbar.message}
-        </Alert>
-      </Snackbar>
     </Box>
   );
 }
