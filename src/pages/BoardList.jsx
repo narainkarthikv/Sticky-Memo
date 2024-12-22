@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import { itemsState, snackbarState  } from '../utils/state';
+import { itemsState, snackbarState } from '../utils/state';
 import CreateBoard from '../components/CreateBoard';
 import Footer from "../components/Footer";
 import { addItem, deleteItem, checkItem, holdItem, filterItems } from '../utils/helper';
@@ -15,55 +15,48 @@ import { useItemUtils } from '../utils/useItemUtils';
 
 const BoardList = (props) => {
   const [items, setItems] = useRecoilState(itemsState); // State for boards
-  const [snackbar, setSnackbar] = useRecoilState(snackbarState);  // State to manage Snackbar notifications
+  const [snackbar, setSnackbar] = useRecoilState(snackbarState); // State for snackbar notifications
   const [filter, setFilter] = useState(''); // State for filtering boards
-  const [draggingIndex, setDraggingIndex] = useState(null); // State for tracking dragged board
-  const [editingIndex, setEditingIndex] = useState(null); //State for tracking selected board to edit
-  const [anchorEl, setAnchorEl] = useState(null); //State for popover anchor
+  const [draggingIndex, setDraggingIndex] = useState(null); // State for tracking dragged item
+  const [draggedColumn, setDraggedColumn] = useState(''); // State to track the column of the dragged item
+  const [editingIndex, setEditingIndex] = useState(null); // State for tracking selected board to edit
+  const [anchorEl, setAnchorEl] = useState(null); // State for popover anchor
+  const [popoverIndex, setPopoverIndex] = useState(null); // State to track the index of the item being edited
 
-  //Button style pattern
-  const buttonStyle = {
-    color: 'white',
-    borderRadius: '100%',
-    backgroundColor: '#f66b6b',
-    padding: '3px',
-  }
-
-  const handleDragStart = (index) => {
+  const handleDragStart = (index, column) => {
     setDraggingIndex(index);
+    setDraggedColumn(column);
   };
 
-  const handleDrop = (index, event) => {
+  const handleDrop = (targetColumn, event) => {
     event.preventDefault();
-    if (draggingIndex !== null && draggingIndex !== index) {
+    if (draggingIndex !== null && draggedColumn !== targetColumn) {
       const updatedItems = [...items];
-      const [draggedItem] = updatedItems.splice(draggingIndex, 1);
-      updatedItems.splice(index, 0, draggedItem);
+      const draggedItem = updatedItems[draggingIndex];
+      updatedItems.splice(draggingIndex, 1);
+
+      // Update item based on the target column
+      if (targetColumn === 'todo') {
+        draggedItem.checked = false;
+        draggedItem.held = false;
+      } else if (targetColumn === 'held') {
+        draggedItem.held = true;
+        draggedItem.checked = false;
+      } else if (targetColumn === 'checked') {
+        draggedItem.checked = true;
+        draggedItem.held = false;
+      }
+
+      updatedItems.push(draggedItem);
       setItems(updatedItems);
     }
     setDraggingIndex(null);
   };
 
-  const handleSave = (item, id, newTitle, newContent) => {
-    setIsEditing(false);
-
-    const updatedItems = items.map((item, index) =>
-      index === id ? { ...item, title: newTitle || item.title, content: newContent || item.content } : item
-    );
-    setItems(updatedItems);
-  };
-
-  const handleClickPopover = (event, index) => {
-    setEditingIndex(index);
-    setAnchorEl(event.currentTarget);
-  }
-  const handleClosePopover = () => {
-    setAnchorEl(null);
-  }
-
   const filteredItems = filterItems(items, filter);
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const todoItems = filteredItems.filter(item => !item.checked && !item.held);
+  const heldItems = filteredItems.filter(item => item.held);
+  const checkedItems = filteredItems.filter(item => item.checked);
 
   const {
     isEditing,
@@ -75,192 +68,278 @@ const BoardList = (props) => {
     handleEdit,
   } = useItemUtils({ ...props, type: 'Row' });
 
+  const handleClickPopover = (event, index) => {
+    setPopoverIndex(index);
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClosePopover = () => {
+    setAnchorEl(null);
+    setPopoverIndex(null);
+  };
+
+  const buttonStyle = {
+    color: 'white',
+    borderRadius: '100%',
+    backgroundColor: '#f66b6b',
+    padding: '3px',
+  };
+
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        backgroundColor: '#f4f5f7',
-        gap: ' 10px',
-      }}
-    >
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#f4f5f7', gap: '10px' }}>
       <Snackbar
         open={snackbar.open}
         autoHideDuration={3000}
         onClose={() => setSnackbar({ ...snackbar, open: false })}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Alert
-          onClose={() => setSnackbar({ ...snackbar, open: false })}
-          severity={snackbar.severity}
-          sx={{ width: '100%' }}
-        >
+        <Alert onClose={() => setSnackbar({ ...snackbar, open: false })} severity={snackbar.severity} sx={{ width: '100%' }}>
           {snackbar.message}
         </Alert>
       </Snackbar>
 
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}
-      >
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <CreateBoard onAdd={(newItem, setSnackbar) => addItem(setItems, newItem, setSnackbar, "Board")} />
       </Box>
 
       {/* Mui element for form text field */}
-      <TextField
-        onChange={(e) => setFilter(e.target.value)}
-        value={filter}
-        placeholder="Filter Boards!..."
-        variant='standard'
-      ></TextField>
+      <TextField onChange={(e) => setFilter(e.target.value)} value={filter} placeholder="Filter Boards!" variant="standard" />
 
-      <Box sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        padding: '1em',
-        overflowY: 'auto',
-        height: '300px',
-        wordWrap: 'break-word',
-        '&::-webkit-scrollbar': {
-          width: '8px',
-          backgroundColor: '#f1f1f1',
-          borderRadius: '8px',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          backgroundColor: 'lightseagreen',
-          borderRadius: '8px',
-          transition: 'background-color 0.3s ease-in-out',
-        },
-        '&::-webkit-scrollbar-thumb:hover': {
-          backgroundColor: 'lightgreen',
-        },
-        '&::-webkit-scrollbar-track': {
-          backgroundColor: '#f1f1f1',
-          borderRadius: '8px',
-        }
-      }}>
-        {filteredItems.map((item, index) => (
-          // Structure to show block grouped content 
-          <Card
-            variant="outlined"
-            draggable
-            onDragStart={() => handleDragStart(index)}
-            onDrop={(e) => handleDrop(index, e)}
-            onDragOver={(e) => e.preventDefault()}
-            sx={{
-              backgroundColor: 'rgb(248, 248, 154)',
-              borderRadius: '8px',
-              width: '250px',
-              height: '100px',
-              padding: '1.1em',
-              transition: 'transform 0.3s ease-in, background-color 0.3s ease-in',
-              margin: '20px 0px 0px 15px',
-              '&:hover': {
-                transform: 'scale(1.01)',
-              },
-              ...(item.checked && {
-                backgroundColor: 'rgb(119, 237, 119)',
-              }),
-              ...(item.held && {
-                backgroundColor: 'rgb(115, 191, 238)',
-              }),
-            }}
-          >
-
-            <CardContent sx={{ padding: 0 }}>
-              <Typography
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
-                }}
-              >
-                <>
-                  {isEditing && editingIndex === index ? (
-                    <TextField size='small' onChange={(e) => setEditedTitle(e.target.value)} defaultValue={item.title} ></TextField>
-                  ) :
-                    (
-                      <span style={{ fontWeight: 'bolder' }}>{item.title}</span>
-                    )
-                  }
-                </>
-                <>
-                  <IconButton aria-describedby={id} variant="contained" onClick={(e) => handleClickPopover(e, index)}>
-                    <MoreVertIcon sx={buttonStyle} fontSize="small" />
-                  </IconButton>
-                  {/* Popover to show buttons */}
-                  <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClosePopover}
-                    anchorOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        backgroundColor: '#3498db',
-                        padding: '0.5',
-                        alignSelf: 'end'
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '1em' }}>
+        {/* To-Do Column */}
+        <Box
+          sx={{
+            flex: 1,
+            margin: '10px',
+            backgroundColor: '#e0e0e0',
+            borderRadius: '8px',
+            padding: '10px',
+          }}
+          onDrop={(e) => handleDrop('todo', e)}
+          onDragOver={(e) => e.preventDefault()}
+        >
+          <Typography variant="h6">To-Do</Typography>
+          {todoItems.map((item, index) => (
+            <Card
+              key={index}
+              variant="outlined"
+              draggable
+              onDragStart={() => handleDragStart(index, 'todo')}
+              sx={{
+                backgroundColor: 'rgb(248, 248, 154)',
+                borderRadius: '8px',
+                marginBottom: '10px',
+              }}
+            >
+              <CardContent>
+                <Typography>{item.title}</Typography>
+                <Typography>{item.content}</Typography>
+                <IconButton
+                  aria-describedby="simple-popover"
+                  variant="contained"
+                  onClick={(e) => handleClickPopover(e, index)}
+                >
+                  <MoreVertIcon sx={buttonStyle} fontSize="small" />
+                </IconButton>
+                <Popover
+                  id="simple-popover"
+                  open={anchorEl && popoverIndex === index}
+                  anchorEl={anchorEl}
+                  onClose={handleClosePopover}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                >
+                  <Box sx={{ padding: '8px', backgroundColor: '#3498db', borderRadius: '5px' }}>
+                    <IconButton
+                      onClick={() => {
+                        if (isEditing) {
+                          handleSave(item, popoverIndex, editedTitle, editedContent);
+                        } else {
+                          handleEdit();
+                        }
                       }}
                     >
-                      <IconButton
-                        onClick={() => {
-                          if (isEditing) {
-                            handleSave(item, editingIndex, editedTitle, editedContent);
-                          } else {
-                            handleEdit();
-                          }
-                        }}
-                        variant='contained'
-                      >
-                        {isEditing ? (
-                          <SaveIcon fontSize="small" sx={buttonStyle} />
-                        ) : (
-                          <EditIcon fontSize="small" sx={buttonStyle} />
-                        )}
-                      </IconButton>
-                      <IconButton onClick={() => holdItem(setItems, editingIndex, setSnackbar, 'Board')} variant="contained">
-                        <BackHandIcon fontSize="small" sx={buttonStyle} />
-                      </IconButton>
-                      <IconButton onClick={() => checkItem(setItems, editingIndex, setSnackbar, 'Board')} variant="contained">
-                        <CheckCircleIcon fontSize="small" sx={buttonStyle} />
-                      </IconButton>
-                      <IconButton onClick={() => deleteItem(setItems, editingIndex, setSnackbar, 'Board')} variant="contained">
-                        <DeleteIcon fontSize="small" sx={buttonStyle} />
-                      </IconButton>
-                    </Typography>
-                  </Popover>
-                </>
-              </Typography>
-              <Typography>
-                {isEditing && editingIndex === index ? (
-                  <TextField
-                    size='small'
-                    sx={{ width: '100%' }}
-                    onChange={(e) => setEditedContent(e.target.value)}
-                    defaultValue={item.content}
-                  ></TextField>
-                ) :
-                  (
-                    <span>{item.content}</span>
-                  )
-                }
-              </Typography>
-            </CardContent>
-          </Card>
-        ))}
+                      {isEditing ? (
+                        <SaveIcon fontSize="small" sx={buttonStyle} />
+                      ) : (
+                        <EditIcon fontSize="small" sx={buttonStyle} />
+                      )}
+                    </IconButton>
+                    <IconButton onClick={() => holdItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <BackHandIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                    <IconButton onClick={() => checkItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <CheckCircleIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                    <IconButton onClick={() => deleteItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <DeleteIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                  </Box>
+                </Popover>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
+
+        {/* Held Column */}
+        <Box
+          sx={{
+            flex: 1,
+            margin: '10px',
+            backgroundColor: '#d0e4f7',
+            borderRadius: '8px',
+            padding: '10px',
+          }}
+          onDrop={(e) => handleDrop('held', e)}
+          onDragOver={(e) => e.preventDefault()}
+        >
+          <Typography variant="h6">Held</Typography>
+          {heldItems.map((item, index) => (
+            <Card
+              key={index}
+              variant="outlined"
+              draggable
+              onDragStart={() => handleDragStart(index, 'held')}
+              sx={{
+                backgroundColor: 'rgb(115, 191, 238)',
+                borderRadius: '8px',
+                marginBottom: '10px',
+              }}
+            >
+              <CardContent>
+                <Typography>{item.title}</Typography>
+                <Typography>{item.content}</Typography>
+                <IconButton
+                  aria-describedby="simple-popover"
+                  variant="contained"
+                  onClick={(e) => handleClickPopover(e, index)}
+                >
+                  <MoreVertIcon sx={buttonStyle} fontSize="small" />
+                </IconButton>
+                <Popover
+                  id="simple-popover"
+                  open={anchorEl && popoverIndex === index}
+                  anchorEl={anchorEl}
+                  onClose={handleClosePopover}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                >
+                  <Box sx={{ padding: '8px', backgroundColor: '#3498db', borderRadius: '5px' }}>
+                    <IconButton
+                      onClick={() => {
+                        if (isEditing) {
+                          handleSave(item, popoverIndex, editedTitle, editedContent);
+                        } else {
+                          handleEdit();
+                        }
+                      }}
+                    >
+                      {isEditing ? (
+                        <SaveIcon fontSize="small" sx={buttonStyle} />
+                      ) : (
+                        <EditIcon fontSize="small" sx={buttonStyle} />
+                      )}
+                    </IconButton>
+                    <IconButton onClick={() => holdItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <BackHandIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                    <IconButton onClick={() => checkItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <CheckCircleIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                    <IconButton onClick={() => deleteItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <DeleteIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                  </Box>
+                </Popover>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
+
+        {/* Checked Column */}
+        <Box
+          sx={{
+            flex: 1,
+            margin: '10px',
+            backgroundColor: '#b2f2b2',
+            borderRadius: '8px',
+            padding: '10px',
+          }}
+          onDrop={(e) => handleDrop('checked', e)}
+          onDragOver={(e) => e.preventDefault()}
+        >
+          <Typography variant="h6">Checked</Typography>
+          {checkedItems.map((item, index) => (
+            <Card
+              key={index}
+              variant="outlined"
+              draggable
+              onDragStart={() => handleDragStart(index, 'checked')}
+              sx={{
+                backgroundColor: 'rgb(119, 237, 119)',
+                borderRadius: '8px',
+                marginBottom: '10px',
+              }}
+            >
+              <CardContent>
+                <Typography>{item.title}</Typography>
+                <Typography>{item.content}</Typography>
+                <IconButton
+                  aria-describedby="simple-popover"
+                  variant="contained"
+                  onClick={(e) => handleClickPopover(e, index)}
+                >
+                  <MoreVertIcon sx={buttonStyle} fontSize="small" />
+                </IconButton>
+                <Popover
+                  id="simple-popover"
+                  open={anchorEl && popoverIndex === index}
+                  anchorEl={anchorEl}
+                  onClose={handleClosePopover}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                >
+                  <Box sx={{ padding: '8px', backgroundColor: '#3498db', borderRadius: '5px' }}>
+                    <IconButton
+                      onClick={() => {
+                        if (isEditing) {
+                          handleSave(item, popoverIndex, editedTitle, editedContent);
+                        } else {
+                          handleEdit();
+                        }
+                      }}
+                    >
+                      {isEditing ? (
+                        <SaveIcon fontSize="small" sx={buttonStyle} />
+                      ) : (
+                        <EditIcon fontSize="small" sx={buttonStyle} />
+                      )}
+                    </IconButton>
+                    <IconButton onClick={() => holdItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <BackHandIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                    <IconButton onClick={() => checkItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <CheckCircleIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                    <IconButton onClick={() => deleteItem(setItems, popoverIndex, setSnackbar, 'Board')} variant="contained">
+                      <DeleteIcon fontSize="small" sx={buttonStyle} />
+                    </IconButton>
+                  </Box>
+                </Popover>
+              </CardContent>
+            </Card>
+          ))}
+        </Box>
       </Box>
 
       <Footer />
-    </Box >
+    </Box>
   );
 };
 

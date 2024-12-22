@@ -1,20 +1,19 @@
 import React from 'react';
 import { Box, Link, Typography } from '@mui/material';
+import theme from '../theme';
 
 const Footer = () => {
   return (
     <Box
       component="footer"
+      backgroundColor={theme.palette.primary.main}
       sx={{
         width: '100%',
         textAlign: 'center',
         padding: '20px',
-        backgroundColor: 'lightseagreen',
-        color: '#FFFFFF',
         position: 'fixed',
         bottom: 0,
         left: 0,
-        boxShadow: '0 -2px 5px rgba(0, 0, 0, 0.1)',
         fontSize: '0.9em',
       }}
     >
