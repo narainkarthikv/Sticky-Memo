@@ -1,6 +1,6 @@
 # Sticky-Memo
 
-Sticky-Memo is a sticky notes application built using React.js and Vite. This documentation will guide you through the process of contributing to this project.
+Sticky-Memo is a sticky notes application built using React.js + Vite along with MUI. This documentation will guide you through the process of contributing to this project.
 
 ## Table of Contents
 - [Installation](#installation)
@@ -62,22 +62,23 @@ If you prefer using Docker:
 
 ## Project Structure
 
-### Project
-
 The `frontend` directory contains the React application.
 
-- `public`: Contains the public assets of the application.
-- `src`: Contains the source code of the application. 
-  - `components`: Reusable UI components.
-    - `list of components`: List of all components
-  - `pages`: pages
-    - `list of pages`: List of all pages 
-  - `styles`: Styling
-    - `list of styles`: List of all stylesheets
-  - `utils`
-    - `list of utils`: List of all utilities    
-- `App.jsx`: The main component that sets up routes.
-- `main.jsx`: The entry point of the React application.
+```
+frontend/
+├── public/                 # Public assets
+├── src/                    # Source code
+│   ├── assets/             # Static assets
+│   ├── components/         # Reusable UI components
+│   ├── pages/              # Application pages
+│   ├── styles/             # Styling files
+│   ├── utils/              # Utility functions
+│   ├── App.jsx             # Main component that sets up routes
+│   └── main.jsx            # Entry point of the React application
+├── index.html              # HTML template
+├── package.json            # Project metadata and dependencies
+└── vite.config.js          # Vite configuration
+```
 
 ## Contributing
 

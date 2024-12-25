@@ -4,20 +4,20 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#20B2AA',
-      light: '#5ed9cf',
-      dark: '#178882',
+      light: '#a0f0e6',
+      dark: '#4bb3a6',
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#FF6F61',
-      light: '#FF998D',
-      dark: '#C14F46',
+      main: '#FF998D',
+      light: '#FFB3A6',
+      dark: '#FF7A6E',
       contrastText: '#ffffff',
     },
     accent: {
-      main: '#FFD700',
-      light: '#FFED80',
-      dark: '#C5A600',
+      main: '#FFED80',
+      light: '#FFF4B3',
+      dark: '#FFD700',
       contrastText: '#212121',
     },
     background: {
@@ -31,7 +31,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Outfit, Roboto, Arial, sans-serif',
+    fontFamily: 'Outfit ',
     h1: {
       fontSize: '2.5rem',
       fontWeight: 500,

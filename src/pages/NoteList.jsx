@@ -1,14 +1,15 @@
 import React, { useState, useTransition } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState, snackbarState } from '../utils/state';
-import CreateNote from '../components/CreateNote';
-import Footer from "../components/Footer";
-import NoteCard from '../components/NoteCard';
-import CommonFilter from '../components/CommonFilter';
-import CommonSnackbar from '../components/CommonSnackbar';
+import CreateNote from '../components/Note/CreateNote';
+import Footer from "../components/common/Footer";
+import NoteCard from '../components/Note/NoteCard';
+import CommonFilter from '../components/common/CommonFilter';
+import CommonSnackbar from '../components/common/CommonSnackbar';
 import { Box } from '@mui/material';
 import { addItem, filterItems } from '../utils/helper';
 import { useItemUtils } from '../utils/useItemUtils';
+import { noteListStyles, scrollBoxStyles } from '../styles/noteListStyles';
 
 const NoteList = (props) => {
   const [items, setItems] = useRecoilState(itemsState);
@@ -64,24 +65,7 @@ const NoteList = (props) => {
         <CreateNote onAdd={(newItem) => addItem(setItems, newItem, setSnackbar, "Note")} />
         <CommonFilter filter={filter} setFilter={setFilter} />
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'flex-start',
-          alignItems: 'flex-start',
-          overflowY: 'auto',
-          height: '500px',
-          width: '80%',
-          margin: '0 auto',
-          padding: '0.5em',
-          '&::-webkit-scrollbar': { width: '8px', backgroundColor: '#f1f1f1', borderRadius: '8px' },
-          '&::-webkit-scrollbar-thumb': { backgroundColor: 'lightseagreen', borderRadius: '8px', transition: 'background-color 0.3s ease-in-out' },
-          '&::-webkit-scrollbar-thumb:hover': { backgroundColor: 'lightgreen' },
-          '&::-webkit-scrollbar-track': { backgroundColor: '#f1f1f1', borderRadius: '8px' },
-        }}
-      >
+      <Box sx={scrollBoxStyles}>
         {filteredItems.map((item, index) => (
           <NoteCard
             key={index}

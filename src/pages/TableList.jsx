@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useTransition } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState, snackbarState } from '../utils/state';
-import CreateRow from '../components/CreateRow';
-import Footer from "../components/Footer";
-import TableCard from '../components/TableCard';
-import CommonFilter from '../components/CommonFilter';
-import CommonSnackbar from '../components/CommonSnackbar';
+import CreateRow from '../components/Table/CreateRow';
+import Footer from "../components/common/Footer";
+import TableCard from '../components/Table/TableCard';
+import CommonFilter from '../components/common/CommonFilter';
+import CommonSnackbar from '../components/common/CommonSnackbar';
 import { Box, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { addItem, filterItems } from '../utils/helper';
 import { useItemUtils } from '../utils/useItemUtils';
+import { tableListStyles, tableStyles, tableHeadStyles, tableCellStyles, boxStyles, scrollBoxStyles } from '../styles/tableListStyles';
 
 const TableList = (props) => {
   const [items, setItems] = useRecoilState(itemsState);
@@ -17,6 +18,7 @@ const TableList = (props) => {
   const [draggingIndex, setDraggingIndex] = useState(null);
   const [editingIndex, setEditingIndex] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [isPending, startTransition] = useTransition();
 
   const {
     isEditing,
@@ -36,7 +38,7 @@ const TableList = (props) => {
       const updatedItems = [...items];
       const [draggedItem] = updatedItems.splice(draggingIndex, 1);
       updatedItems.splice(index, 0, draggedItem);
-      setItems(updatedItems);
+      startTransition(() => setItems(updatedItems));
     }
     setDraggingIndex(null);
   };
@@ -46,7 +48,7 @@ const TableList = (props) => {
     const updatedItems = items.map((item, index) =>
       index === id ? { ...item, title: newTitle || item.title, content: newContent || item.content } : item
     );
-    setItems(updatedItems);
+    startTransition(() => setItems(updatedItems));
   };
 
   const filteredItems = filterItems(items, filter);
@@ -57,35 +59,18 @@ const TableList = (props) => {
   const handleClosePopover = () => setAnchorEl(null);
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#f4f5f7', gap: '10px' }}>
+    <Box sx={boxStyles}>
       <CommonSnackbar snackbar={snackbar} setSnackbar={setSnackbar} />
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <Box sx={tableListStyles}>
         <CreateRow onAdd={(newItem) => addItem(setItems, newItem, setSnackbar, "Row")} />
       </Box>
       <CommonFilter filter={filter} setFilter={setFilter} />
-      <Box
-        sx={{
-          height: '400px',
-          width: '90%',
-          overflowY: 'auto',
-          margin: '0 auto',
-          '&::-webkit-scrollbar': { width: '8px', backgroundColor: '#f1f1f1', borderRadius: '8px' },
-          '&::-webkit-scrollbar-thumb': { backgroundColor: 'lightseagreen', borderRadius: '8px', transition: 'background-color 0.3s ease-in-out' },
-          '&::-webkit-scrollbar-thumb:hover': { backgroundColor: 'lightgreen' },
-          '&::-webkit-scrollbar-track': { backgroundColor: '#f1f1f1', borderRadius: '8px' },
-        }}
-      >
-        <Table
-          sx={{
-            width: '90%',
-            display: 'table',
-            margin: 'auto'
-          }}
-        >
-          <TableHead sx={{ backgroundColor: 'black' }}>
+      <Box sx={scrollBoxStyles}>
+        <Table sx={tableStyles}>
+          <TableHead sx={tableHeadStyles}>
             <TableRow>
-              <TableCell align='center' sx={{ fontWeight: 'bold !important', color: 'white !important', backgroundColor: 'black' }}>Title</TableCell>
-              <TableCell align='center' sx={{ fontWeight: 'bold !important', color: 'white !important', backgroundColor: 'black' }}>Content</TableCell>
+              <TableCell align='center' sx={tableCellStyles}>Title</TableCell>
+              <TableCell align='center' sx={tableCellStyles}>Content</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

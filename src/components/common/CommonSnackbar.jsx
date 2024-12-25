@@ -11,7 +11,7 @@ const CommonSnackbar = ({ snackbar, setSnackbar }) => {
       open={snackbar.open}
       autoHideDuration={6000}
       onClose={handleClose}
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
     >
       <Alert onClose={handleClose} severity={snackbar.severity} sx={{ width: '100%' }}>
         {snackbar.message}
