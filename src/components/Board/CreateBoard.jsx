@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Box, IconButton, TextField } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import { useRecoilState } from 'recoil';
-import { snackbarState } from '../utils/state';
+import { snackbarState } from '../../utils/state';
+import { boxStyles, iconButtonStyles } from './styles';
 
 const CreateBoard = (props) => {
     const [board, setBoard] = useState({
@@ -34,18 +35,7 @@ const CreateBoard = (props) => {
     }
 
     return (
-        <Box
-            sx={{
-                width: '250px',
-                height: '120px',
-                backgroundColor: 'white',
-                padding: '1.3em',
-                margin: '1.3em',
-                borderRadius: '20px',
-                border: '3px lightseagreen outset',
-                boxShadow: 'solid 10 2px 5px #aaa;',
-            }}
-        >
+        <Box sx={boxStyles}>
             <TextField
                 size="small"
                 id="title"
@@ -73,25 +63,7 @@ const CreateBoard = (props) => {
             <IconButton
                 size="small"
                 onClick={submitBoard}
-                sx={{
-                    right: '-85px',
-                    bottom: '5px',
-                    backgroundColor: '#FF6B6B',
-                    fontSize: '1.3em',
-                    color: '#fff',
-                    border: 'none',
-                    borderRadius: '50%',
-                    width: '2em',
-                    height: '2em',
-                    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-                    cursor: 'pointer',
-                    outline: 'none',
-                    transition: 'background-color 0.2s ease, transform 0.2s ease',
-                    '&:hover': {
-                        backgroundColor: '#FF4B4B',
-                        transform: 'scale(1.1)',
-                    },
-                }}
+                sx={iconButtonStyles}
             >
                 <AddIcon />
             </IconButton>

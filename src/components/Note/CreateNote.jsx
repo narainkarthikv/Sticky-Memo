@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import { Box, IconButton, TextField } from "@mui/material";
 import { useRecoilState } from "recoil";
-import { snackbarState } from "../utils/state";
+import { snackbarState } from "../../utils/state";
+import { boxStyles, iconButtonStyles, textFieldStyles } from './styles';
 
 function CreateNote(props) {
   const [note, setNote] = useState({
@@ -34,18 +35,7 @@ function CreateNote(props) {
   }
 
   return (
-    <Box
-      sx={{
-        width: "250px",
-        height: "120px",
-        backgroundColor: "white",
-        padding: "1.3em",
-        margin: "1.3em",
-        borderRadius: "20px",
-        border: "3px lightseagreen outset",
-        boxShadow: "solid 10 2px 5px #aaa;",
-      }}
-    >
+    <Box sx={boxStyles}>
       <TextField
         size="small"
         id="title"
@@ -56,13 +46,7 @@ function CreateNote(props) {
         autoComplete="true"
         fullWidth
         variant="standard"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          fontSize: "1em",
-          fontWeight: "bold",
-          fontFamily: "inherit",
-        }}
+        sx={textFieldStyles}
       />
       <TextField
         size="small"
@@ -76,40 +60,13 @@ function CreateNote(props) {
         rows={4}
         fullWidth
         variant="standard"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          fontSize: "1em",
-          fontWeight: "bold",
-          fontFamily: "inherit",
-        }}
+        sx={textFieldStyles}
       />
       <IconButton
         size="small"
         color="primary"
         onClick={submitNote}
-        sx={{
-          right: "-70px",
-          bottom: "10px",
-          backgroundColor: "#FF6B6B",
-          fontSize: "1.3em",
-          color: "#fff",
-          border: "none",
-          borderRadius: "50%",
-          width: "2em",
-          height: "2em",
-          boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-          cursor: "pointer",
-          outline: "none",
-          transition: "background-color 0.2s ease, transform 0.2s ease",
-          "&:hover": {
-            backgroundColor: "#fe4848",
-            transform: "translateY(-2px)",
-          },
-          "&:active": {
-            transform: "translateY(1px)",
-          },
-        }}
+        sx={iconButtonStyles}
       >
         <AddIcon />
       </IconButton>

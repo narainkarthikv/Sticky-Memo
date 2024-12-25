@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Box, IconButton, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useRecoilState } from "recoil";
-import { snackbarState } from "../utils/state";
+import { snackbarState } from "../../utils/state";
+import { createRowBoxStyles, textFieldStyles, iconButtonStyles } from "./styles"; // Import specific styles
 
 function CreateRow(props) {
   const [row, setRow] = useState({
@@ -34,18 +35,7 @@ function CreateRow(props) {
   }
 
   return (
-    <Box
-      sx={{
-        width: "250px",
-        height: "120px",
-        backgroundColor: "white",
-        padding: "1.3em",
-        margin: "1.3em",
-        borderRadius: "20px",
-        border: "3px lightseagreen outset",
-        boxShadow: "solid 10 2px 5px #aaa;",
-      }}
-    >
+    <Box sx={createRowBoxStyles}>
       <TextField
         size="small"
         id="title"
@@ -56,13 +46,7 @@ function CreateRow(props) {
         autoComplete="true"
         fullWidth
         variant="standard"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          fontSize: "1em",
-          fontWeight: "bold",
-          fontFamily: "inherit",
-        }}
+        sx={textFieldStyles}
       />
       <TextField
         size="small"
@@ -76,13 +60,7 @@ function CreateRow(props) {
         rows={4}
         fullWidth
         variant="standard"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          fontSize: "1em",
-          fontWeight: "bold",
-          fontFamily: "inherit",
-        }}
+        sx={textFieldStyles}
       />
       <IconButton
         variant="contained"
@@ -90,28 +68,7 @@ function CreateRow(props) {
         type="submit"
         onClick={submitRow}
         size="small"
-        sx={{
-          right: "-70px",
-          bottom: "5px",
-          backgroundColor: "#FF6B6B",
-          fontSize: "1.3em",
-          color: "#fff",
-          border: "none",
-          borderRadius: "50%",
-          width: "2em",
-          height: "2em",
-          boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-          cursor: "pointer",
-          outline: "none",
-          transition: "background-color 0.2s ease, transform 0.2s ease",
-          "&:hover": {
-            backgroundColor: "#fe4848",
-            transform: "translateY(-2px)",
-          },
-          "&:active": {
-            transform: "translateY(1px)",
-          },
-        }}
+        sx={iconButtonStyles}
       >
         <AddIcon />
       </IconButton>

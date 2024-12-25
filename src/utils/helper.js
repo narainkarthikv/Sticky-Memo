@@ -1,3 +1,11 @@
+/**
+ * Adds a new item to the list.
+ * @param {Function} setItems - Function to update the items state.
+ * @param {Object} newItem - The new item to be added.
+ * @param {Function} setSnackbar - Function to update the snackbar state.
+ * @param {string} context - Context of the item (e.g., "Note").
+ * @returns {boolean} - Returns true if the item was added successfully, false otherwise.
+ */
 export const addItem = (setItems, newItem, setSnackbar, context) => {
   if (!newItem.title.trim() || !newItem.content.trim()) {
     // Close the current Snackbar, then show the warning
@@ -26,7 +34,7 @@ export const addItem = (setItems, newItem, setSnackbar, context) => {
   setTimeout(() => {
     setSnackbar({
       open: true,
-      message: `${context} "${newItem.title}" added!`,
+      message: `${context} added!`,
       severity: "success",
     });
   }, 300);
@@ -35,7 +43,13 @@ export const addItem = (setItems, newItem, setSnackbar, context) => {
   return true;
 };
 
-
+/**
+ * Deletes an item from the list.
+ * @param {Function} setItems - Function to update the items state.
+ * @param {number} id - The index of the item to be deleted.
+ * @param {Function} setSnackbar - Function to update the snackbar state.
+ * @param {string} context - Context of the item (e.g., "Note").
+ */
 export const deleteItem = (setItems, id, setSnackbar, context) => {
   setItems((prevItems) => prevItems.filter((_, index) => index !== id));
 
@@ -51,6 +65,13 @@ export const deleteItem = (setItems, id, setSnackbar, context) => {
   }, 300); // Allow the old Snackbar to fully unmount
 };
 
+/**
+ * Toggles the checked state of an item.
+ * @param {Function} setItems - Function to update the items state.
+ * @param {number} id - The index of the item to be checked.
+ * @param {Function} setSnackbar - Function to update the snackbar state.
+ * @param {string} context - Context of the item (e.g., "Note").
+ */
 export const checkItem = (setItems, id, setSnackbar, context) => {
   setItems((prevItems) =>
     prevItems.map((item, index) =>
@@ -70,6 +91,13 @@ export const checkItem = (setItems, id, setSnackbar, context) => {
   }, 300); // Allow the old Snackbar to fully unmount
 };
 
+/**
+ * Toggles the held state of an item.
+ * @param {Function} setItems - Function to update the items state.
+ * @param {number} id - The index of the item to be held.
+ * @param {Function} setSnackbar - Function to update the snackbar state.
+ * @param {string} context - Context of the item (e.g., "Note").
+ */
 export const holdItem = (setItems, id, setSnackbar, context) => {
   setItems((prevItems) =>
     prevItems.map((item, index) =>
@@ -84,11 +112,17 @@ export const holdItem = (setItems, id, setSnackbar, context) => {
     setSnackbar({
       open: true,
       message: `${context} held!`,
-      severity: "warning",
+      severity: "info",
     });
   }, 300); // Allow the old Snackbar to fully unmount
 };
 
+/**
+ * Filters items based on a search query.
+ * @param {Array} items - The list of items to be filtered.
+ * @param {string} filter - The search query.
+ * @returns {Array} - The filtered list of items.
+ */
 export const filterItems = (items, filter) => {
   return items.filter(
     (item) =>
