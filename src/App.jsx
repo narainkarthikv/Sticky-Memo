@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
 import NoteList from "./pages/NoteList";
 import TableList from "./pages/TableList";
 import BoardList from "./pages/BoardList";
@@ -18,6 +19,7 @@ function App() {
           <Route path='/boards' element={<BoardList />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        <Footer />
       </Box>
     </Router>
   );

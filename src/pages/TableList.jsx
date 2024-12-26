@@ -2,7 +2,6 @@ import React, { useState, useTransition } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState, snackbarState } from '../utils/state';
 import CreateRow from '../components/Table/CreateRow';
-import Footer from "../components/common/Footer";
 import TableCard from '../components/Table/TableCard';
 import CommonFilter from '../components/common/CommonFilter';
 import CommonSnackbar from '../components/common/CommonSnackbar';
@@ -101,7 +100,6 @@ const TableList = (props) => {
           </TableBody>
         </Table>
       </Box>
-      <Footer />
     </Box>
   );
 };

@@ -2,7 +2,6 @@ import React, { useState, useTransition } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState, snackbarState } from '../utils/state';
 import CreateNote from '../components/Note/CreateNote';
-import Footer from "../components/common/Footer";
 import NoteCard from '../components/Note/NoteCard';
 import CommonFilter from '../components/common/CommonFilter';
 import CommonSnackbar from '../components/common/CommonSnackbar';
@@ -91,7 +90,6 @@ const NoteList = (props) => {
           />
         ))}
       </Box>
-      <Footer />
     </Box>
   );
 };
