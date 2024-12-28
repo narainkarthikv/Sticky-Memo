@@ -10,6 +10,7 @@ export const footerStyles = {
     left: 0,
     fontSize: '0.9em',
     backgroundColor: theme.palette.primary.main,
+    zIndex: 1,
   },
   inlineText: {
     display: 'inline',

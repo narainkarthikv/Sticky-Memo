@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, Box, Container, IconButton, Typography } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
@@ -7,16 +7,26 @@ import StickyNote2Icon from "@mui/icons-material/StickyNote2";
 import { navbarStyles } from './styles';
 
 // NavItem component
-const NavItem = ({ to, icon, label }) => (
-  <IconButton sx={navbarStyles.iconButton} component={RouterLink} to={to}>
-    <Box sx={navbarStyles.link}>
-      {icon}
-      <Typography variant="body2" sx={navbarStyles.label}>
-        {label}
-      </Typography>
-    </Box>
-  </IconButton>
-);
+const NavItem = ({ to, icon, label }) => {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <IconButton
+      sx={navbarStyles.iconButton}
+      component={RouterLink}
+      to={to}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Box sx={navbarStyles.link}>
+        {icon}
+        <Typography variant="body2" sx={{ ...navbarStyles.label, display: hovered ? 'inline' : 'none' }}>
+          {label}
+        </Typography>
+      </Box>
+    </IconButton>
+  );
+};
 
 // Navbar component
 const Navbar = () => (

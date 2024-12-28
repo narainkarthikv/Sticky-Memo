@@ -52,51 +52,55 @@ const TableCard = ({
       </TableCell>
       <TableCell align='center'>
         <Box sx={boxStyles}>
-          <Box sx={contentBoxStyles}>
-            {isEditing && editingIndex === index ? (
-              <TextField onChange={(e) => setEditedContent(e.target.value)} defaultValue={item.content} fullWidth multiline rows={4} />
-            ) : (
-              <span>{item.content}</span>
-            )}
-          </Box>
-          <IconButton aria-describedby={id} variant="contained" onClick={(e) => handleClickPopover(e, index)}>
-            <MoreVertIcon sx={buttonStyle} fontSize="small" />
-          </IconButton>
-          <Popover
-            id={id}
-            open={open}
-            anchorEl={anchorEl}
-            onClose={handleClosePopover}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-          >
-            <Typography sx={popoverTypographyStyles}>
-              <IconButton
-                onClick={() => {
-                  if (isEditing) {
-                    handleSave(item, editingIndex, editedTitle, editedContent);
-                  } else {
-                    handleEdit();
-                  }
-                }}
-                variant='contained'
+          <Box sx={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Box sx={{ flex: { xs: '1 1 50%', sm: '1 1 66%' } }}>
+              {isEditing && editingIndex === index ? (
+                <TextField onChange={(e) => setEditedContent(e.target.value)} defaultValue={item.content} fullWidth multiline rows={4} />
+              ) : (
+                <span>{item.content}</span>
+              )}
+            </Box>
+            <Box sx={{ flex: { xs: '1 1 50%', sm: '1 1 33%' }, display: 'flex', justifyContent: 'flex-end' }}>
+              <IconButton aria-describedby={id} variant="contained" onClick={(e) => handleClickPopover(e, index)}>
+                <MoreVertIcon sx={buttonStyle} fontSize="small" />
+              </IconButton>
+              <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClosePopover}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
               >
-                {isEditing ? (
-                  <SaveIcon fontSize="small" sx={buttonStyle} />
-                ) : (
-                  <EditIcon fontSize="small" sx={buttonStyle} />
-                )}
-              </IconButton>
-              <IconButton onClick={() => holdItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
-                <BackHandIcon fontSize="small" sx={buttonStyle} />
-              </IconButton>
-              <IconButton onClick={() => checkItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
-                <CheckCircleIcon fontSize="small" sx={buttonStyle} />
-              </IconButton>
-              <IconButton onClick={() => deleteItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
-                <DeleteIcon fontSize="small" sx={buttonStyle} />
-              </IconButton>
-            </Typography>
-          </Popover>
+                <Typography sx={popoverTypographyStyles}>
+                  <IconButton
+                    onClick={() => {
+                      if (isEditing) {
+                        handleSave(item, editingIndex, editedTitle, editedContent);
+                      } else {
+                        handleEdit();
+                      }
+                    }}
+                    variant='contained'
+                  >
+                    {isEditing ? (
+                      <SaveIcon fontSize="small" sx={buttonStyle} />
+                    ) : (
+                      <EditIcon fontSize="small" sx={buttonStyle} />
+                    )}
+                  </IconButton>
+                  <IconButton onClick={() => holdItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
+                    <BackHandIcon fontSize="small" sx={buttonStyle} />
+                  </IconButton>
+                  <IconButton onClick={() => checkItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
+                    <CheckCircleIcon fontSize="small" sx={buttonStyle} />
+                  </IconButton>
+                  <IconButton onClick={() => deleteItem(setItems, editingIndex, setSnackbar, 'Row')} variant="contained">
+                    <DeleteIcon fontSize="small" sx={buttonStyle} />
+                  </IconButton>
+                </Typography>
+              </Popover>
+            </Box>
+          </Box>
         </Box>
       </TableCell>
     </TableRow>

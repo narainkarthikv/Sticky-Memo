@@ -2,7 +2,6 @@ import React, { useState, useTransition } from 'react';
 import { useRecoilState } from 'recoil';
 import { itemsState, snackbarState } from '../utils/state';
 import CreateBoard from '../components/Board/CreateBoard';
-import Footer from "../components/common/Footer";
 import BoardCard from '../components/Board/BoardCard';
 import CommonFilter from '../components/common/CommonFilter';
 import CommonSnackbar from '../components/common/CommonSnackbar';
@@ -91,7 +90,6 @@ const BoardList = (props) => {
           />
         ))}
       </Box>
-      <Footer />
     </Box>
   );
 };
