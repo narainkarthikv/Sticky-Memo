@@ -1,17 +1,20 @@
 name: Greetings
 
 on:
-  push:
+  pull_request:
     branches:
       - develop
+  pull_request_target:
+    types: [closed]
 
 jobs:
   greeting:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        pr-message: "🎉 Welcome to your first pull request on the sticky-memo repository! The Wisdom Fox community appreciates your contribution and can't wait to review your work. If you need any assistance or clarification, don’t hesitate to ask. Thanks for helping us improve sticky-memo!"
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-message: "🎉 Welcome to your first pull request on the sticky-memo repository! The Wisdom Fox community appreciates your contribution and can't wait to review your work. If you need any assistance or clarification, don’t hesitate to ask. Thanks for helping us improve sticky-memo!"
